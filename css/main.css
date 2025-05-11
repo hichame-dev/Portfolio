@@ -1,0 +1,250 @@
+@charset "UTF-8";
+/* Reset CSS moderne inspiré d’Eric Meyer + améliorations */
+/* Box-sizing universel */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Margin & padding reset */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+li,
+figure,
+pre,
+fieldset,
+legend,
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+/* Base HTML */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+/* Body reset */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+/* Listes sans puces */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Liens neutres */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Médias responsives */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Boutons sans style */
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* Inputs propres */
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/* Safari mobile fix (zoom) */
+input[type=text],
+input[type=email],
+input[type=password] {
+  font-size: 1.6rem;
+}
+
+/* Tables clean */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Accessibilité */
+[hidden] {
+  display: none !important;
+}
+
+/* === themes.scss === */
+/* 🌑 Thème sombre (futuriste, bleu néon, techno) */
+:root {
+  --bg-color: #090a0a;
+  --text-color: #eeeeee;
+  --accent-color: #00f0ff;
+  --surface-color: #1a1a1a;
+  --header-bg: #0c0c0c;
+  --footer-bg: #0c0c0c;
+  --btn-bg: var(--accent-color);
+  --btn-text: var(--bg-color);
+  --text-color-nav: #ffffff;
+  --nav-hover-bg: rgba(0, 240, 255, 0.05);
+  --intro-bg-top: #0b0b0b;
+  --intro-bg-bottom: #141414;
+  --h2-color: #eeeeee;
+  --about-bg: #090a0a;
+  --projects-bg: #020101;
+  --contact-bg: #0b0b0b;
+}
+
+/* ☀️ Thème clair (minimaliste, blanc/gris, sans bleu) */
+[data-theme=light] {
+  --bg-color: #fdfcf9;
+  /* blanc cassé */
+  --text-color: #1a1a1a;
+  /* noir doux */
+  --accent-color: #3b3b3b;
+  /* gris profond au lieu du bleu */
+  --surface-color: #eae6da;
+  /* beige très clair */
+  --header-bg: #ffffff;
+  --footer-bg: #f0f0f0;
+  --btn-bg: #3b3b3b;
+  --btn-text: #ffffff;
+  --text-color-nav: #1a1a1a;
+  --nav-hover-bg: rgba(0, 0, 0, 0.04);
+  --intro-bg-top: #f8f8f8;
+  --intro-bg-bottom: #ececec;
+  --h2-color: #101010;
+  --about-bg: #f7f7f7;
+  --projects-bg: #f4f4f4;
+  --contact-bg: #ffffff;
+}
+
+/* ==========================
+🌍 GLOBAL STYLES
+========================== */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================
+🎨 TITRES
+========================== */
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ==========================
+🔗 LIENS
+========================== */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  filter: brightness(1.2);
+  text-shadow: 0 0 6px var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+/* ==========================
+🧱 SECTIONS
+========================== */
+section {
+  padding: 5rem 2rem;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  scroll-margin-top: 8rem;
+}
+
+section + section {
+  margin-top: -1px;
+}
+
+/* ==========================
+🖼 MÉDIAS
+========================== */
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* ==========================
+🌟 FADE-IN LOADER
+========================== */
+.main-fade {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 1.4s ease-in-out, transform 1.4s ease-in-out;
+}
+
+.main-fade.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================
+♿ ACCESSIBILITÉ / OVERRIDES
+========================== */
+body.no-x-hidden {
+  overflow-x: visible !important;
+}/*# sourceMappingURL=main.css.map */

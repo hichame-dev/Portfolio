@@ -1,0 +1,57 @@
+/* === themes.scss === */
+
+/* 🌑 Thème sombre (futuriste, bleu néon, techno) */
+:root {
+    --bg-color: #090a0a;
+    --text-color: #eeeeee;
+    --accent-color: #00f0ff;
+
+    --surface-color: #1a1a1a;
+
+    --header-bg: #0c0c0c;
+    --footer-bg: #0c0c0c;
+
+    --btn-bg: var(--accent-color);
+    --btn-text: var(--bg-color);
+
+    --text-color-nav: #ffffff;
+    --nav-hover-bg: rgba(0, 240, 255, 0.05);
+
+    --intro-bg-top: #0b0b0b;
+    --intro-bg-bottom: #141414;
+
+    --h2-color: #eeeeee;
+    --about-bg: #090a0a;
+    --projects-bg: #020101;
+    --contact-bg: #0b0b0b;
+}
+
+/* ☀️ Thème clair (minimaliste, blanc/gris, sans bleu) */
+[data-theme="light"] {
+    --bg-color: #fdfcf9;
+    /* blanc cassé */
+    --text-color: #1a1a1a;
+    /* noir doux */
+    --accent-color: #3b3b3b;
+    /* gris profond au lieu du bleu */
+
+    --surface-color: #eae6da;
+    /* beige très clair */
+
+    --header-bg: #ffffff;
+    --footer-bg: #f0f0f0;
+
+    --btn-bg: #3b3b3b;
+    --btn-text: #ffffff;
+
+    --text-color-nav: #1a1a1a;
+    --nav-hover-bg: rgba(0, 0, 0, 0.04);
+
+    --intro-bg-top: #f8f8f8;
+    --intro-bg-bottom: #ececec;
+
+    --h2-color: #101010;
+    --about-bg: #f7f7f7;
+    --projects-bg: #f4f4f4;
+    --contact-bg: #ffffff;
+}
