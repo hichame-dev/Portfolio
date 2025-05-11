@@ -102,3 +102,16 @@ img {
 body.no-x-hidden {
     overflow-x: visible !important;
 }
+
+.app-wrapper {
+    width: 100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}

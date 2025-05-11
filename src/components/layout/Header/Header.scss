@@ -1,0 +1,160 @@
+// 📌 Variables spécifiques locales (si pas déjà dans variables.scss)
+@use "../../../styles/variables" as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $header-gradient;
+    background-size: 600% 600%;
+    animation: headerPulse 12s ease-in-out infinite;
+    box-shadow: $header-shadow;
+    -webkit-backdrop-filter: $header-blur;
+    backdrop-filter: $header-blur;
+    z-index: 10;
+
+    .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: $logo-gap;
+
+        .logo-text {
+            font-size: $logo-font-size;
+            font-weight: 600;
+            color: $dynamic-accent;
+            text-shadow: $text-glow;
+            font-family: $font-title;
+        }
+    }
+
+    .burger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: $burger-width;
+        height: $burger-height;
+        gap: $burger-gap;
+        cursor: pointer;
+
+        span {
+            height: $burger-line-height;
+            width: 100%;
+            background: $dynamic-accent;
+            border-radius: $burger-radius;
+            transition: all 0.3s ease;
+        }
+
+        &.open {
+            span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+            }
+
+            span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.2rem;
+        align-items: center;
+
+        a {
+            font-family: $font-primary;
+            font-size: $nav-font-size;
+            color: $dynamic-text;
+            padding: 0.6rem 1.4rem;
+            border: 1px solid $dynamic-text;
+            border-radius: 1.2rem;
+            background-color: transparent;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: $dynamic-accent;
+                border-color: $dynamic-accent;
+                background-color: var(--nav-hover-bg);
+                box-shadow: 0 0 16px $dynamic-accent;
+                text-shadow: 0 0 8px $dynamic-accent;
+            }
+        }
+    }
+
+    .theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.8rem;
+        padding: 0.5rem;
+        color: $dynamic-text;
+        transition: color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            color: $dynamic-accent;
+            transform: rotate(20deg);
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px $dynamic-accent;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        padding: 1rem 2rem;
+
+        .burger {
+            display: flex;
+        }
+
+        .nav-links {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+
+            &.active {
+                display: flex;
+            }
+
+            a {
+                font-size: 1.6rem;
+                padding: 0.8rem 1.6rem;
+                width: fit-content;
+                border-radius: 2rem;
+            }
+        }
+
+        .logo-text {
+            font-size: $logo-font-size-mobile;
+            text-align: center;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+    }
+}
+
+@keyframes headerPulse {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
