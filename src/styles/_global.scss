@@ -114,4 +114,7 @@ body.no-x-hidden {
 
 .main-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xl; // 🔥 pour bien espacer les sections
 }

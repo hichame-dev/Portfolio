@@ -9,16 +9,17 @@
   font-family: "Inter", sans-serif;
 }
 .footer .footer-left {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #bbbbbb;
 }
 .footer .footer-right {
   display: flex;
   gap: 1.5rem;
+  margin-right: 2.5rem;
 }
 .footer .footer-right a img {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   filter: drop-shadow(0 0 6px #00f0ff);
   transition: transform 0.3s;
 }

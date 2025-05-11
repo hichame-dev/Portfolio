@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
     background: $dynamic-footer-bg;
     color: $footer-text;
     font-family: $font-primary;
@@ -18,10 +19,11 @@
     .footer-right {
         display: flex;
         gap: $footer-gap;
+        margin-right: 2.5rem;
 
         a img {
-            width: 2.2rem;
-            height: 2.2rem;
+            width: 2.5rem;
+            height: 2.5rem;
             filter: drop-shadow(0 0 6px $accent);
             transition: transform 0.3s;
 
@@ -30,6 +32,7 @@
             }
         }
     }
+        
 
     @media (max-width: 768px) {
         flex-direction: column;

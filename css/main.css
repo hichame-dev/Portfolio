@@ -133,7 +133,7 @@ table {
 
 /* ☀️ Thème clair (minimaliste, blanc/gris, sans bleu) */
 [data-theme=light] {
-  --bg-color: #fdfcf9;
+  --bg-color: #f5f2ebb4;
   /* blanc cassé */
   --text-color: #1a1a1a;
   /* noir doux */
@@ -141,7 +141,7 @@ table {
   /* gris profond au lieu du bleu */
   --surface-color: #eae6da;
   /* beige très clair */
-  --header-bg: #ffffff;
+  --header-bg: #857f7f;
   --footer-bg: #f0f0f0;
   --btn-bg: #3b3b3b;
   --btn-text: #ffffff;
@@ -260,4 +260,7 @@ body.no-x-hidden {
 
 .main-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }/*# sourceMappingURL=main.css.map */

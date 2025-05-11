@@ -17,7 +17,7 @@ function Footer() {
                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                     <img src={instagramIcon} alt="Instagram" />
                 </a>
-                <a href="mailto:hichame.dev@gmail.com">
+                <a href="mailto:Hichame_Dev@outlook.com" target="_blank" rel="noopener noreferrer">
                     <img src={emailIcon} alt="Email" />
                 </a>
                 <a href="https://github.com/hichame-dev" target="_blank" rel="noopener noreferrer">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.scss";
-import ThemeToggle from "../ThemeToggle"; // ✅ reste correct car dans layout/
+import ThemeToggle from "../ThemeToggle";
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);

@@ -1,5 +1,5 @@
-// 📌 Variables spécifiques locales (si pas déjà dans variables.scss)
 @use "../../../styles/variables" as *;
+@use "../../../styles/mixin" as *;
 
 .header {
     position: fixed;
@@ -11,7 +11,6 @@
     align-items: center;
     background: $header-gradient;
     background-size: 600% 600%;
-    animation: headerPulse 12s ease-in-out infinite;
     box-shadow: $header-shadow;
     -webkit-backdrop-filter: $header-blur;
     backdrop-filter: $header-blur;
@@ -45,7 +44,6 @@
             width: 100%;
             background: $dynamic-accent;
             border-radius: $burger-radius;
-            transition: all 0.3s ease;
         }
 
         &.open {
@@ -95,11 +93,10 @@
         font-size: 1.8rem;
         padding: 0.5rem;
         color: $dynamic-text;
-        transition: color 0.3s ease, transform 0.3s ease;
+        transition: color 0.3s ease;
 
         &:hover {
             color: $dynamic-accent;
-            transform: rotate(20deg);
         }
 
         &:focus {
@@ -108,7 +105,7 @@
         }
     }
 
-    @media (max-width: 768px) {
+    @include respond(md) {
         flex-wrap: wrap;
         padding: 1rem 2rem;
 
@@ -145,16 +142,39 @@
     }
 }
 
-@keyframes headerPulse {
-    0% {
-        background-position: 0% 50%;
+// 🌞 Thème clair (sans animation)
+[data-theme="light"] .header {
+    background: #fdfaf3;
+    background-size: initial;
+    box-shadow: none;
+
+    .logo-text {
+        text-shadow: none;
+        color: $text-dark;
     }
 
-    50% {
-        background-position: 100% 50%;
+    .nav-links a {
+        border-color: $text-dark;
+        color: $text-dark;
+
+        &:hover {
+            color: $accent-hover;
+            border-color: $accent-hover;
+            background-color: var(--nav-hover-bg);
+            box-shadow: none;
+            text-shadow: none;
+        }
     }
 
-    100% {
-        background-position: 0% 50%;
+    .theme-toggle {
+        color: $text-dark;
+
+        &:hover {
+            color: $accent-hover;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 2px $accent-hover;
+        }
     }
 }
