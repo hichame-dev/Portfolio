@@ -85,7 +85,7 @@ $logo-font-size-mobile: 2.4rem;
 $nav-font-size: 1.6rem;
 $logo-gap: 1.2rem;
 $logo-img-height: 5.2rem;
-
+$black-gloss: #121212; // noir brillant doux, idéal pour UI moderne
 // ==========================
 // 🦶 FOOTER
 // ==========================
@@ -114,3 +114,5 @@ $dynamic-footer-bg: var(--footer-bg);
 $dynamic-surface: var(--surface-color);
 $dynamic-btn-bg: var(--btn-bg);
 $dynamic-btn-text: var(--btn-text);
+
+$glow-color: rgba(0, 240, 255, 0.4); // lumière douce bleutée pour les effets glow

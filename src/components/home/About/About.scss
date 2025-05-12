@@ -1,0 +1,198 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixin' as *;
+
+.about-section {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, var(--intro-bg-top), var(--intro-bg-bottom));
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -30%;
+        left: -30%;
+        width: 180%;
+        height: 180%;
+        background: radial-gradient(circle, rgba(0, 240, 255, 0.12), transparent 70%);
+        animation: fogPulse 30s infinite ease-in-out;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    >* {
+        position: relative;
+        z-index: 1;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+
+        @include respond(lg) {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 6rem;
+        }
+    }
+
+    .profile-img {
+        flex-shrink: 0;
+        width: 35rem;
+        height: 35rem;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+        transition: transform 0.5s ease;
+        position: relative;
+        margin: 0 auto;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.06), transparent 70%);
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        @include respond(lg) {
+            margin: 0;
+            width: 30rem;
+            height: 30rem;
+        }
+
+        @include respond(md) {
+            width: 26rem;
+            height: 26rem;
+            border-radius: 1.6rem;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.08);
+        }
+
+        @include respond(sm) {
+            width: 22rem;
+            height: 22rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.06);
+        }
+    }
+
+    .text-content {
+        flex: 1;
+        color: var(--text-color);
+        font-family: $font-primary;
+        text-align: center;
+        margin-top: 3rem;
+
+        @include respond(lg) {
+            text-align: left;
+            margin-top: 0;
+        }
+                @include respond(sm) {
+                    .container {
+                        padding-inline: 1.5rem;
+                    }
+                }
+
+        .pre-title {
+            font-size: 2.8rem;
+            color: $text-muted;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-lead {
+            font-size: 3.8rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--h2-color);
+        }
+
+        .intro-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: $accent;
+            text-shadow: 0 3px 6px black;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            color: $text-soft;
+            margin-bottom: 2.3rem;
+        }
+
+        .description {
+            font-size: 2rem;
+            max-width: 65ch;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+    }
+        @include respond(sm) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 3rem;
+            }
+    
+            .text-content {
+                margin-top: 2rem;
+    
+                .pre-title {
+                    font-size: 1.8rem;
+                }
+    
+                .intro-lead {
+                    font-size: 2.4rem;
+                }
+    
+                .intro-title {
+                    font-size: 2.2rem;
+                }
+    
+                .tagline {
+                    font-size: 1.6rem;
+                }
+    
+                .description {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    &[data-theme="light"] .text-content {
+        .intro-title {
+            text-shadow: none;
+        }
+    }
+}
+
+@keyframes fogPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.15;
+    }
+}

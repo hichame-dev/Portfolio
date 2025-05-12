@@ -1,1 +1,38 @@
-/*# sourceMappingURL=TechCarousel.css.map */
+.tech-carousel {
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-color);
+  padding: 1rem 1rem !important;
+  height: 80px;
+}
+.tech-carousel .carousel-track {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  gap: 6rem;
+  will-change: transform;
+}
+.tech-carousel .carousel-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70%;
+}
+.tech-carousel .carousel-item img {
+  height: 3.2rem;
+  width: auto;
+  filter: drop-shadow(0 0 5px #00f0ff);
+}
+.tech-carousel .carousel-item .stack-text {
+  font-size: 1.5rem;
+  font-family: "Outfit", sans-serif;
+  color: var(--accent-color);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0 0.5rem;
+}
+
+section.tech-carousel {
+  margin-top: 0 !important;
+}/*# sourceMappingURL=TechCarousel.css.map */

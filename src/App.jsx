@@ -2,9 +2,11 @@ import React from "react";
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 import HeroBanner from "./components/home/HeroBanner/HeroBanner";
-// import TechCarousel from "./hooks/TechCarousel/TechCarousel";
+import TechCarousel from "./hooks/common/TechCarousel/TechCarousel";
+import Intro from "./components/home/Intro/Intro"; // ✅ Ajout de l'import
 
 import "./styles/main.scss";
+import About from "./components/home/About/About";
 
 function App() {
   return (
@@ -12,16 +14,12 @@ function App() {
       <Header />
       <main className="main-content">
         <HeroBanner />
-        {/* <TechCarousel /> */}
-
-        {/* Exemple de prochaine section */}
-        {/* <About /> */}
-        {/* <TechCarousel /> */}
-
-        {/* <Projects /> */}
-        {/* <TechCarousel /> */}
-
-        {/* <Contact /> */}
+        <TechCarousel />
+        <Intro /> {/* ✅ Section intro insérée ici */}
+        <TechCarousel />
+        <About />
+        <TechCarousel />
+        {/* Autres sections (About, Projects...) à venir */}
       </main>
       <Footer />
     </div>

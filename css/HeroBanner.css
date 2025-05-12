@@ -54,7 +54,7 @@
   height: 100%;
   width: 100%;
   gap: 2.5rem;
-  transform: translateY(-4rem);
+  transform: translateY(-10.5rem);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -102,7 +102,7 @@
 }
 @media (max-width: 768px) {
   .hero-banner .text-content {
-    transform: translateY(-6rem);
+    transform: translateY(-16rem);
   }
 }
 @media (max-width: 1024px) {

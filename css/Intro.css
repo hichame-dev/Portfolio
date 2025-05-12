@@ -1,0 +1,123 @@
+.intro-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, var(--intro-bg-top), var(--intro-bg-bottom));
+  color: var(--text-color);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+}
+.intro-section::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.12), transparent 70%);
+  animation: fogPulse 30s infinite ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+.intro-section > * {
+  position: relative;
+  z-index: 1;
+}
+.intro-section .intro-lead {
+  font-size: 3.6rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-family: "Outfit", sans-serif;
+  text-shadow: 0 0 6px rgba(14, 4, 4, 0.267);
+}
+@media (max-width: 768px) {
+  .intro-section .intro-lead {
+    font-size: 2.4rem;
+  }
+}
+.intro-section .intro-title {
+  font-size: 4.2rem;
+  color: #00f0ff;
+  text-shadow: 0 0 10px var(--glow-color);
+  margin-bottom: 1rem;
+  font-family: "Outfit", sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 768px) {
+  .intro-section .intro-title {
+    font-size: 3rem;
+  }
+}
+.intro-section .intro-subtitle {
+  font-size: 2.4rem;
+  color: var(--neon-blue);
+  margin-bottom: 6rem;
+  font-family: "Inter", sans-serif;
+}
+@media (max-width: 768px) {
+  .intro-section .intro-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+  }
+}
+.intro-section .intro-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+.intro-section .intro-cards .intro-block {
+  max-width: 38rem;
+  padding: 3rem;
+  background: var(--intro-card-bg);
+  border: 1px solid var(--intro-card-border);
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.intro-section .intro-cards .intro-block:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 12px #00f0ff, 0 0 24px #00f0ff, 0 0 24px #00f0ff, 0 0 48px #00f0ff, 0 0 64px #00f0ff;
+  border-color: #00f0ff;
+}
+.intro-section .intro-cards .card-title.text-accent {
+  color: var(--accent-color);
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  font-family: "Outfit", sans-serif;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .intro-section .intro-cards .card-title.text-accent {
+    font-size: 2rem;
+  }
+}
+.intro-section .intro-cards .card-text {
+  font-size: 1.6rem;
+  color: var(--text-soft);
+  font-family: "Inter", sans-serif;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .intro-section .intro-cards .card-text {
+    font-size: 1.4rem;
+  }
+}
+
+@keyframes fogPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15) translate(10px, 15px);
+  }
+  100% {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=Intro.css.map */

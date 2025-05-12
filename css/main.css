@@ -153,6 +153,9 @@ table {
   --about-bg: #f7f7f7;
   --projects-bg: #f4f4f4;
   --contact-bg: #ffffff;
+  --intro-card-bg: rgba(255, 255, 255, 0.85);
+  --intro-card-border: rgba(0, 0, 0, 0.06);
+  --intro-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 /* ==========================
