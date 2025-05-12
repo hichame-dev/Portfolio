@@ -1,34 +1,37 @@
 @use "../../../styles/variables" as *;
+@use "../../../styles/mixin" as *;
+
+
 
 .tech-carousel {
     width: 100%;
+    height: 8rem;
     overflow: hidden;
     background: $dynamic-bg;
-    padding: 1rem 1rem !important; // remplace le padding global
-    height: 80px; // ↘️ Hauteur réduite pour un rendu plus équilibré
+    padding: 1rem 1rem !important;
+    height: 7rem; // 📏 Hauteur desktop maîtrisée
 
     .carousel-track {
         display: flex;
+        align-items: center; // important ici aussi
         width: max-content;
-        gap: 6rem;
-        will-change: transform; // 🧠 Optimisation perf pour GSAP
+        gap: 6rem; // 🌐 Espacement entre les items
+        will-change: transform; // ⚙️ Optimisation pour GSAP
     }
 
     .carousel-item {
         flex: 0 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 70%;
+        @include center; // ♻️ Centrage total via mixin
+        height: 100%;
 
         img {
-            height: 3.2rem;
+            height: 3.5rem;
             width: auto;
-            filter: drop-shadow(0 0 5px $accent);
+            filter: drop-shadow(0 0 5px $accent); // 💡 Mise en valeur
         }
 
         .stack-text {
-            font-size: 1.5rem;
+            font-size: 1.9rem;
             font-family: $font-title;
             color: $dynamic-accent;
             font-weight: 600;
@@ -36,7 +39,22 @@
             padding: 0 0.5rem;
         }
     }
+
+    // Responsive : ajustement mobile
+    @include respond(md) {
+        height: auto; // 📱 Permet la hauteur naturelle en mobile
+
+        .carousel-track {
+            gap: 3rem; // 🔄 Moins d'espacement sur petits écrans
+        }
+
+        .carousel-item {
+            padding: 0.5rem 0; // 🧘‍♂️ Plus d'air autour
+        }
+    }
 }
 
+// Supprime toute marge auto-ajoutée par le layout
 section.tech-carousel {
-    margin-top: 0 !important; }
+    margin-top: 0 !important;
+}

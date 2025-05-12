@@ -1,12 +1,14 @@
 .tech-carousel {
   width: 100%;
+  height: 8rem;
   overflow: hidden;
   background: var(--bg-color);
   padding: 1rem 1rem !important;
-  height: 80px;
+  height: 7rem;
 }
 .tech-carousel .carousel-track {
   display: flex;
+  align-items: center;
   width: -moz-max-content;
   width: max-content;
   gap: 6rem;
@@ -17,20 +19,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70%;
+  height: 100%;
 }
 .tech-carousel .carousel-item img {
-  height: 3.2rem;
+  height: 3.5rem;
   width: auto;
   filter: drop-shadow(0 0 5px #00f0ff);
 }
 .tech-carousel .carousel-item .stack-text {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-family: "Outfit", sans-serif;
   color: var(--accent-color);
   font-weight: 600;
   letter-spacing: 0.05em;
   padding: 0 0.5rem;
+}
+@media (max-width: 768px) {
+  .tech-carousel {
+    height: auto;
+  }
+  .tech-carousel .carousel-track {
+    gap: 3rem;
+  }
+  .tech-carousel .carousel-item {
+    padding: 0.5rem 0;
+  }
 }
 
 section.tech-carousel {

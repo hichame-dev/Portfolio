@@ -123,7 +123,7 @@
     }
         @include respond(md) {
             .text-content {
-                transform: translateY(-16rem); // un peu moins haut pour mobile
+                transform: translateY(-12rem); // un peu moins haut pour mobile
             }
         }
 
