@@ -1,12 +1,54 @@
-# React + Vite
+# 💼 Portfolio — Shems, Développeur Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce dépôt contient le code source de mon portfolio personnel, conçu pour mettre en avant mes compétences techniques, ma sensibilité à l’expérience utilisateur, et ma capacité à produire des interfaces modernes, performantes et accessibles.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 👨‍💻 À propos
 
-## Expanding the ESLint configuration
+Développeur front-end spécialisé dans l'intégration web, je transforme des maquettes en interfaces fonctionnelles, accessibles et animées.  
+Je m’investis particulièrement dans l’optimisation des performances, la qualité du code, et l’animation maîtrisée des interfaces utilisateur.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Mon approche :  
+**Créer. Déboguer. Optimiser.**  
+Toujours au service de l’utilisateur final.
+
+---
+
+## 🛠️ Stack technique
+
+- **Langages** : HTML5, CSS3 / SCSS, JavaScript (ES6+)
+- **Framework** : React.js (avec React Router, Redux Toolkit)
+- **Animations** : GSAP, ScrollTrigger
+- **API / Données** : Swagger, JWT, appels REST sécurisés
+- **Outils** : Git, GitHub, VS Code, Figma
+- **Responsive Design** : mobile-first, mixins SCSS personnalisés
+- **Accessibilité / SEO** : conformité WCAG, structure sémantique, optimisation Lighthouse
+
+---
+
+## 🎨 Thématiques du portfolio
+
+- Thème clair / sombre (via variables CSS)
+- Design fluide et réactif (desktop → mobile)
+- Sections animées dynamiquement avec GSAP
+- Architecture modulable et maintenable
+
+---
+
+## 🌍 Accès en ligne
+
+👉 [Voir le portfolio] 
+👉 [Me suivre sur LinkedIn]  
+👉 [GitHub]
+
+---
+
+## 📫 Me contacter
+
+Pour toute proposition de mission ou collaboration front-end :  
+📧 **Hichame_Dev.dev@outlook.com**  
+📍 Basé en France, ouvert aux opportunités à distance ou hybrides.
+
+---
+
