@@ -45,22 +45,20 @@
 
     .intro-title {
         font-size: 4.2rem;
-        color: $neon-blue;
-        text-shadow: 0 0 10px var(--glow-color);
-        margin-bottom: 1rem;
-        font-family: $font-title;
+        color: var(--accent-color);
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9),
             0 4px 8px rgba(0, 0, 0, 0.6);
+        margin-bottom: 1rem;
+        font-family: $font-title;
 
         @include respond(md) {
             font-size: 3rem;
         }
     }
-    
 
     .intro-subtitle {
         font-size: 2.4rem;
-        color: var(--neon-blue);
+        color: var(--accent-color);
         margin-bottom: 6rem;
         font-family: $font-primary;
 
@@ -78,53 +76,76 @@
         margin-top: 4rem;
 
         .intro-block {
-                max-width: $card-max-width;
-                padding: $card-padding;
-                background: var(--intro-card-bg);
-                border: 1px solid var(--intro-card-border);
-                border-radius: 1rem;
-                -webkit-backdrop-filter: $blur;
-                backdrop-filter: $blur;
-                box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-        
-                &:hover {
-                    transform: translateY(-10px) scale(1.05);
-                    box-shadow:
-                        0 0 12px $accent,
-                        0 0 24px $accent,
-                        0 0 24px $accent,
-                        0 0 48px $accent,
-                        0 0 64px $accent;
-                    border-color: $accent;
-                }
+            max-width: $card-max-width;
+            padding: $card-padding;
+            background: var(--intro-card-bg);
+            border: 1px solid var(--intro-card-border);
+            border-radius: 1rem;
+            -webkit-backdrop-filter: $blur;
+            backdrop-filter: $blur;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-10px) scale(1.05);
+                box-shadow:
+                    0 0 12px $accent,
+                    0 0 24px $accent,
+                    0 0 24px $accent,
+                    0 0 48px $accent,
+                    0 0 64px $accent;
+                border-color: $accent;
             }
+        }
 
-            .card-title.text-accent {
-                color: var(--accent-color);
-                font-size: 2.4rem;
-                margin-bottom: 1rem;
-                font-family: $font-title;
-                text-align: center;
+        .card-title.text-accent {
+            color: var(--accent-color);
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            font-family: $font-title;
+            text-align: center;
 
-                @include respond(md) {
-                    font-size: 2rem;
-                }
+            @include respond(md) {
+                font-size: 2rem;
             }
+        }
 
-            .card-text {
-                font-size: 1.6rem;
-                color: var(--text-soft);
-                font-family: $font-primary;
-                text-align: center;
+        .card-text {
+            font-size: 1.6rem;
+            color: var(--text-soft);
+            font-family: $font-primary;
+            text-align: center;
 
-                @include respond(md) {
-                    font-size: 1.4rem;
-                }
+            @include respond(md) {
+                font-size: 1.4rem;
             }
         }
     }
 
+    // 🌞 Thème clair : harmonisation
+    [data-theme="light"] & {
+        background: linear-gradient(to bottom, #D1D5DB, #D1D5DB);
+
+        .intro-lead,
+        .intro-subtitle {
+            text-shadow: none;
+            color: var(--accent-color);
+        }
+                .intro-title {
+                color: var(--accent-color);
+
+        .intro-cards .intro-block {
+            box-shadow: none;
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .intro-cards .intro-block:hover {
+            box-shadow: none;
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+        }
+    }
+}
 
 @keyframes fogPulse {
     0% {
@@ -138,4 +159,5 @@
     100% {
         transform: scale(1);
     }
+}
 }

@@ -122,20 +122,20 @@
 }
 
 [data-theme=light] .header {
-  background: #fdfaf3;
+  background: var(--header-bg);
   background-size: initial;
   box-shadow: none;
 }
 [data-theme=light] .header .logo-text {
   text-shadow: none;
-  color: #111111;
+  color: var(--accent-color);
 }
 [data-theme=light] .header .nav-links a {
   border-color: #111111;
   color: #111111;
 }
 [data-theme=light] .header .nav-links a:hover {
-  color: #17d4d4;
+  color: var(--accent-color);
   border-color: #17d4d4;
   background-color: var(--nav-hover-bg);
   box-shadow: none;

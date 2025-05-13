@@ -34,11 +34,11 @@
   }
 }
 [data-theme=light] .footer {
-  background: #ffffff;
-  color: #111111;
+  background: var(--header-bg);
+  color: var(--text-color);
 }
 [data-theme=light] .footer .footer-left {
-  color: #999999;
+  color: rgba(153, 153, 153, 0.4784313725);
 }
 [data-theme=light] .footer .footer-right a img {
   filter: none;

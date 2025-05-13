@@ -40,11 +40,10 @@
 }
 .intro-section .intro-title {
   font-size: 4.2rem;
-  color: #00f0ff;
-  text-shadow: 0 0 10px var(--glow-color);
+  color: var(--accent-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 4px 8px rgba(0, 0, 0, 0.6);
   margin-bottom: 1rem;
   font-family: "Outfit", sans-serif;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 @media (max-width: 768px) {
   .intro-section .intro-title {
@@ -53,7 +52,7 @@
 }
 .intro-section .intro-subtitle {
   font-size: 2.4rem;
-  color: var(--neon-blue);
+  color: var(--accent-color);
   margin-bottom: 6rem;
   font-family: "Inter", sans-serif;
 }
@@ -109,7 +108,26 @@
     font-size: 1.4rem;
   }
 }
-
+[data-theme=light] .intro-section {
+  background: linear-gradient(to bottom, #D1D5DB, #D1D5DB);
+}
+[data-theme=light] .intro-section .intro-lead,
+[data-theme=light] .intro-section .intro-subtitle {
+  text-shadow: none;
+  color: var(--accent-color);
+}
+[data-theme=light] .intro-section .intro-title {
+  color: var(--accent-color);
+}
+[data-theme=light] .intro-section .intro-title .intro-cards .intro-block {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme=light] .intro-section .intro-title .intro-cards .intro-block:hover {
+  box-shadow: none;
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+}
 @keyframes fogPulse {
   0% {
     transform: scale(1);

@@ -104,7 +104,7 @@
 }
 .about-section .text-content .pre-title {
   font-size: 2.8rem;
-  color: #999999;
+  color: var(--accent-color);
   margin-bottom: 1.2rem;
 }
 .about-section .text-content .intro-lead {
@@ -116,13 +116,13 @@
 .about-section .text-content .intro-title {
   font-size: 3.2rem;
   font-weight: 800;
-  color: #00f0ff;
+  color: var(--accent-color);
   text-shadow: 0 3px 6px black;
   margin-bottom: 1rem;
 }
 .about-section .text-content .tagline {
   font-size: 2rem;
-  color: #bbbbbb;
+  color: var(--accent-color);
   margin-bottom: 2.3rem;
 }
 .about-section .text-content .description {
@@ -131,8 +131,11 @@
   line-height: 1.7;
   color: var(--text-color);
 }
-.about-section[data-theme=light] .text-content .intro-title {
-  text-shadow: none;
+[data-theme=light] .about-section {
+  background: linear-gradient(to bottom, #D1D5DB, #D1D5DB);
+}
+[data-theme=light] .about-section .text-content .intro-title {
+  color: var(--accent-color);
 }
 
 @media (max-width: 576px) {

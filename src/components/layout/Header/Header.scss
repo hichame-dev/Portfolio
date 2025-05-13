@@ -144,13 +144,13 @@
 
 // 🌞 Thème clair (sans animation)
 [data-theme="light"] .header {
-    background: #fdfaf3;
+    background: var(--header-bg);
     background-size: initial;
     box-shadow: none;
 
     .logo-text {
         text-shadow: none;
-        color: $text-dark;
+        color: var(--accent-color);
     }
 
     .nav-links a {
@@ -158,7 +158,7 @@
         color: $text-dark;
 
         &:hover {
-            color: $accent-hover;
+            color: var(--accent-color);
             border-color: $accent-hover;
             background-color: var(--nav-hover-bg);
             box-shadow: none;

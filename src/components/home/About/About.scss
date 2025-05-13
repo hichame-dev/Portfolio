@@ -107,7 +107,7 @@
 
         .pre-title {
             font-size: 2.8rem;
-            color: $text-muted;
+            color: var(--accent-color);
             margin-bottom: 1.2rem;
         }
 
@@ -121,14 +121,14 @@
         .intro-title {
             font-size: 3.2rem;
             font-weight: 800;
-            color: $accent;
+            color: var(--accent-color);
             text-shadow: 0 3px 6px black;
             margin-bottom: 1rem;
         }
 
         .tagline {
             font-size: 2rem;
-            color: $text-soft;
+            color: var(--accent-color);
             margin-bottom: 2.3rem;
         }
 
@@ -140,14 +140,20 @@
         }
     }
 
-    &[data-theme="light"] .text-content {
-        .intro-title {
-            text-shadow: none;
+    // 🌞 Thème clair (juste pour désactiver certaines ombres si besoin)
+    [data-theme='light'] & {
+        background: linear-gradient(to bottom, #D1D5DB, #D1D5DB);
+
+        // ✅ on garde les ombres (tu l’as demandé)
+        .text-content {
+            .intro-title {
+                color: var(--accent-color);
+            }
         }
     }
 }
 
-// ✅ Responsive mobile — tout est regroupé ici
+// ✅ Responsive mobile
 @include respond(sm) {
     .about-section {
         padding: 3rem 1.5rem;
@@ -190,7 +196,7 @@
 
             .description {
                 font-size: 1.6rem;
-                margin-top: 5.5rem; // ⬇️ décale vers le bas d'environ 25px
+                margin-top: 5.5rem;
             }
         }
     }

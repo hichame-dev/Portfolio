@@ -131,31 +131,41 @@ table {
   --contact-bg: #0b0b0b;
 }
 
-/* ☀️ Thème clair (minimaliste, blanc/gris, sans bleu) */
+/* ☀️ Thème clair (mode final validé) */
 [data-theme=light] {
-  --bg-color: #f5f2ebb4;
-  /* blanc cassé */
-  --text-color: #1a1a1a;
-  /* noir doux */
-  --accent-color: #3b3b3b;
-  /* gris profond au lieu du bleu */
-  --surface-color: #eae6da;
-  /* beige très clair */
-  --header-bg: #857f7f;
-  --footer-bg: #f0f0f0;
-  --btn-bg: #3b3b3b;
+  --bg-color: #F5F6F7;
+  /* gris très clair pour le fond général */
+  --text-color: #000000;
+  /* texte principal en noir */
+  --accent-color: #20B2AA;
+  /* sarcelle pour accents (boutons, carrousel) */
+  --surface-color: #FFFFFF;
+  /* fond des cartes/blocs */
+  --header-bg: #e5e7eaa2;
+  /* gris doux pour le header */
+  --footer-bg: #E5E7EA;
+  /* même gris pour le footer */
+  --btn-bg: var(--accent-color);
+  /* boutons en sarcelle */
   --btn-text: #ffffff;
-  --text-color-nav: #1a1a1a;
-  --nav-hover-bg: rgba(0, 0, 0, 0.04);
-  --intro-bg-top: #f8f8f8;
-  --intro-bg-bottom: #ececec;
-  --h2-color: #101010;
-  --about-bg: #f7f7f7;
-  --projects-bg: #f4f4f4;
-  --contact-bg: #ffffff;
-  --intro-card-bg: rgba(255, 255, 255, 0.85);
-  --intro-card-border: rgba(0, 0, 0, 0.06);
-  --intro-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  /* texte blanc dans les boutons */
+  --text-color-nav: #000000;
+  /* nav en noir */
+  --nav-hover-bg: rgba(32, 178, 170, 0.1);
+  /* hover discret sarcelle */
+  --intro-bg-top: #E5E7EA;
+  --intro-bg-bottom: #DADDE0;
+  --h2-color: #000000;
+  --about-bg: #FFFFFF;
+  --projects-bg: #FFFFFF;
+  --contact-bg: #FFFFFF;
+  --intro-card-bg: rgba(255, 255, 255, 0.9);
+  --intro-card-border: rgba(0, 0, 0, 0.08);
+  --intro-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  /* désactive l’effet néon pour le clair */
+  --glow-color: rgba(0, 0, 0, 0);
+  --carousel-bg: #009CB9;
+  --carousel-border: rgba(0, 0, 0, 0.08);
 }
 
 /* ==========================
@@ -265,5 +275,4 @@ body.no-x-hidden {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }/*# sourceMappingURL=main.css.map */

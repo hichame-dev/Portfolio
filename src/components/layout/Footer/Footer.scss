@@ -41,8 +41,8 @@
     }
 
     [data-theme="light"] & {
-        background: #ffffff;
-        color: $text-dark;
+        background: var(--header-bg);
+        color: $dynamic-text;
 
         .footer-left {
             color: $text-muted;
