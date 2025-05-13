@@ -29,7 +29,7 @@ $color-overlay: rgba(0, 0, 0, 0.2);
 
 $font-primary: 'Inter', sans-serif;
 $font-title: 'Outfit', sans-serif;
-
+$radial-fog: radial-gradient(circle at center, rgba(0, 240, 255, 0.12), transparent 70%);
 // 🎨 TEXTE
 $text-light: #eeeeee;
 $text-color: #dddddd;
@@ -54,6 +54,7 @@ $gap-sm: 0.8rem;
 
 $radius-sm: 0.5rem;
 $profile-img-size: 220px;
+
 
 // 🍔 Burger menu
 $burger-width: 2rem;

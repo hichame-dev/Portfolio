@@ -18,10 +18,15 @@
         left: -30%;
         width: 180%;
         height: 180%;
-        background: radial-gradient(circle, rgba(0, 240, 255, 0.12), transparent 70%);
+        background: $radial-fog;
         animation: fogPulse 30s infinite ease-in-out;
         z-index: 0;
         pointer-events: none;
+
+        // 🧼 Désactive le glow en mode clair
+        [data-theme="light"] & {
+            display: none;
+        }
     }
 
     >* {

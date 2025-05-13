@@ -45,7 +45,7 @@ function About() {
                 ease: "power2.out",
                 stagger: 0.2,
             },
-            "-=1" // commence pendant l’image
+            "-=1"
         );
 
         return () => tl.scrollTrigger?.kill();
@@ -53,7 +53,7 @@ function About() {
 
     return (
         <section className="about-section" id="about" ref={sectionRef}>
-            <div className="container d-flex flex-column flex-lg-row align-items-start justify-content-center gap-5">
+            <div className="container">
                 {/* Image à gauche */}
                 <img
                     src={profilImg}
@@ -62,7 +62,7 @@ function About() {
                     loading="lazy"
                 />
 
-                {/* Texte en haut à droite */}
+                {/* Texte à droite */}
                 <div className="text-content">
                     <p className="pre-title">Développeur Front-End</p>
                     <h2 className="intro-lead">Passionné par le web</h2>
