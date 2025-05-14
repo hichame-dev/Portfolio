@@ -1,0 +1,113 @@
+@use './variables' as *;
+
+/* Reset CSS moderne inspiré d’Eric Meyer + améliorations */
+
+/* Box-sizing universel */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Margin & padding reset */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+li,
+figure,
+pre,
+fieldset,
+legend,
+input,
+button,
+textarea,
+select {
+    margin: 0;
+    padding: 0;
+}
+
+/* Base HTML */
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; // 1rem = 10px
+}
+
+/* Body reset */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $dynamic-bg; // ✅ dynamique
+    font-family: $font-primary; // ✅ défini dans variables.scss
+    color: $dynamic-text; // ✅ dynamique
+}
+
+/* Listes sans puces */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Liens neutres */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Médias responsives */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Boutons sans style */
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+/* Inputs propres */
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Safari mobile fix (zoom) */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    font-size: 1.6rem;
+}
+
+/* Tables clean */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Accessibilité */
+[hidden] {
+    display: none !important;
+}

@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Header from "./components/layout/Header/Header";
+import Footer from "./components/layout/Footer/Footer";
+import HeroBanner from "./components/home/HeroBanner/HeroBanner";
+import TechCarousel from "./hooks/common/TechCarousel/TechCarousel";
+import Intro from "./components/home/Intro/Intro"; // ✅ Ajout de l'import
+import DeckProjets from "./components/projets/DeckProjets";
+import Contact from "./components/contact/Contact";
+
+import "./styles/main.scss";
+import About from "./components/home/About/About";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-wrapper">
+      <Header />
+      <main className="main-content">
+        <HeroBanner />
+        <TechCarousel />
+        <Intro /> {/* ✅ Section intro insérée ici */}
+        <TechCarousel />
+        <About />
+        <TechCarousel />
+        <DeckProjets />
+        <Contact />
+        {/* Autres sections (About, Projects...) à venir */}
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;

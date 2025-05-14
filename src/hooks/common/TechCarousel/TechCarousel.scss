@@ -1,0 +1,70 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixin" as *;
+
+.tech-carousel {
+    width: 100%;
+    height: 7rem;
+    overflow: hidden;
+    background-color: var(--carousel-bg);
+    padding: 1rem 1rem !important;
+
+    .carousel-track {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        gap: 6rem;
+        will-change: transform;
+    }
+
+    .carousel-item {
+        flex: 0 0 auto;
+        @include center;
+        height: 100%;
+        padding-top: 0.5rem;
+
+        img {
+            height: 3.5rem;
+            width: auto;
+            filter: drop-shadow(0 0 5px $accent);
+            transition: filter 0.3s ease;
+        }
+
+        .stack-text {
+            font-size: 1.9rem;
+            font-family: $font-title;
+            color: $dynamic-accent;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+    }
+
+    @include respond(md) {
+        height: auto;
+
+        .carousel-track {
+            gap: 3rem;
+        }
+
+        .carousel-item {
+            padding: 0.5rem 0;
+        }
+    }
+
+    // 🌞 Thème clair : texte blanc et icônes noires
+    [data-theme="light"] & {
+        .stack-text {
+            color: #ffffff;
+        }
+
+        img {
+            filter: brightness(0); // rend les SVG noirs
+        }
+    }
+}
+
+// Supprime toute marge auto-ajoutée par le layout
+section.tech-carousel {
+    margin-top: 0 !important;
+}

@@ -1,0 +1,72 @@
+/* === themes.scss === */
+
+/* 🌑 Thème sombre (futuriste, bleu néon, techno) */
+:root {
+    --bg-color: #090a0a;
+    --text-color: #eeeeee;
+    --accent-color: #00f0ff;
+
+    --surface-color: #1a1a1a;
+
+    --header-bg: #0c0c0c;
+    --footer-bg: #0c0c0c;
+
+    --btn-bg: var(--accent-color);
+    --btn-text: var(--bg-color);
+
+    --text-color-nav: #ffffff;
+    --nav-hover-bg: rgba(0, 240, 255, 0.05);
+
+    --intro-bg-top: #0b0b0b;
+    --intro-bg-bottom: #141414;
+
+    --h2-color: #eeeeee;
+    --about-bg: #090a0a;
+    --projects-bg: #020101;
+    --contact-bg: #0b0b0b;
+}
+
+/* ☀️ Thème clair (mode final validé) */
+[data-theme="light"] {
+    --bg-color: #F5F6F7;
+    /* gris très clair pour le fond général */
+    --text-color: #000000;
+    /* texte principal en noir */
+    --accent-color: #20B2AA;
+    /* sarcelle pour accents (boutons, carrousel) */
+
+    --surface-color: #FFFFFF;
+    /* fond des cartes/blocs */
+    --header-bg: #e5e7eaa2;
+    /* gris doux pour le header */
+    --footer-bg: #E5E7EA;
+    /* même gris pour le footer */
+
+    --btn-bg: var(--accent-color);
+    /* boutons en sarcelle */
+    --btn-text: #ffffff;
+    /* texte blanc dans les boutons */
+
+    --text-color-nav: #000000;
+    /* nav en noir */
+    --nav-hover-bg: rgba(32, 178, 170, 0.1);
+    /* hover discret sarcelle */
+
+    --intro-bg-top: #E5E7EA; // gris doux clair (pro et équilibré)
+        --intro-bg-bottom: #DADDE0;
+
+    --h2-color: #000000;
+    --about-bg: #FFFFFF;
+    --projects-bg: #FFFFFF;
+    --contact-bg: #FFFFFF;
+
+    --intro-card-bg: rgba(255, 255, 255, 0.9);
+    --intro-card-border: rgba(0, 0, 0, 0.08);
+    --intro-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+    /* désactive l’effet néon pour le clair */
+    --glow-color: rgba(0, 0, 0, 0);
+
+    --carousel-bg: #009CB9;
+    --carousel-border: rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,283 @@
+@charset "UTF-8";
+:root {
+  --accent-color: #00f0ff;
+  --accent-color-hover: #17d4d4;
+}
+
+/* Reset CSS moderne inspiré d’Eric Meyer + améliorations */
+/* Box-sizing universel */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Margin & padding reset */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+li,
+figure,
+pre,
+fieldset,
+legend,
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+/* Base HTML */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+/* Body reset */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+/* Listes sans puces */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Liens neutres */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Médias responsives */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Boutons sans style */
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* Inputs propres */
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/* Safari mobile fix (zoom) */
+input[type=text],
+input[type=email],
+input[type=password] {
+  font-size: 1.6rem;
+}
+
+/* Tables clean */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Accessibilité */
+[hidden] {
+  display: none !important;
+}
+
+/* === themes.scss === */
+/* 🌑 Thème sombre (futuriste, bleu néon, techno) */
+:root {
+  --bg-color: #090a0a;
+  --text-color: #eeeeee;
+  --accent-color: #00f0ff;
+  --surface-color: #1a1a1a;
+  --header-bg: #0c0c0c;
+  --footer-bg: #0c0c0c;
+  --btn-bg: var(--accent-color);
+  --btn-text: var(--bg-color);
+  --text-color-nav: #ffffff;
+  --nav-hover-bg: rgba(0, 240, 255, 0.05);
+  --intro-bg-top: #0b0b0b;
+  --intro-bg-bottom: #141414;
+  --h2-color: #eeeeee;
+  --about-bg: #090a0a;
+  --projects-bg: #020101;
+  --contact-bg: #0b0b0b;
+}
+
+/* ☀️ Thème clair (mode final validé) */
+[data-theme=light] {
+  --bg-color: #F5F6F7;
+  /* gris très clair pour le fond général */
+  --text-color: #000000;
+  /* texte principal en noir */
+  --accent-color: #20B2AA;
+  /* sarcelle pour accents (boutons, carrousel) */
+  --surface-color: #FFFFFF;
+  /* fond des cartes/blocs */
+  --header-bg: #e5e7eaa2;
+  /* gris doux pour le header */
+  --footer-bg: #E5E7EA;
+  /* même gris pour le footer */
+  --btn-bg: var(--accent-color);
+  /* boutons en sarcelle */
+  --btn-text: #ffffff;
+  /* texte blanc dans les boutons */
+  --text-color-nav: #000000;
+  /* nav en noir */
+  --nav-hover-bg: rgba(32, 178, 170, 0.1);
+  /* hover discret sarcelle */
+  --intro-bg-top: #E5E7EA;
+  --intro-bg-bottom: #DADDE0;
+  --h2-color: #000000;
+  --about-bg: #FFFFFF;
+  --projects-bg: #FFFFFF;
+  --contact-bg: #FFFFFF;
+  --intro-card-bg: rgba(255, 255, 255, 0.9);
+  --intro-card-border: rgba(0, 0, 0, 0.08);
+  --intro-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  /* désactive l’effet néon pour le clair */
+  --glow-color: rgba(0, 0, 0, 0);
+  --carousel-bg: #009CB9;
+  --carousel-border: rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================
+🌍 GLOBAL STYLES
+========================== */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================
+🎨 TITRES
+========================== */
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ==========================
+🔗 LIENS
+========================== */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  filter: brightness(1.2);
+  text-shadow: 0 0 6px var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+/* ==========================
+🧱 SECTIONS
+========================== */
+section {
+  padding: 5rem 2rem;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  scroll-margin-top: 8rem;
+}
+
+section + section {
+  margin-top: -1px;
+}
+
+/* ==========================
+🖼 MÉDIAS
+========================== */
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* ==========================
+🌟 FADE-IN LOADER
+========================== */
+.main-fade {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 1.4s ease-in-out, transform 1.4s ease-in-out;
+}
+
+.main-fade.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================
+♿ ACCESSIBILITÉ / OVERRIDES
+========================== */
+body.no-x-hidden {
+  overflow-x: visible !important;
+}
+
+.app-wrapper {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,121 @@
+@use './variables' as *;
+@use './mixin' as *;
+
+/* ==========================
+🌍 GLOBAL STYLES
+========================== */
+
+html {
+    font-size: 62.5%; // 1rem = 10px
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: $font-primary;
+    background-color: $dynamic-bg;
+    color: $dynamic-text;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================
+🎨 TITRES
+========================== */
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $font-title;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: $dynamic-accent;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+/* ==========================
+🔗 LIENS
+========================== */
+
+a {
+    color: $dynamic-accent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        filter: brightness(1.2);
+        text-shadow: 0 0 6px $dynamic-accent;
+        transition: all 0.3s ease;
+    }
+}
+
+/* ==========================
+🧱 SECTIONS
+========================== */
+
+section {
+    padding: $section-padding;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    scroll-margin-top: 8rem;
+}
+
+section+section {
+    margin-top: -1px;
+}
+
+/* ==========================
+🖼 MÉDIAS
+========================== */
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: $radius-sm;
+}
+
+/* ==========================
+🌟 FADE-IN LOADER
+========================== */
+
+.main-fade {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 1.4s ease-in-out, transform 1.4s ease-in-out;
+}
+
+.main-fade.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ==========================
+♿ ACCESSIBILITÉ / OVERRIDES
+========================== */
+
+body.no-x-hidden {
+    overflow-x: visible !important;
+}
+
+.app-wrapper {
+    width: 100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    // gap : 1rem // 🔥 pour bien espacer les sections
+}
+

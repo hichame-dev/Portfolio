@@ -1,0 +1,57 @@
+[
+    {
+        "title": "Kasa",
+        "image": "kasa.png",
+        "techs": [
+            "React",
+            "Sass",
+            "Routing"
+        ],
+        "github": "https://github.com/hichame-dev/kasa",
+        "demo": "https://hichame-dev.github.io/kasa"
+    },
+    {
+        "title": "Sophie Bluel",
+        "image": "sophie_bluel.png",
+        "techs": [
+            "JavaScript",
+            "API",
+            "Modale"
+        ],
+        "github": "https://github.com/hichame-dev/sophie-bluel",
+        "demo": "https://hichame-dev.github.io/sophie-bluel"
+    },
+    {
+        "title": "Booki",
+        "image": "booki.png",
+        "techs": [
+            "HTML",
+            "CSS",
+            "Responsive"
+        ],
+        "github": "https://github.com/hichame-dev/booki",
+        "demo": "https://hichame-dev.github.io/booki"
+    },
+    {
+        "title": "Oh My Food",
+        "image": "ohmyfood.png",
+        "techs": [
+            "HTML",
+            "CSS",
+            "Animations"
+        ],
+        "github": "https://github.com/hichame-dev/ohmyfood",
+        "demo": "https://hichame-dev.github.io/ohmyfood"
+    },
+    {
+        "title": "Nina Carducci",
+        "image": "nina.png",
+        "techs": [
+            "SEO",
+            "Accessibilité",
+            "Performance"
+        ],
+        "github": "https://github.com/hichame-dev/nina-carducci",
+        "demo": "https://hichame-dev.github.io/nina-carducci"
+    }
+]

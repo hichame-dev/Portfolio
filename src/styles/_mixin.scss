@@ -1,0 +1,64 @@
+// === _mixins.scss ===
+
+@use 'variables' as *;
+
+// ==========================
+// 📱 BREAKPOINTS
+// ==========================
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// ==========================
+// 🧩 MIXIN : Responsive
+// ==========================
+
+@mixin respond($breakpoint) {
+    @if $breakpoint ==sm {
+        @media (max-width: $breakpoint-sm) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==md {
+        @media (max-width: $breakpoint-md) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==lg {
+        @media (max-width: $breakpoint-lg) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==xl {
+        @media (max-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+// ==========================
+// 🔧 MIXIN : Center flex
+// ==========================
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// ==========================
+// ✂️ MIXIN : Text truncate
+// ==========================
+
+@mixin truncate($lines: 1) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

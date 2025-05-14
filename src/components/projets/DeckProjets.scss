@@ -1,0 +1,153 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixin" as *;
+
+.deck-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, var(--intro-bg-top), var(--intro-bg-bottom));
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -30%;
+        left: -30%;
+        width: 180%;
+        height: 180%;
+        background: $radial-fog;
+        animation: fogPulse 20s infinite ease-in-out;
+        z-index: 0;
+        pointer-events: none;
+
+        [data-theme="light"] & {
+            display: none;
+        }
+    }
+
+    >* {
+        position: relative;
+        z-index: 1;
+    }
+
+    .section-title {
+        font-size: 3.6rem;
+        margin-bottom: 3rem;
+        color: $dynamic-accent;
+        font-family: $font-title;
+    }
+
+    .deck-card {
+        width: 320px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: $dynamic-surface;
+        border-radius: 1.2rem;
+        border: 1px solid rgba($dynamic-accent, 0.15);
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.08); // valeur par défaut (sombre)
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transform-style: preserve-3d;
+
+        // 🌞 Amélioration visuelle en mode clair
+        [data-theme="light"] & {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        &:hover {
+            transform: scale(1.03) rotateY(5deg);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1.5px solid rgba(0, 0, 0, 0.4);
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: $dynamic-accent;
+            margin-bottom: 1rem;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.4rem;
+            color: $dynamic-text; // ✅ couleur plus visible
+            flex-wrap: wrap;
+        }
+    }
+
+    .next-button {
+        margin-top: 3rem;
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+        background: $dynamic-accent;
+        color: $dynamic-btn-text;
+        border: none;
+        border-radius: 2rem;
+        cursor: pointer;
+        box-shadow: 0 0 10px $dynamic-accent;
+        transition: all 0.3s ease;
+
+        &:hover {
+            filter: brightness(1.15);
+            box-shadow: 0 0 15px $dynamic-accent;
+        }
+    }
+
+    .scroll-to-contact {
+        margin-top: 2rem;
+        text-align: center;
+
+        .scroll-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            color: $dynamic-accent;
+            border: 1px solid $dynamic-accent;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: 0.3s ease;
+
+            &:hover {
+                background-color: $dynamic-accent;
+                color: $dynamic-btn-text;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .deck-card {
+            width: 90%;
+        }
+
+        .next-button {
+            width: 80%;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@keyframes fogPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.15;
+    }
+}
