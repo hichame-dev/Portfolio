@@ -91,9 +91,8 @@
 
 .error,
 .error-text {
-  color: red;
+  color: rgb(235, 226, 226);
   font-size: 1.3rem;
-  margin-top: -1rem;
   text-align: left;
   padding-left: 0.5rem;
 }

@@ -30,8 +30,7 @@ function Contact() {
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            // 👉 Ici tu peux connecter à FormSubmit, Netlify ou backend personnalisé
-            fetch("https://formsubmit.co/ajax/ton@email.com", {
+            fetch("https://formsubmit.co/ajax/Hichame_Dev@outlook.com", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -46,11 +45,11 @@ function Contact() {
                         setFormData({ name: "", email: "", message: "" });
                         setTimeout(() => setSubmitted(false), 3000);
                     } else {
-                        setErrors({ submit: "Une erreur est survenue. Réessayez plus tard." });
+                        setErrors({ submit: "Une erreur est survenue." });
                     }
                 })
                 .catch(() =>
-                    setErrors({ submit: "Une erreur est survenue. Vérifiez votre connexion." })
+                    setErrors({ submit: "Erreur réseau. Vérifie ta connexion." })
                 );
         }
     };
