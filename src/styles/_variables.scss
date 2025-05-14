@@ -26,7 +26,8 @@ $color-overlay: rgba(0, 0, 0, 0.2);
 // ==========================
 // 🧾 TYPOGRAPHIE
 // ==========================
-
+$dynamic-surface: #FDFDFD; // blanc légèrement cassé
+$dynamic-text: #111827; // texte bien foncé pour le contraste
 $font-primary: 'Inter', sans-serif;
 $font-title: 'Outfit', sans-serif;
 $radial-fog: radial-gradient(circle at center, rgba(0, 240, 255, 0.12), transparent 70%);

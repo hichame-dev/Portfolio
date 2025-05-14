@@ -69,7 +69,7 @@
         a {
             font-family: $font-primary;
             font-size: $nav-font-size;
-            color: $dynamic-text;
+            color: var(--accent-color);
             padding: 0.6rem 1.4rem;
             border: 1px solid $dynamic-text;
             border-radius: 1.2rem;

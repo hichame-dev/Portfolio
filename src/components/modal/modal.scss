@@ -14,10 +14,11 @@
     justify-content: center;
     z-index: 9999;
     padding: 2rem;
+    
 }
 
 .modal-content {
-    background: $dynamic-surface;
+    background: #FDFDFD;
     color: $dynamic-text;
     padding: 2rem;
     max-width: 600px;
@@ -28,6 +29,9 @@
     box-shadow: 0 0 20px $glow-color;
     overflow-y: auto;
     max-height: 90vh;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: $dynamic-surface;
+    border: 1px solid rgba(0, 0, 0, 0.08);
 
     h2 {
         font-size: 2rem;
