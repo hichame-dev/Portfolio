@@ -1,0 +1,142 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixin" as *;
+
+.contact-page {
+    padding: $section-padding;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    // 🌗 fond dynamique selon thème
+    background: linear-gradient(to bottom, var(--intro-bg-top), var(--intro-bg-bottom));
+    color: var(--text-color);
+    text-align: center;
+
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+        color: var(--accent-color);
+        font-family: $font-title;
+    }
+
+    p {
+        font-size: 1.8rem;
+        margin-bottom: 4rem;
+        font-family: $font-primary;
+        color: var(--text-color);
+    }
+
+    .contact-form-wrapper {
+        width: 100%;
+        max-width: 60rem;
+        background: var(--surface-color); // ✅ fond clair modale
+        padding: 3rem;
+        border-radius: $radius-sm;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+    }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+    
+            input,
+            textarea {
+                width: 100%;
+                padding: 1.2rem;
+                border: 1px solid rgba(0, 0, 0, 0.08); // bordure par défaut (sombre)
+                border-radius: $radius-sm;
+                background-color: rgba(255, 255, 255, 0.03);
+                color: var(--text-color);
+                font-family: $font-primary;
+                font-size: 1.6rem;
+                resize: none;
+    
+                &::placeholder {
+                    color: var(--text-muted, #575353);
+                }
+    
+                &:focus {
+                    border-color: var(--accent-color);
+                    box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+                    outline: none;
+                }
+    
+                &.input-error {
+                    border-color: red;
+                }
+            }
+    
+            // 🌞 Bordure plus visible en mode clair uniquement
+            [data-theme="light"] & {
+    
+                input,
+                textarea {
+                    border: 1px solid $text-muted;
+                }
+            }
+        }
+
+        button {
+            padding: 1.2rem 2rem;
+            border: none;
+            background-color: var(--accent-color);
+            color: var(--btn-text, black);
+            font-size: 1.6rem;
+            font-weight: bold;
+            border-radius: $radius-sm;
+            cursor: pointer;
+            transition: filter 0.3s ease;
+
+            &:hover {
+                filter: brightness(1.1);
+            }
+        }
+    }
+
+    .error,
+    .error-text {
+        color: red;
+        font-size: 1.3rem;
+        margin-top: -1rem;
+        text-align: left;
+        padding-left: 0.5rem;
+    }
+
+    .success-message {
+        background-color: rgba(0, 255, 170, 0.15);
+        color: var(--accent-color);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: $radius-sm;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+
+    .error-message {
+        background-color: rgba(255, 0, 0, 0.15);
+        color: red;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: $radius-sm;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+
+    @media (max-width: 768px) {
+        .contact-form-wrapper {
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+    }

@@ -1,3 +1,8 @@
+:root {
+  --accent-color: #00f0ff;
+  --accent-color-hover: #17d4d4;
+}
+
 .header {
   position: fixed;
   top: 0;

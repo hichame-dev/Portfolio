@@ -1,4 +1,9 @@
 @charset "UTF-8";
+:root {
+  --accent-color: #00f0ff;
+  --accent-color-hover: #17d4d4;
+}
+
 /* Reset CSS moderne inspiré d’Eric Meyer + améliorations */
 /* Box-sizing universel */
 *,

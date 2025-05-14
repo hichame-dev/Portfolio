@@ -5,6 +5,7 @@ import HeroBanner from "./components/home/HeroBanner/HeroBanner";
 import TechCarousel from "./hooks/common/TechCarousel/TechCarousel";
 import Intro from "./components/home/Intro/Intro"; // ✅ Ajout de l'import
 import DeckProjets from "./components/projets/DeckProjets";
+import Contact from "./components/contact/Contact";
 
 import "./styles/main.scss";
 import About from "./components/home/About/About";
@@ -21,6 +22,7 @@ function App() {
         <About />
         <TechCarousel />
         <DeckProjets />
+        <Contact />
         {/* Autres sections (About, Projects...) à venir */}
       </main>
       <Footer />

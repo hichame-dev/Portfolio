@@ -118,3 +118,7 @@ $dynamic-btn-bg: var(--btn-bg);
 $dynamic-btn-text: var(--btn-text);
 
 $glow-color: rgba(0, 240, 255, 0.4); // lumière douce bleutée pour les effets glow
+:root {
+    --accent-color: #00f0ff;
+    --accent-color-hover: #17d4d4;
+}
