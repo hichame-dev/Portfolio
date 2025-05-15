@@ -119,3 +119,15 @@ body.no-x-hidden {
     // gap : 1rem // 🔥 pour bien espacer les sections
 }
 
+.carousel {
+    scroll-snap-align: start;
+    
+}
+
+button,
+a,
+input,
+textarea,
+select {
+    @include no-focus-outline;
+}

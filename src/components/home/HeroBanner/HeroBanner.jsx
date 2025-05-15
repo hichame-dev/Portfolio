@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./HeroBanner.scss";
+import ScrollButton from "../../ScrollButton/ScrollButton";
+
 
 function HeroBanner() {
     const bannerRef = useRef();
@@ -59,6 +61,8 @@ function HeroBanner() {
                     ))}
                 </h1>
             </div>
+            <ScrollButton targetId="carousel-section" label="↓ Découvrir les stacks" />
+
         </section>
     );
 }

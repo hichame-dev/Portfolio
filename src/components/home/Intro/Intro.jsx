@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionScrollButton from "../../ScrollButton/ScrollButton";
 import "./Intro.scss";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,6 +58,9 @@ function Intro() {
                     </div>
                 </div>
             </div>
+
+            {/* ✅ Bouton scroll toujours visible */}
+            <SectionScrollButton targetId="about" />
         </section>
     );
 }
