@@ -140,7 +140,7 @@ table {
 [data-theme=light] {
   --bg-color: #F5F6F7;
   /* gris très clair pour le fond général */
-  --text-color: #000000;
+  --text-color: #009CB9;
   /* texte principal en noir */
   --accent-color: #20B2AA;
   /* sarcelle pour accents (boutons, carrousel) */
@@ -280,4 +280,29 @@ body.no-x-hidden {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.carousel {
+  scroll-snap-align: start;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  outline: none;
+  box-shadow: none;
+}
+button:focus, button:focus-visible,
+a:focus,
+a:focus-visible,
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible {
+  outline: none;
+  box-shadow: none;
 }/*# sourceMappingURL=main.css.map */

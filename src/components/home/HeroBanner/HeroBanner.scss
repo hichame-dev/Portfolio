@@ -121,6 +121,13 @@
             }
         }
     }
+
+        .scroll-button {
+            margin-top: -10rem; // ✅ espace entre le texte et le bouton
+            position: relative; // ✅ s'assurer qu'il n'est pas en dessous d’un overlay
+            z-index: 2; // ✅ s'assurer qu’il est au-dessus     }
+
+
         @include respond(md) {
             .text-content {
                 transform: translateY(-12rem); // un peu moins haut pour mobile
@@ -147,4 +154,5 @@
             }
         }
     }
-}
+        }
+    }

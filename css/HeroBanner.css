@@ -105,22 +105,27 @@
   color: #111111;
   text-shadow: none;
 }
+.hero-banner .scroll-button {
+  margin-top: -10rem;
+  position: relative;
+  z-index: 2;
+}
 @media (max-width: 768px) {
-  .hero-banner .text-content {
+  .hero-banner .scroll-button .text-content {
     transform: translateY(-12rem);
   }
 }
 @media (max-width: 1024px) {
-  .hero-banner .background-static {
+  .hero-banner .scroll-button .background-static {
     background-image: url("../../../assets/images/main.webp");
   }
-  .hero-banner .text-content h2.domino span {
+  .hero-banner .scroll-button .text-content h2.domino span {
     font-size: 2.2rem;
   }
-  .hero-banner .text-content p.fade-in {
+  .hero-banner .scroll-button .text-content p.fade-in {
     font-size: 2.6rem;
   }
-  .hero-banner .text-content h1.reveal-name span {
+  .hero-banner .scroll-button .text-content h1.reveal-name span {
     font-size: 4rem;
   }
 }/*# sourceMappingURL=HeroBanner.css.map */

@@ -48,7 +48,9 @@ function TechCarousel() {
     }, []);
 
     return (
-        <section className="tech-carousel" aria-label="Technologies utilisées">
+        <section id="carousel-section" className="tech-carousel carousel" aria-label="Technologies utilisées">
+
+
             <div className="carousel-track" ref={trackRef}>
                 {[...stacks, ...stacks].map((item, i) => (
                     <div key={i} className="carousel-item">

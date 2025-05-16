@@ -3,27 +3,35 @@ import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 import HeroBanner from "./components/home/HeroBanner/HeroBanner";
 import TechCarousel from "./hooks/common/TechCarousel/TechCarousel";
-import Intro from "./components/home/Intro/Intro"; // ✅ Ajout de l'import
+import Intro from "./components/home/Intro/Intro";
 import DeckProjets from "./components/projets/DeckProjets";
-import Contact from "./components/contact/Contact";
-
-import "./styles/main.scss";
+import Contact from "./components/contact/contact";
+// import useSnapToCarousels from "./hooks/useSnapScroll";
 import About from "./components/home/About/About";
+import "./styles/main.scss";
 
 function App() {
+  // useSnapToCarousels(); // ✅ scroll s'arrête après chaque carrousel
+
   return (
     <div className="app-wrapper">
       <Header />
       <main className="main-content">
         <HeroBanner />
-        <TechCarousel />
-        <Intro /> {/* ✅ Section intro insérée ici */}
-        <TechCarousel />
-        <About />
-        <TechCarousel />
-        <DeckProjets />
-        <Contact />
-        {/* Autres sections (About, Projects...) à venir */}
+
+        {/* ✅ On remplace la section par un div pour éviter le padding */}
+        <div id="first-carousel">
+          <TechCarousel />
+        </div>
+
+        <Intro />
+        <div id="second-carousel">
+          <TechCarousel />
+          <About />
+          <TechCarousel />
+          <DeckProjets />
+          <Contact />
+        </div>
       </main>
       <Footer />
     </div>
