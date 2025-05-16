@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionScrollButton from "../../ScrollButton/ScrollButton";
+import ScrollButton from "../../ScrollButton/ScrollButton";
+
 import "./Intro.scss";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -9,10 +10,15 @@ gsap.registerPlugin(ScrollTrigger);
 function Intro() {
     const introRef = useRef(null);
 
+    console.log("🔄 Intro component rendering...");
+
     useEffect(() => {
+        console.log("✅ Intro component mounted.");
         const cards = introRef.current.querySelectorAll(".intro-block");
+        console.log("🎯 Intro cards found:", cards.length);
 
         cards.forEach((card, i) => {
+            console.log(`🧩 Animate card ${i}`, card);
             gsap.fromTo(
                 card,
                 { opacity: 0, x: -30, scale: 0.98 },
@@ -33,6 +39,12 @@ function Intro() {
             );
         });
     }, []);
+
+    console.log("🖱️ Rendering ScrollButton with props:");
+    console.log({
+        targetId: "second-carousel",
+        className: "intro-scroll"
+    });
 
     return (
         <section id="intro" className="intro-section" ref={introRef}>
@@ -60,7 +72,7 @@ function Intro() {
             </div>
 
             {/* ✅ Bouton scroll toujours visible */}
-            <SectionScrollButton targetId="about" />
+            <ScrollButton targetId="second-carousel" className="intro-scroll" />
         </section>
     );
 }

@@ -20,16 +20,18 @@ function App() {
         <HeroBanner />
 
         {/* ✅ On remplace la section par un div pour éviter le padding */}
-        <div id="carousel-section">
+        <div id="first-carousel">
           <TechCarousel />
         </div>
 
         <Intro />
-        <TechCarousel />
-        <About />
-        <TechCarousel />
-        <DeckProjets />
-        <Contact />
+        <div id="second-carousel">
+          <TechCarousel />
+          <About />
+          <TechCarousel />
+          <DeckProjets />
+          <Contact />
+        </div>
       </main>
       <Footer />
     </div>

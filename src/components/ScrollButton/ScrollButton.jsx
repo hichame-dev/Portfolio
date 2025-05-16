@@ -10,6 +10,7 @@ function ScrollButton({ targetId, className = "" }) {
             window.scrollTo({ top: y, behavior: "smooth" });
         }
     };
+    console.log("🔘 ScrollButton mounted");
 
     return (
         <button className={`scroll-button ${className}`} onClick={handleClick}>

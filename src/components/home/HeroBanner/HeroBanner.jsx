@@ -61,7 +61,7 @@ function HeroBanner() {
                     ))}
                 </h1>
             </div>
-            <ScrollButton targetId="carousel-section" label="↓ Découvrir les stacks" />
+            <ScrollButton targetId="first-carousel" />
 
         </section>
     );
