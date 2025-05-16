@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./DeckProjets.scss";
 import ModalProjet from "../modal/modal";
 import gsap from "gsap";
-import projects from "../../data/projects.json";
+import projects from "../../data/Projects.json";
 import { projectImages } from "../../data/projectImages";
 
 const DeckProjets = () => {
