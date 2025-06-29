@@ -70,6 +70,31 @@
     margin-bottom: 4rem;
   }
 }
+@keyframes fogPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15) translate(10px, 15px);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.95);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
 .intro-section .intro-cards {
   display: flex;
   justify-content: center;
@@ -86,11 +111,21 @@
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+  opacity: 0;
+  animation: fadeInLeft 1s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+  animation-play-state: paused;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.intro-section .intro-cards .intro-block.in-view {
+  animation-play-state: running;
 }
 .intro-section .intro-cards .intro-block:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 12px #00f0ff, 0 0 24px #00f0ff, 0 0 24px #00f0ff, 0 0 48px #00f0ff, 0 0 64px #00f0ff;
+  transform: translate3d(0, -10px, 0) scale(1.05);
+  box-shadow: 0 0 12px #00f0ff, 0 0 24px #00f0ff, 0 0 48px #00f0ff;
   border-color: #00f0ff;
 }
 .intro-section .intro-cards .card-title.text-accent {
@@ -124,26 +159,12 @@
   text-shadow: none;
   color: var(--accent-color);
 }
-[data-theme=light] .intro-section .intro-title {
-  color: var(--accent-color);
-}
-[data-theme=light] .intro-section .intro-title .intro-cards .intro-block {
+[data-theme=light] .intro-section .intro-cards .intro-block {
   box-shadow: none;
   border-color: rgba(0, 0, 0, 0.08);
 }
-[data-theme=light] .intro-section .intro-title .intro-cards .intro-block:hover {
+[data-theme=light] .intro-section .intro-cards .intro-block:hover {
+  transform: translate3d(0, -6px, 0) scale(1.03);
   box-shadow: none;
-  transform: translateY(-6px);
   border-color: var(--accent-color);
-}
-@keyframes fogPulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15) translate(10px, 15px);
-  }
-  100% {
-    transform: scale(1);
-  }
 }/*# sourceMappingURL=Intro.css.map */

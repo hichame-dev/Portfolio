@@ -1,45 +1,40 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import "./modal.scss";
-import gsap from "gsap";
-import { projectImages } from "../../data/projectImages"; // ✅
+import { projectImages } from "../../data/projectImages";
 
 function ModalProjet({ project, onClose }) {
     const modalRef = useRef(null);
 
-    const closeWithAnimation = useCallback(() => {
-        gsap.to(modalRef.current, {
-            scale: 0.9,
-            opacity: 0,
-            duration: 0.3,
-            ease: "power1.in",
-            onComplete: onClose,
-        });
-    }, [onClose]);
-
     useEffect(() => {
-        gsap.fromTo(
-            modalRef.current,
-            { scale: 0.9, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }
-        );
+        const el = modalRef.current;
+        el.classList.add("show");
 
         const handleClickOutside = (e) => {
-            if (modalRef.current && !modalRef.current.contains(e.target)) {
-                closeWithAnimation();
+            if (el && !el.contains(e.target)) {
+                el.classList.remove("show");
+                el.classList.add("hide");
+                setTimeout(onClose, 300); // durée à synchroniser avec ton CSS
             }
         };
 
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [closeWithAnimation]);
+    }, [onClose]);
+
+    const handleClose = () => {
+        const el = modalRef.current;
+        el.classList.remove("show");
+        el.classList.add("hide");
+        setTimeout(onClose, 300);
+    };
 
     const modalContent = (
         <div className="modal-overlay">
             <div className="modal-content" ref={modalRef}>
-                <button className="close-button" onClick={closeWithAnimation}>×</button>
+                <button className="close-button" onClick={handleClose}>×</button>
                 <h2>{project.title}</h2>
-                <img src={projectImages[project.image]} alt={project.title} /> {/* ✅ image dynamique */}
+                <img src={projectImages[project.image]} alt={project.title} />
                 <ul className="tech-list">
                     {project.techs.map((tech, i) => (
                         <li key={i}>{tech}</li>

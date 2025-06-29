@@ -31,9 +31,19 @@
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
   overflow-y: auto;
   max-height: 90vh;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  background: var(--surface-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--surface-color);
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.modal-content.show {
+  transform: scale(1);
+  opacity: 1;
+}
+.modal-content.hide {
+  transform: scale(0.9);
+  opacity: 0;
 }
 .modal-content h2 {
   font-size: 2rem;
@@ -55,7 +65,16 @@
   gap: 1rem;
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: rgba(153, 153, 153, 0.4784313725);
+}
+.modal-content .tech-list li {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+.modal-content .tech-list li:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-color);
 }
 .modal-content .modal-links {
   display: flex;

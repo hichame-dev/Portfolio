@@ -38,18 +38,28 @@
     }
 
     .deck-card {
+        
         width: 320px;
         margin: 0 auto;
         padding: 2rem;
         background: $dynamic-surface;
         border-radius: 1.2rem;
         border: 1px solid rgba($dynamic-accent, 0.15);
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.08); // valeur par défaut (sombre)
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.08);
         cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.8s ease, opacity 0.8s ease;
         transform-style: preserve-3d;
+        perspective: 1000px;
 
-        // 🌞 Amélioration visuelle en mode clair
+        &.flip-out {
+            transform: rotateY(90deg);
+            opacity: 0;
+        }
+
+        &.flip-in {
+            animation: flipIn 0.5s forwards;
+        }
+
         [data-theme="light"] & {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
@@ -73,7 +83,7 @@
             color: $dynamic-accent;
             margin-bottom: 1rem;
         }
-
+l      
         .tech-list {
             list-style: none;
             padding: 0;
@@ -82,7 +92,7 @@
             justify-content: center;
             gap: 1rem;
             font-size: 1.4rem;
-            color: $dynamic-text; // ✅ couleur plus visible
+            color: $dynamic-text;
             flex-wrap: wrap;
         }
     }
@@ -104,7 +114,7 @@
             box-shadow: 0 0 15px $dynamic-accent;
         }
     }
-
+        
     .scroll-to-contact {
         margin-top: 2rem;
         text-align: center;
@@ -149,5 +159,17 @@
     50% {
         transform: scale(1.05);
         opacity: 0.15;
+    }
+}
+
+@keyframes flipIn {
+    from {
+        transform: rotateY(-90deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateY(0);
+        opacity: 1;
     }
 }

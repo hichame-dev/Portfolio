@@ -1,80 +1,94 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLottie } from "lottie-react";
 import ScrollButton from "../../ScrollButton/ScrollButton";
+
+import seoAnimation from "../../../assets/lotties/seo.json";
+import accessibiliteAnimation from "../../../assets/lotties/accessibilite.json";
+import performanceAnimation from "../../../assets/lotties/performance.json";
 
 import "./Intro.scss";
 
-gsap.registerPlugin(ScrollTrigger);
-
-function Intro() {
-    const introRef = useRef(null);
-
-    console.log("🔄 Intro component rendering...");
-
-    useEffect(() => {
-        console.log("✅ Intro component mounted.");
-        const cards = introRef.current.querySelectorAll(".intro-block");
-        console.log("🎯 Intro cards found:", cards.length);
-
-        cards.forEach((card, i) => {
-            console.log(`🧩 Animate card ${i}`, card);
-            gsap.fromTo(
-                card,
-                { opacity: 0, x: -30, scale: 0.98 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    duration: 1.9,
-                    ease: "expo.out",
-                    delay: i * 0.5,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 93%",
-                        toggleActions: "play none none none",
-                        once: true,
-                    },
-                }
-            );
-        });
-    }, []);
-
-    console.log("🖱️ Rendering ScrollButton with props:");
-    console.log({
-        targetId: "second-carousel",
-        className: "intro-scroll"
-    });
+function IntroCard({ animationData, title, text, delay }) {
+    const options = { animationData, loop: true, autoplay: true };
+    const { View } = useLottie(options);
 
     return (
-        <section id="intro" className="intro-section" ref={introRef}>
+        <div
+            className="intro-block"
+            style={{ "--delay": `${delay}s` }}
+        >
+            <div className="lottie-wrapper">
+                {View}
+            </div>
+            <h3 className="card-title text-accent">{title}</h3>
+            <p className="card-text">{text}</p>
+        </div>
+    );
+}
+
+export default function Intro() {
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in-view");
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        const blocks = sectionRef.current.querySelectorAll(".intro-block");
+        blocks.forEach(block => observer.observe(block));
+
+        return () => observer.disconnect();
+    }, []);
+
+    const cardsData = [
+        {
+            title: "SEO",
+            text: "Un code clair, balisé et optimisé pour le référencement.",
+            animation: seoAnimation,
+            delay: 0.3,
+        },
+        {
+            title: "ACCESSIBILITÉ",
+            text: "Des interfaces pensées pour tous les utilisateurs.",
+            animation: accessibiliteAnimation,
+            delay: 0.6,
+        },
+        {
+            title: "PERFORMANCE",
+            text: "Chargement rapide, code optimisé et expériences fluides.",
+            animation: performanceAnimation,
+            delay: 0.9,
+        },
+    ];
+
+    return (
+        <section id="intro" className="intro-section" ref={sectionRef}>
             <div className="container">
                 <p className="intro-lead">Chaque détail compte dans l'expérience web.</p>
                 <h2 className="intro-title">UN SAVOIR-FAIRE TECHNIQUE</h2>
                 <p className="intro-subtitle">Déboguer. Optimiser. Créer.</p>
 
                 <div className="intro-cards">
-                    <div className="intro-block">
-                        <h3 className="card-title text-accent">SEO</h3>
-                        <p className="card-text">Un code clair, balisé et optimisé pour le référencement.</p>
-                    </div>
-
-                    <div className="intro-block">
-                        <h3 className="card-title text-accent">ACCESSIBILITÉ</h3>
-                        <p className="card-text">Des interfaces pensées pour tous les utilisateurs.</p>
-                    </div>
-
-                    <div className="intro-block">
-                        <h3 className="card-title text-accent">PERFORMANCE</h3>
-                        <p className="card-text">Chargement rapide, code optimisé et expériences fluides.</p>
-                    </div>
+                    {cardsData.map((card, idx) => (
+                        <IntroCard
+                            key={idx}
+                            animationData={card.animation}
+                            title={card.title}
+                            text={card.text}
+                            delay={card.delay}
+                        />
+                    ))}
                 </div>
             </div>
 
-            {/* ✅ Bouton scroll toujours visible */}
             <ScrollButton targetId="second-carousel" className="intro-scroll" />
         </section>
     );
 }
-
-export default Intro;

@@ -13,10 +13,6 @@
   background: transparent;
   border: none;
   padding: 0;
-  animation: pulse 2.5s infinite ease-in-out;
-}
-.scroll-button:hover {
-  transform: scale(1.05);
 }
 .scroll-button .globe-3d {
   width: 4rem;
@@ -27,7 +23,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease;
+  animation: pulse 2.5s infinite ease-in-out;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.scroll-button .globe-3d:hover {
+  box-shadow: 0 0 15px var(--accent-color), 0 0 35px var(--accent-color), 0 0 60px rgba(0, 240, 255, 0.6);
+  transform: scale(1.1);
 }
 .scroll-button .arrow {
   width: 1.2rem;

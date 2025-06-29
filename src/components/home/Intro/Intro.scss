@@ -72,6 +72,38 @@
         }
     }
 
+    // Keyframes
+    @keyframes fogPulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.15) translate(10px, 15px);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-50px) scale(0.95);
+        }
+
+        80% {
+            opacity: 1;
+            transform: translateX(5px) scale(1.02);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+    }
+
     .intro-cards {
         display: flex;
         justify-content: center;
@@ -88,16 +120,28 @@
             -webkit-backdrop-filter: $blur;
             backdrop-filter: $blur;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            // Animation au scroll
+            opacity: 0;
+            animation: fadeInLeft 1s ease-out forwards;
+            animation-delay: var(--delay, 0s);
+            animation-play-state: paused;
+
+            &.in-view {
+                animation-play-state: running;
+            }
+
+            // Hover interactions
+            transition: transform 0.3s ease,
+            box-shadow 0.3s ease;
+            will-change: transform,
+            opacity;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
 
             &:hover {
-                transform: translateY(-10px) scale(1.05);
-                box-shadow:
-                    0 0 12px $accent,
-                    0 0 24px $accent,
-                    0 0 24px $accent,
-                    0 0 48px $accent,
-                    0 0 64px $accent;
+                transform: translate3d(0, -10px, 0) scale(1.05);
+                box-shadow: 0 0 12px $accent, 0 0 24px $accent, 0 0 48px $accent;
                 border-color: $accent;
             }
         }
@@ -126,7 +170,7 @@
         }
     }
 
-    // 🌞 Thème clair : harmonisation
+    // Thème clair
     [data-theme="light"] & {
         background: linear-gradient(to bottom, #D1D5DB, #D1D5DB);
 
@@ -136,33 +180,15 @@
             color: var(--accent-color);
         }
 
-        .intro-title {
-            color: var(--accent-color);
+        .intro-cards .intro-block {
+            box-shadow: none;
+            border-color: rgba(0, 0, 0, 0.08);
 
-            .intro-cards .intro-block {
+            &:hover {
+                transform: translate3d(0, -6px, 0) scale(1.03);
                 box-shadow: none;
-                border-color: rgba(0, 0, 0, 0.08);
-            }
-
-            .intro-cards .intro-block:hover {
-                box-shadow: none;
-                transform: translateY(-6px);
                 border-color: var(--accent-color);
             }
-        }
-    }
-
-    @keyframes fogPulse {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.15) translate(10px, 15px);
-        }
-
-        100% {
-            transform: scale(1);
         }
     }
 }

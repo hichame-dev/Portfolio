@@ -1,25 +1,38 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./DeckProjets.scss";
 import ModalProjet from "../modal/modal";
-import gsap from "gsap";
 import projects from "../../data/Projects.json";
 import { projectImages } from "../../data/projectImages";
 
 const DeckProjets = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [modalIndex, setModalIndex] = useState(null);
+    const [isFlipping, setIsFlipping] = useState(false);
     const cardRef = useRef(null);
 
     const handleNext = () => {
-        gsap.to(cardRef.current, {
-            rotateY: 90,
-            opacity: 0,
-            duration: 0.8,
-            onComplete: () => {
-                setCurrentIndex((prev) => (prev + 1) % projects.length);
-                gsap.fromTo(cardRef.current, { rotateY: -90, opacity: 0 }, { rotateY: 0, opacity: 1, duration: 0.5 });
-            }
-        });
+        if (isFlipping) return;
+        setIsFlipping(true);
+
+        const el = cardRef.current;
+        el.classList.add("flip-out");
+
+        // Change le contenu pendant que ça tourne (au milieu du flip)
+        setTimeout(() => {
+            setCurrentIndex((prev) => (prev + 1) % projects.length);
+        }, 400);
+
+        // Ramène le flip
+        setTimeout(() => {
+            el.classList.remove("flip-out");
+            el.classList.add("flip-in");
+        }, 500);
+
+        // Fin de l'animation
+        setTimeout(() => {
+            el.classList.remove("flip-in");
+            setIsFlipping(false);
+        }, 1000);
     };
 
     const handleOpenModal = () => {

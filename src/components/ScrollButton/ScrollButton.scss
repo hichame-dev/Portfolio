@@ -4,17 +4,12 @@
     position: fixed;
     bottom: 6rem;
     left: 50%;
-        transform: translateX(-50%);
+    transform: translateX(-50%);
     z-index: 999;
     cursor: pointer;
     background: transparent;
     border: none;
     padding: 0;
-    animation: pulse 2.5s infinite ease-in-out;
-
-    &:hover {
-        transform: scale(1.05);
-    }
 
     .globe-3d {
         width: 4rem;
@@ -30,7 +25,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: transform 0.3s ease;
+        animation: pulse 2.5s infinite ease-in-out;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            box-shadow:
+                0 0 15px var(--accent-color),
+                0 0 35px var(--accent-color),
+                0 0 60px rgba(0, 240, 255, 0.6);
+            transform: scale(1.1);
+        }
     }
 
     .arrow {

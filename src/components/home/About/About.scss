@@ -23,7 +23,6 @@
         z-index: 0;
         pointer-events: none;
 
-        // 🧼 Désactive le glow en mode clair
         [data-theme="light"] & {
             display: none;
         }
@@ -48,6 +47,7 @@
         }
     }
 
+    // Animation image
     .profile-img {
         flex-shrink: 0;
         width: 35rem;
@@ -59,6 +59,10 @@
         transition: transform 0.5s ease;
         position: relative;
         margin: 0 auto;
+
+        opacity: 0;
+        animation: fadeInLeft 1s ease-out forwards;
+        animation-play-state: paused;
 
         &:hover {
             transform: scale(1.05);
@@ -98,12 +102,18 @@
         }
     }
 
+    // Animation texte
     .text-content {
         flex: 1;
         color: var(--text-color);
         font-family: $font-primary;
         text-align: center;
         margin-top: 3rem;
+
+        opacity: 0;
+        animation: fadeInUp 1s ease-out forwards;
+        animation-delay: 0.4s;
+        animation-play-state: paused;
 
         @include respond(lg) {
             text-align: left;
@@ -145,15 +155,25 @@
         }
     }
 
-    // 🌞 Thème clair (juste pour désactiver certaines ombres si besoin)
+    // 🌞 Thème clair
     [data-theme='light'] & {
         background: linear-gradient(to bottom, #D1D5DB, #D1D5DB);
 
-        // ✅ on garde les ombres (tu l’as demandé)
         .text-content {
             .intro-title {
                 color: var(--accent-color);
             }
+        }
+    }
+
+    // 🔥 Déclenche l’animation quand la section est visible
+    &.in-view {
+        .profile-img {
+            animation-play-state: running;
+        }
+
+        .text-content {
+            animation-play-state: running;
         }
     }
 }
@@ -207,6 +227,7 @@
     }
 }
 
+// Keyframes
 @keyframes fogPulse {
 
     0%,
@@ -218,5 +239,39 @@
     50% {
         transform: scale(1.05);
         opacity: 0.15;
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px) scale(0.95);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateX(5px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }

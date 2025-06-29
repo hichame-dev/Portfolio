@@ -44,8 +44,16 @@
   border: 1px solid rgba(var(--accent-color), 0.15);
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.08);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.8s ease, opacity 0.8s ease;
   transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.deck-section .deck-card.flip-out {
+  transform: rotateY(90deg);
+  opacity: 0;
+}
+.deck-section .deck-card.flip-in {
+  animation: flipIn 0.5s forwards;
 }
 [data-theme=light] .deck-section .deck-card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -68,7 +76,7 @@
   color: var(--accent-color);
   margin-bottom: 1rem;
 }
-.deck-section .deck-card .tech-list {
+.deck-section .deck-card l .tech-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -131,5 +139,15 @@
   50% {
     transform: scale(1.05);
     opacity: 0.15;
+  }
+}
+@keyframes flipIn {
+  from {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
   }
 }/*# sourceMappingURL=DeckProjets.css.map */

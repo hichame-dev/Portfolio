@@ -58,6 +58,9 @@
   transition: transform 0.5s ease;
   position: relative;
   margin: 0 auto;
+  opacity: 0;
+  animation: fadeInLeft 1s ease-out forwards;
+  animation-play-state: paused;
 }
 .about-section .profile-img:hover {
   transform: scale(1.05);
@@ -103,6 +106,10 @@
   font-family: "Inter", sans-serif;
   text-align: center;
   margin-top: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.4s;
+  animation-play-state: paused;
 }
 @media (max-width: 1024px) {
   .about-section .text-content {
@@ -144,6 +151,12 @@
 }
 [data-theme=light] .about-section .text-content .intro-title {
   color: var(--accent-color);
+}
+.about-section.in-view .profile-img {
+  animation-play-state: running;
+}
+.about-section.in-view .text-content {
+  animation-play-state: running;
 }
 
 @media (max-width: 576px) {
@@ -193,5 +206,33 @@
   50% {
     transform: scale(1.05);
     opacity: 0.15;
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.95);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }/*# sourceMappingURL=About.css.map */

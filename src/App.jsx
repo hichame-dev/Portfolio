@@ -5,8 +5,8 @@ import HeroBanner from "./components/home/HeroBanner/HeroBanner";
 import TechCarousel from "./hooks/common/TechCarousel/TechCarousel";
 import Intro from "./components/home/Intro/Intro";
 import DeckProjets from "./components/projets/DeckProjets";
-import Contact from "./components/contact/contact";
-// import useSnapToCarousels from "./hooks/useSnapScroll";
+import Contact from "./components/contact/Contact";
+
 import About from "./components/home/About/About";
 import "./styles/main.scss";
 
