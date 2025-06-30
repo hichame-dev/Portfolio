@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ScrollButton from "../../ScrollButton/ScrollButton";
+
 
 import "./Intro.scss";
 
@@ -71,8 +71,7 @@ function Intro() {
                 </div>
             </div>
 
-            {/* ✅ Bouton scroll toujours visible */}
-            <ScrollButton targetId="second-carousel" className="intro-scroll" />
+        
         </section>
     );
 }

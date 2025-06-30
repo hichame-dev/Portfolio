@@ -3,7 +3,7 @@
 
 .hero-banner {
     position: relative;
-    height: calc(100vh + 6rem); // espace supplémentaire sous header
+    height: calc(75vh + 6rem);
     width: 100%;
     overflow: hidden;
 
@@ -13,23 +13,20 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('../../../assets/images/main_desktop.webp');
+        background-image: url('../../../assets/images/main_desktop.we');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         z-index: 0;
-        filter: brightness(1.2) contrast(1.1) saturate(1.3);
+        filter: brightness(1.2) contrast(1.1) saturate(1.2);
     }
 
     .overlay {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         background-color: rgba(0, 0, 0, 0.35);
         -webkit-backdrop-filter: blur(2px) brightness(0.65);
-        backdrop-filter: blur(2px) brightness(0.65);
+        backdrop-filter: blur(3px) brightness(0.75);
         z-index: 1;
     }
 
@@ -41,7 +38,7 @@
         transform: translateX(-50%);
         width: 80%;
         height: 40%;
-        background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.08), transparent 70%);
+        background: radial-gradient(ellipse at center, rgba(194, 163, 108, 0.1), transparent 70%);
         z-index: 1;
     }
 
@@ -61,24 +58,23 @@
         height: 100%;
         width: 100%;
         gap: $gap-lg;
-        transform: translateY(-10.5rem); 
         padding: $gap-md;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
+        transform: translateY(-10.5rem);
         font-family: $font-title;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        
+        color: $accent-luxe;
 
         h2.domino span,
-            h1.reveal-name span,
-            p.fade-in {
-                display: inline-block;
-                will-change: transform, opacity;
-            }
+        h1.reveal-name span,
+        p.fade-in {
+            display: inline-block;
+            will-change: transform, opacity;
+            color: $accent-luxe;
+        }
 
         p.fade-in {
             font-size: 4rem;
@@ -87,10 +83,38 @@
         }
 
         h1.reveal-name span {
-            font-size: 6rem;
-            display: inline-block;
-            color: $text-light;
-            text-shadow: 0 0 20px $accent, 0 0 8px $accent;
+            font-size: 5rem;
+            color: $accent-luxe;
+            margin-left: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); // ✨ petit relief luxe
+        }
+    }
+
+    .scroll-button {
+        margin-top: -10rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    @include respond(lg) {
+        .background-static {
+            background-image: url('../../../assets/images/main.webp');
+        }
+
+        .text-content {
+            transform: translateY(-12rem);
+
+            h2.domino span {
+                font-size: 2.2rem;
+            }
+
+            p.fade-in {
+                font-size: 2.6rem;
+            }
+
+            h1.reveal-name span {
+                font-size: 4rem;
+            }
         }
     }
 
@@ -101,7 +125,6 @@
         }
 
         &::after {
-            background-image: url('../../../assets/images/main.webp');
             opacity: 0.02;
         }
 
@@ -121,38 +144,4 @@
             }
         }
     }
-
-        .scroll-button {
-            margin-top: -10rem; // ✅ espace entre le texte et le bouton
-            position: relative; // ✅ s'assurer qu'il n'est pas en dessous d’un overlay
-            z-index: 2; // ✅ s'assurer qu’il est au-dessus     }
-
-
-        @include respond(md) {
-            .text-content {
-                transform: translateY(-12rem); // un peu moins haut pour mobile
-            }
-        }
-
-
-    @include respond(lg) {
-        .background-static {
-            background-image: url('../../../assets/images/main.webp'); // version mobile
-        }
-
-        .text-content {
-            h2.domino span {
-                font-size: 2.2rem;
-            }
-
-            p.fade-in {
-                font-size: 2.6rem;
-            }
-
-            h1.reveal-name span {
-                font-size: 4rem;
-            }
-        }
-    }
-        }
-    }
+}

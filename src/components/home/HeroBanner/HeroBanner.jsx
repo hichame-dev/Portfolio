@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./HeroBanner.scss";
-import ScrollButton from "../../ScrollButton/ScrollButton";
+
 
 
 function HeroBanner() {
@@ -61,7 +61,7 @@ function HeroBanner() {
                     ))}
                 </h1>
             </div>
-            <ScrollButton targetId="first-carousel" />
+            
 
         </section>
     );

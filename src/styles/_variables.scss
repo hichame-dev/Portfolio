@@ -1,3 +1,4 @@
+
 @use "sass:color";
 
 // ==========================
@@ -122,3 +123,20 @@ $glow-color: rgba(0, 240, 255, 0.4); // lumière douce bleutée pour les effets 
     --accent-color: #00f0ff;
     --accent-color-hover: #17d4d4;
 }
+$header-bg-luxe: #121212;
+$accent-luxe: #C2A36C;
+$text-light: #e0e0e0;
+
+$header-bg-luxe: #121212;
+
+$header-bg-luxe: #121212; // fond sombre luxe
+$accent-luxe: #C2A36C; // or luxe
+$text-light: #e0e0e0; // texte clair
+$text-dark: #121212; // texte foncé
+
+$section-padding: 6rem 2rem; // padding général
+$card-max-width: 30rem;
+$card-padding: 2rem;
+
+$font-primary: 'Roboto', sans-serif;
+$font-title: 'Merriweather', serif;

@@ -10,16 +10,8 @@ function Header() {
     };
 
     return (
-        <header className="header">
-            <div className="logo-wrapper">
-                <div className="logo-text">Hichame-Dev</div>
-            </div>
-
-            <div className={`burger ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <header className="luxury-header">
+            <div className="logo">Hichame_Dev</div>
 
             <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
                 <a href="#intro">Accueil</a>
@@ -27,6 +19,12 @@ function Header() {
                 <a href="#projects">Projets</a>
                 <a href="#contact">Contact</a>
             </nav>
+
+            <div className={`burger ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
             <ThemeToggle />
         </header>

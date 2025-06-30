@@ -78,13 +78,13 @@
 }
 .hero-banner .text-content p.fade-in {
   font-size: 4rem;
-  color: #eeeeee;
+  color: #e0e0e0;
   font-family: "Inter", sans-serif;
 }
 .hero-banner .text-content h1.reveal-name span {
   font-size: 6rem;
   display: inline-block;
-  color: #eeeeee;
+  color: #e0e0e0;
   text-shadow: 0 0 20px #00f0ff, 0 0 8px #00f0ff;
 }
 [data-theme=light] .hero-banner::before {

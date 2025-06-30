@@ -5,8 +5,10 @@
     width: 100%;
     height: 7rem;
     overflow: hidden;
-    background-color: var(--carousel-bg);
-    padding: 1rem 1rem !important;
+    background: #000; // noir pur
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05); // effet brillant intérieur
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.02), #000);
+    padding: 1rem;
 
     .carousel-track {
         display: flex;
@@ -23,26 +25,32 @@
         padding-top: 0.5rem;
 
         img {
-            height: 3.5rem;
-            width: auto;
-            filter: drop-shadow(0 0 5px $accent);
-            transition: filter 0.3s ease;
+            height: 3.2rem;
+            // pas de width: auto
+            filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.6));
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
 
         .stack-text {
-            font-size: 1.9rem;
-            font-family: $font-title;
-            color: $dynamic-accent;
-            font-weight: 600;
-            letter-spacing: 0.05em;
+            font-size: 1.6rem;
+            font-family: $font-primary;
+            color: $accent-luxe;
+            font-weight: 500;
+            letter-spacing: 0.03em;
             padding: 0 0.5rem;
             transition: color 0.3s ease;
+
+            &:hover {
+                color: lighten($accent-luxe, 10%);
+            }
         }
     }
 
     @include respond(md) {
-        height: auto;
-
         .carousel-track {
             gap: 3rem;
         }
@@ -52,20 +60,19 @@
         }
     }
 
-    // 🌞 Thème clair : texte blanc et icônes noires
     [data-theme="light"] & {
+        background-color: var(--carousel-bg-light);
+
         .stack-text {
-            color: #ffffff;
+            color: $accent-luxe;
         }
 
         img {
-            filter: brightness(0); // rend les SVG noirs
+            filter: brightness(0.1);
         }
     }
 }
 
-// Supprime toute marge auto-ajoutée par le layout
 section.tech-carousel {
     margin-top: 0 !important;
 }
-
