@@ -1,5 +1,6 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixin" as *;
+@use "sass:color";
 
 @keyframes fadeRotateY {
     from {
@@ -9,7 +10,7 @@
 
     to {
         opacity: 1;
-        transform: rotateY(0deg);
+        transform: rotateY(0);
     }
 }
 
@@ -39,22 +40,23 @@
 
 .hero-banner {
     position: relative;
-    height: calc(75vh + 6rem);
+    height: calc(85vh + 6rem);
     width: 100%;
     overflow: hidden;
+    
 
     .background-static {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #121212; // ton fond sombre
-            background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
-            background-size: 2px 2px;
-            z-index: 0;
-            filter: brightness(1.2) contrast(1.1) saturate(1.2);
-        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #121212;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
+        background-size: 2px 2px;
+        z-index: 0;
+        filter: brightness(1.2) contrast(1.1) saturate(1.2);
+    }
 
     .overlay {
         position: absolute;
@@ -81,7 +83,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-image: url('../../../assets/images/grain-sharp.png');
+        background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
         opacity: 0.03;
         pointer-events: none;
         z-index: 1;
@@ -99,12 +101,14 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        transform: translateY(-10.5rem);
+        transform: translateY(-3rem); // encore plus bas
         font-family: $font-title;
         color: $accent-luxe;
 
         h2.domino span {
             display: inline-block;
+            color: $accent-luxe;
+            text-shadow: 0 0 6px rgba($accent-luxe, 0.5);
             animation: fadeRotateY 0.6s ease-out forwards;
 
             @for $i from 1 through 100 {
@@ -116,7 +120,7 @@
 
         p.fade-in {
             font-size: 4rem;
-            color: $text-light;
+            color: #ffffff; // blanc pur
             font-family: $font-primary;
             animation: fadeSlideUp 1.2s ease-out forwards;
             animation-delay: 2.4s;
@@ -127,7 +131,7 @@
             font-size: 5rem;
             color: $accent-luxe;
             margin-left: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 0 8px rgba($accent-luxe, 0.6);
             animation: fadeScaleX 0.8s ease-out forwards;
 
             @for $i from 1 through 100 {
@@ -150,7 +154,7 @@
         }
 
         .text-content {
-            transform: translateY(-12rem);
+            transform: translateY(-20rem); // encore plus bas sur grand écran
 
             h2.domino span {
                 font-size: 2.2rem;
@@ -166,7 +170,6 @@
         }
     }
 
-    // 🌗 Thème clair
     [data-theme="light"] & {
         &::before {
             display: none;

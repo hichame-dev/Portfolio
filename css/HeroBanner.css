@@ -10,7 +10,7 @@
   }
   to {
     opacity: 1;
-    transform: rotateY(0deg);
+    transform: rotateY(0);
   }
 }
 @keyframes fadeSlideUp {
@@ -35,7 +35,7 @@
 }
 .hero-banner {
   position: relative;
-  height: calc(75vh + 6rem);
+  height: calc(85vh + 6rem);
   width: 100%;
   overflow: hidden;
 }
@@ -74,7 +74,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../../../assets/images/grain-sharp.png");
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
   opacity: 0.03;
   pointer-events: none;
   z-index: 1;
@@ -91,12 +91,14 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  transform: translateY(-10.5rem);
+  transform: translateY(-3rem);
   font-family: "Merriweather", serif;
   color: #C2A36C;
 }
 .hero-banner .text-content h2.domino span {
   display: inline-block;
+  color: #C2A36C;
+  text-shadow: 0 0 6px rgba(194, 163, 108, 0.5);
   animation: fadeRotateY 0.6s ease-out forwards;
 }
 .hero-banner .text-content h2.domino span:nth-child(1) {
@@ -401,7 +403,7 @@
 }
 .hero-banner .text-content p.fade-in {
   font-size: 4rem;
-  color: #e0e0e0;
+  color: #ffffff;
   font-family: "Roboto", sans-serif;
   animation: fadeSlideUp 1.2s ease-out forwards;
   animation-delay: 2.4s;
@@ -411,7 +413,7 @@
   font-size: 5rem;
   color: #C2A36C;
   margin-left: 2rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 8px rgba(194, 163, 108, 0.6);
   animation: fadeScaleX 0.8s ease-out forwards;
 }
 .hero-banner .text-content h1.reveal-name span:nth-child(1) {
@@ -724,7 +726,7 @@
     background-image: url("../../../assets/images/main.webp");
   }
   .hero-banner .text-content {
-    transform: translateY(-12rem);
+    transform: translateY(-20rem);
   }
   .hero-banner .text-content h2.domino span {
     font-size: 2.2rem;
