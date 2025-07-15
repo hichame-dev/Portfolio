@@ -1,0 +1,112 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixin" as *;
+
+.notfound-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, $header-bg-luxe, darken($header-bg-luxe, 5%));
+    color: $text-light;
+    font-family: $font-primary;
+    text-align: center;
+    padding: 2rem;
+
+    .notfound-content {
+        max-width: 600px;
+        background: $dynamic-surface;
+        padding: 3rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 20px $glow-color;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        h1 {
+            font-size: 6rem;
+            color: $accent-luxe;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            color: $accent-luxe;
+        }
+
+        p {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            color: $text-muted;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 2rem;
+            border: 1px solid $accent-luxe;
+            color: $accent-luxe;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                background: $accent-luxe;
+                color: $dynamic-btn-text;
+                box-shadow: 0 0 12px $accent-luxe;
+            }
+        }
+    }
+
+    @include respond(md) {
+        .notfound-content {
+            padding: 2rem;
+
+            h1 {
+                font-size: 4.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.4rem;
+            }
+
+            .home-btn {
+                font-size: 1.2rem;
+                padding: 0.7rem 1.5rem;
+            }
+        }
+    }
+
+    [data-theme="light"] & {
+        background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+        color: $text-dark;
+
+        .notfound-content {
+            background: #ffffff;
+            color: $text-dark;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            h1,
+            h2 {
+                color: $accent-luxe;
+            }
+
+            p {
+                color: $text-muted;
+            }
+
+            .home-btn {
+                border-color: $accent-luxe;
+                color: $accent-luxe;
+
+                &:hover {
+                    background: $accent-luxe;
+                    color: $dynamic-btn-text;
+                    box-shadow: 0 0 10px $accent-luxe;
+                }
+            }
+        }
+    }
+}

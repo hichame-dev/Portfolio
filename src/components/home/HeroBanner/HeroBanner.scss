@@ -1,6 +1,42 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixin" as *;
 
+@keyframes fadeRotateY {
+    from {
+        opacity: 0;
+        transform: rotateY(180deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeScaleX {
+    from {
+        opacity: 0;
+        transform: scaleX(-1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
 .hero-banner {
     position: relative;
     height: calc(75vh + 6rem);
@@ -8,18 +44,17 @@
     overflow: hidden;
 
     .background-static {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('../../../assets/images/main_desktop.we');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: 0;
-        filter: brightness(1.2) contrast(1.1) saturate(1.2);
-    }
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212; // ton fond sombre
+            background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
+            background-size: 2px 2px;
+            z-index: 0;
+            filter: brightness(1.2) contrast(1.1) saturate(1.2);
+        }
 
     .overlay {
         position: absolute;
@@ -68,25 +103,38 @@
         font-family: $font-title;
         color: $accent-luxe;
 
-        h2.domino span,
-        h1.reveal-name span,
-        p.fade-in {
+        h2.domino span {
             display: inline-block;
-            will-change: transform, opacity;
-            color: $accent-luxe;
+            animation: fadeRotateY 0.6s ease-out forwards;
+
+            @for $i from 1 through 100 {
+                &:nth-child(#{$i}) {
+                    animation-delay: 0.05s * $i;
+                }
+            }
         }
 
         p.fade-in {
             font-size: 4rem;
             color: $text-light;
             font-family: $font-primary;
+            animation: fadeSlideUp 1.2s ease-out forwards;
+            animation-delay: 2.4s;
         }
 
         h1.reveal-name span {
+            display: inline-block;
             font-size: 5rem;
             color: $accent-luxe;
             margin-left: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); // ✨ petit relief luxe
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            animation: fadeScaleX 0.8s ease-out forwards;
+
+            @for $i from 1 through 100 {
+                &:nth-child(#{$i}) {
+                    animation-delay: 3s + 0.06s * $i;
+                }
+            }
         }
     }
 

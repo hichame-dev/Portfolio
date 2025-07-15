@@ -53,7 +53,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-color);
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: var(--text-color);
 }
 
@@ -183,7 +183,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -200,7 +200,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Outfit", sans-serif;
+  font-family: "Merriweather", serif;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: var(--accent-color);
@@ -226,7 +226,7 @@ a:hover {
 🧱 SECTIONS
 ========================== */
 section {
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
   position: relative;
   z-index: 1;
   background-color: transparent;

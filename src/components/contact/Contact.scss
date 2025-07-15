@@ -1,5 +1,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixin" as *;
+@use "sass:color";
 
 .contact-page {
     padding: $section-padding;
@@ -9,15 +10,16 @@
     align-items: center;
     justify-content: center;
 
-    // 🌗 fond dynamique selon thème
-    background: linear-gradient(to bottom, var(--intro-bg-top), var(--intro-bg-bottom));
-    color: var(--text-color);
+    background: linear-gradient(to bottom,
+            $header-bg-luxe,
+            color.adjust($header-bg-luxe, $lightness: -5%));
+    color: $text-light;
     text-align: center;
 
     h1 {
         font-size: 4rem;
         margin-bottom: 2rem;
-        color: var(--accent-color);
+        color: $accent-luxe;
         font-family: $font-title;
     }
 
@@ -25,13 +27,13 @@
         font-size: 1.8rem;
         margin-bottom: 4rem;
         font-family: $font-primary;
-        color: var(--text-color);
+        color: $text-light;
     }
 
     .contact-form-wrapper {
         width: 100%;
         max-width: 60rem;
-        background: var(--surface-color); // ✅ fond clair modale
+        background: color.adjust($header-bg-luxe, $lightness: 3%);
         padding: 3rem;
         border-radius: $radius-sm;
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
@@ -39,62 +41,62 @@
         backdrop-filter: blur(8px);
     }
 
-        .form {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-    
-            input,
-            textarea {
-                width: 100%;
-                padding: 1.2rem;
-                border: 1px solid rgba(0, 0, 0, 0.08); // bordure par défaut (sombre)
-                border-radius: $radius-sm;
-                background-color: rgba(255, 255, 255, 0.03);
-                color: var(--text-color);
-                font-family: $font-primary;
-                font-size: 1.6rem;
-                resize: none;
-    
-                &::placeholder {
-                    color: var(--text-muted, #575353);
-                }
-    
-                &:focus {
-                    border-color: var(--accent-color);
-                    box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
-                    outline: none;
-                }
-    
-                &.input-error {
-                    border-color: red;
-                }
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: $radius-sm;
+            background-color: rgba(255, 255, 255, 0.03);
+            color: $text-light;
+            font-family: $font-primary;
+            font-size: 1.6rem;
+            resize: none;
+
+            &::placeholder {
+                color: $text-muted;
             }
-    
-            // 🌞 Bordure plus visible en mode clair uniquement
-            [data-theme="light"] & {
-    
-                input,
-                textarea {
-                    border: 1px solid $text-muted;
-                }
+
+            &:focus {
+                border-color: $accent-luxe;
+                box-shadow: 0 0 0 2px rgba(194, 163, 108, 0.2);
+                outline: none;
+            }
+
+            &.input-error {
+                border-color: red;
             }
         }
 
-        button {
-            padding: 1.2rem 2rem;
-            border: none;
-            background-color: var(--accent-color);
-            color: var(--btn-text, black);
-            font-size: 1.6rem;
-            font-weight: bold;
-            border-radius: $radius-sm;
-            cursor: pointer;
-            transition: filter 0.3s ease;
+        // 🌞 Mode clair
+        [data-theme="light"] & {
 
-            &:hover {
-                filter: brightness(1.1);
+            input,
+            textarea {
+                border: 1px solid $text-muted;
+                color: $text-dark;
             }
+        }
+    }
+
+    button {
+        padding: 1.2rem 2rem;
+        border: none;
+        background-color: $accent-luxe;
+        color: $text-dark;
+        font-size: 1.6rem;
+        font-weight: bold;
+        border-radius: $radius-sm;
+        cursor: pointer;
+        transition: filter 0.3s ease;
+
+        &:hover {
+            filter: brightness(1.1);
         }
     }
 
@@ -108,7 +110,7 @@
 
     .success-message {
         background-color: rgba(0, 255, 170, 0.15);
-        color: var(--accent-color);
+        color: $accent-luxe;
         padding: 1.5rem;
         margin-bottom: 2rem;
         border-radius: $radius-sm;
@@ -139,3 +141,4 @@
             font-size: 1.6rem;
         }
     }
+}

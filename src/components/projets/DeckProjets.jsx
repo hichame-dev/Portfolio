@@ -1,25 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./DeckProjets.scss";
 import ModalProjet from "../modal/modal";
-import gsap from "gsap";
 import projects from "../../data/Projects.json";
 import { projectImages } from "../../data/projectImages";
 
 const DeckProjets = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [modalIndex, setModalIndex] = useState(null);
-    const cardRef = useRef(null);
+    const [fade, setFade] = useState(false);
 
     const handleNext = () => {
-        gsap.to(cardRef.current, {
-            rotateY: 90,
-            opacity: 0,
-            duration: 0.8,
-            onComplete: () => {
-                setCurrentIndex((prev) => (prev + 1) % projects.length);
-                gsap.fromTo(cardRef.current, { rotateY: -90, opacity: 0 }, { rotateY: 0, opacity: 1, duration: 0.5 });
-            }
-        });
+        setFade(true);
+        setTimeout(() => {
+            setCurrentIndex((prev) => (prev + 1) % projects.length);
+            setFade(false);
+        }, 400);
     };
 
     const handleOpenModal = () => {
@@ -41,14 +36,13 @@ const DeckProjets = () => {
             <h2 className="section-title">Mes Projets</h2>
 
             <div
-                className="deck-card"
-                ref={cardRef}
+                className={`deck-card ${fade ? "fade-card" : ""}`}
                 onClick={handleOpenModal}
                 role="button"
                 tabIndex={0}
                 aria-label={`Voir les détails du projet ${project.title}`}
             >
-                <img src={projectImages[project.image]} alt={project.title} />
+                <img src={projectImages[`../assets/${project.image}`]} alt={project.title} />
                 <h3>{project.title}</h3>
                 <ul className="tech-list">
                     {project.techs.map((tech, i) => (

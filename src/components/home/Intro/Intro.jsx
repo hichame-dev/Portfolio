@@ -1,50 +1,27 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-
 import "./Intro.scss";
 
-gsap.registerPlugin(ScrollTrigger);
-
 function Intro() {
-    const introRef = useRef(null);
-
-    console.log("🔄 Intro component rendering...");
+    const introRef = useRef();
 
     useEffect(() => {
-        console.log("✅ Intro component mounted.");
-        const cards = introRef.current.querySelectorAll(".intro-block");
-        console.log("🎯 Intro cards found:", cards.length);
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.3 } // dès que 30% de la carte est visible
+        );
 
-        cards.forEach((card, i) => {
-            console.log(`🧩 Animate card ${i}`, card);
-            gsap.fromTo(
-                card,
-                { opacity: 0, x: -30, scale: 0.98 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    duration: 1.9,
-                    ease: "expo.out",
-                    delay: i * 0.5,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 93%",
-                        toggleActions: "play none none none",
-                        once: true,
-                    },
-                }
-            );
-        });
+        const blocks = introRef.current.querySelectorAll(".intro-block");
+        blocks.forEach(block => observer.observe(block));
+
+        return () => observer.disconnect();
     }, []);
-
-    console.log("🖱️ Rendering ScrollButton with props:");
-    console.log({
-        targetId: "second-carousel",
-        className: "intro-scroll"
-    });
 
     return (
         <section id="intro" className="intro-section" ref={introRef}>
@@ -70,8 +47,6 @@ function Intro() {
                     </div>
                 </div>
             </div>
-
-        
         </section>
     );
 }

@@ -6,9 +6,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    background: $dynamic-footer-bg;
-    color: $footer-text;
+
+    background: $header-bg-luxe;
+    color: $text-soft;
     font-family: $font-primary;
 
     .footer-left {
@@ -24,15 +24,15 @@
         a img {
             width: 2.5rem;
             height: 2.5rem;
-            filter: drop-shadow(0 0 6px $accent);
-            transition: transform 0.3s;
+            filter: drop-shadow(0 0 6px $accent-luxe);
+            transition: filter 0.3s ease, transform 0.3s ease;
 
             &:hover {
-                transform: scale(1.2);
+                transform: scale(1.1);
+                filter: brightness(1.2) hue-rotate(10deg) drop-shadow(0 0 8px $accent-luxe);
             }
         }
     }
-        
 
     @media (max-width: 768px) {
         flex-direction: column;
@@ -49,7 +49,11 @@
         }
 
         .footer-right a img {
-            filter: none;
+            filter: drop-shadow(0 0 4px $accent-luxe);
+
+            &:hover {
+                filter: brightness(1.1) hue-rotate(8deg) drop-shadow(0 0 6px $accent-luxe);
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 [
     {
         "title": "Kasa",
-        "image": "kasa.webp",
+        "image": "optimized/kasa.webp",
         "techs": [
             "React",
             "Sass",
@@ -12,7 +12,7 @@
     },
     {
         "title": "Sophie Bluel",
-        "image": "sophie_bluel.webp",
+        "image": "optimized/sophie_bluel.webp",
         "techs": [
             "JavaScript",
             "API",
@@ -23,7 +23,7 @@
     },
     {
         "title": "Booki",
-        "image": "booki.webp",
+        "image": "optimized/booki.webp",
         "techs": [
             "HTML",
             "CSS",
@@ -34,7 +34,7 @@
     },
     {
         "title": "Oh My Food",
-        "image": "ohmyfood.webp",
+        "image": "optimized/ohmyfood.webp",
         "techs": [
             "HTML",
             "CSS",
@@ -45,7 +45,7 @@
     },
     {
         "title": "Nina Carducci",
-        "image": "nina.webp",
+        "image": "optimized/nina.webp",
         "techs": [
             "SEO",
             "Accessibilité",
@@ -56,7 +56,7 @@
     },
     {
         "title": "724events",
-        "image": "724events.webp",
+        "image": "optimized/724events.webp",
         "techs": [
             "React.js",
             "Backend",
@@ -67,7 +67,7 @@
     },
     {
         "title": "ArgentBank",
-        "image": "argentbank.webp",
+        "image": "optimized/argentbank.webp",
         "techs": [
             "MongoDB",
             "Redux",
@@ -78,7 +78,7 @@
     },
     {
         "title": "Roadtrip App",
-        "image": "roadtrip.webp",
+        "image": "optimized/roadtrip.webp",
         "techs": [
             "React Native",
             "Mapbox",
@@ -89,7 +89,7 @@
     },
     {
         "title": "Qwenta",
-        "image": "Qwenta.webp",
+        "image": "optimized/Qwenta.webp",
         "techs": [
             "Figma",
             "Notion",

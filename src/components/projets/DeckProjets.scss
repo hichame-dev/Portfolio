@@ -1,153 +1,169 @@
 @use "../../styles/variables" as *;
-@use "../../styles/mixin" as *;
+@use "sass:color";
 
 .deck-section {
-    padding: 6rem 2rem;
-    background: linear-gradient(to bottom, var(--intro-bg-top), var(--intro-bg-bottom));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $section-padding;
+    background: linear-gradient(to bottom, $header-bg-luxe, color.adjust($header-bg-luxe, $lightness: -5%));
+    color: $text-light;
+    font-family: $font-primary;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: -30%;
-        left: -30%;
-        width: 180%;
-        height: 180%;
-        background: $radial-fog;
-        animation: fogPulse 20s infinite ease-in-out;
-        z-index: 0;
-        pointer-events: none;
-
-        [data-theme="light"] & {
-            display: none;
-        }
-    }
-
-    >* {
-        position: relative;
-        z-index: 1;
-    }
 
     .section-title {
         font-size: 3.6rem;
-        margin-bottom: 3rem;
-        color: $dynamic-accent;
+        margin-bottom: 4rem;
         font-family: $font-title;
+        color: $accent-luxe;
     }
 
     .deck-card {
-        width: 320px;
-        margin: 0 auto;
-        padding: 2rem;
         background: $dynamic-surface;
+        color: $dynamic-text;
+        padding: 2rem;
         border-radius: 1.2rem;
-        border: 1px solid rgba($dynamic-accent, 0.15);
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.08); // valeur par défaut (sombre)
+        box-shadow: 0 0 20px rgba($accent-luxe, 0.3);
+        max-width: 500px;
+        width: 100%;
         cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        transform-style: preserve-3d;
-
-        // 🌞 Amélioration visuelle en mode clair
-        [data-theme="light"] & {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+        overflow: hidden;
 
         &:hover {
-            transform: scale(1.03) rotateY(5deg);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba($accent-luxe, 0.5);
         }
 
         img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
             border-radius: 0.8rem;
             margin-bottom: 1.5rem;
-            border: 1.5px solid rgba(0, 0, 0, 0.4);
         }
 
         h3 {
             font-size: 2rem;
-            color: $dynamic-accent;
             margin-bottom: 1rem;
+            color: $accent-luxe;
         }
 
         .tech-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            font-size: 1.4rem;
-            color: $dynamic-text; // ✅ couleur plus visible
             flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 1.2rem;
+            color: $text-muted;
+            margin-bottom: 1rem;
         }
     }
 
+    .deck-card.fade-card {
+        opacity: 0;
+        transform: rotateY(90deg) scale(0.9);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
     .next-button {
-        margin-top: 3rem;
-        padding: 1rem 2rem;
-        font-size: 1.6rem;
-        background: $dynamic-accent;
-        color: $dynamic-btn-text;
-        border: none;
+        margin-top: 2.5rem;
+        padding: 0.8rem 2rem;
+        border: 1px solid $accent-luxe;
         border-radius: 2rem;
+        background: transparent;
+        color: $accent-luxe;
+        font-size: 1.4rem;
         cursor: pointer;
-        box-shadow: 0 0 10px $dynamic-accent;
-        transition: all 0.3s ease;
+        transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 
         &:hover {
-            filter: brightness(1.15);
-            box-shadow: 0 0 15px $dynamic-accent;
+            background: $accent-luxe;
+            color: $text-light;
+            box-shadow: 0 0 12px rgba($accent-luxe, 0.5);
         }
     }
 
     .scroll-to-contact {
-        margin-top: 2rem;
-        text-align: center;
+        margin-top: 4rem;
 
         .scroll-btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            color: $dynamic-accent;
-            border: 1px solid $dynamic-accent;
+            padding: 0.8rem 2rem;
             border-radius: 2rem;
+            border: 1px solid $accent-luxe;
+            color: $accent-luxe;
             text-decoration: none;
-            font-size: 1.2rem;
             transition: 0.3s ease;
+            font-size: 1.3rem;
 
             &:hover {
-                background-color: $dynamic-accent;
-                color: $dynamic-btn-text;
+                background: $accent-luxe;
+                color: $text-light;
+                box-shadow: 0 0 10px rgba($accent-luxe, 0.5);
             }
         }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 2.8rem;
+        }
+
         .deck-card {
-            width: 90%;
+            img {
+                height: 200px;
+            }
+
+            h3 {
+                font-size: 1.8rem;
+            }
+
+            .tech-list {
+                font-size: 1rem;
+            }
         }
 
-        .next-button {
-            width: 80%;
-            font-size: 1.4rem;
+        .next-button,
+        .scroll-btn {
+            font-size: 1.2rem;
+            padding: 0.7rem 1.5rem;
         }
     }
-}
 
-@keyframes fogPulse {
+    [data-theme="light"] & {
+        background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+        color: $text-dark;
 
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.1;
-    }
+        .deck-card {
+            background: #ffffff;
+            color: $text-dark;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-    50% {
-        transform: scale(1.05);
-        opacity: 0.15;
+            &:hover {
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            }
+
+            h3 {
+                color: $accent-luxe;
+            }
+
+            .tech-list {
+                color: $text-muted;
+            }
+        }
+
+        .next-button,
+        .scroll-btn {
+            border-color: $accent-luxe;
+            color: $accent-luxe;
+
+            &:hover {
+                background: $accent-luxe;
+                color: $text-light;
+                box-shadow: 0 0 10px rgba($accent-luxe, 0.5);
+            }
+        }
     }
 }

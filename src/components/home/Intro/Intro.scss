@@ -1,5 +1,6 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixin" as *;
+@use "sass:color";
 
 .intro-section {
     min-height: 80vh;
@@ -9,7 +10,7 @@
     justify-content: center;
     background: linear-gradient(to bottom,
         #{$header-bg-luxe},
-        #{darken($header-bg-luxe, 5%)});
+        #{color.adjust($header-bg-luxe, $lightness: -5%)});
     color: $text-light;
     padding: $section-padding;
     position: relative;
@@ -50,15 +51,31 @@
         .intro-block {
             max-width: $card-max-width;
             padding: $card-padding;
-            background: lighten($header-bg-luxe, 3%);
+            background: color.adjust($header-bg-luxe, $lightness: 3%);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 1rem;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+            opacity: 0;
+            transform: translateX(-30px) scale(0.98);
+            transition: opacity 1.9s ease-out, transform 1.9s ease-out;
 
             &:hover {
                 transform: scale(1.06) translateY(-8px);
                 box-shadow: 0 12px 24px rgba(255, 255, 255, 0.12);
+            }
+
+            &.visible {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+
+            &:nth-child(2).visible {
+                transition-delay: 0.5s;
+            }
+
+            &:nth-child(3).visible {
+                transition-delay: 1s;
             }
         }
 
@@ -76,7 +93,6 @@
         }
     }
 
-    // 🌞 Thème clair
     [data-theme="light"] & {
         background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
         color: $text-dark;

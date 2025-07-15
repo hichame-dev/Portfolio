@@ -1,6 +1,6 @@
 import React from "react";
-import profilImg from "../../../assets/images/profil.webp";
-import logoImg from "../../../assets/images/favicon.2.png"; // ton logo au dos
+import profilImg from "../../../assets/optimized/profil.webp";
+import logoImg from "../../../assets/optimized/favicon.2.webp"; // ton logo au dos
 import "./About.scss";
 
 function About() {
