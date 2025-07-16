@@ -1,5 +1,4 @@
-// Utilise Vite import.meta.glob pour mapper toutes tes images optimisées automatiquement
-export const projectImages = import.meta.glob("../assets/optimized/*.webp", {
+export const projectImages = import.meta.glob("../assets/images/*.webp", {
     eager: true,
     import: "default"
 });

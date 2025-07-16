@@ -4,7 +4,7 @@
 .about-section {
     min-height: 75vh;
     padding: 6rem 2rem;
-    background: linear-gradient(to bottom, #121212, #0e0e0e);
+    background: var(--about-bg);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -20,7 +20,7 @@
         left: -30%;
         width: 180%;
         height: 180%;
-        background: radial-gradient(circle, rgba(0, 240, 255, 0.05), transparent 70%);
+        background: radial-gradient(circle, rgba(var(--accent-color-rgb), 0.05), transparent 70%);
         animation: fogPulse 30s infinite ease-in-out;
         z-index: 0;
         pointer-events: none;
@@ -76,8 +76,6 @@
             backface-visibility: hidden;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
 
         .flip-card-front img,
@@ -90,7 +88,7 @@
 
         .flip-card-back {
             transform: rotateY(180deg);
-            background: #121212;
+            background: $dynamic-bg;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -127,7 +125,7 @@
         }
 
         &:focus-within {
-            outline: 2px dashed #d1b886;
+            outline: 2px dashed $dynamic-accent;
             outline-offset: 6px;
         }
 
@@ -163,7 +161,7 @@
 
         .pre-title {
             font-size: 2rem;
-            color: #d1b886;
+            color: $dynamic-accent;
             margin-bottom: 0.8rem;
         }
 
@@ -171,23 +169,21 @@
             font-size: 2.6rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
-            color: #d1b886;
+            color: $dynamic-accent;
         }
 
         .intro-title {
             font-size: 2.2rem;
             font-weight: 700;
-            color: #d1b886;
+            color: $dynamic-accent;
             margin-bottom: 1rem;
         }
 
         .tagline {
             font-size: 1.6rem;
-            color: #d1b886;
+            color: $dynamic-accent;
             margin-bottom: 2rem;
         }
-
-        
     }
 
     @media (min-width: 768px) {
@@ -213,6 +209,7 @@
     }
 }
 
+/* animations inchangées */
 @keyframes fadeInUp {
     from {
         opacity: 0;

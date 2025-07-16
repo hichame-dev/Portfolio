@@ -9,22 +9,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: $header-bg-luxe;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    background: var(--header-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 10;
 
     .logo {
-        font-family: 'Merriweather', serif;
+        font-family: $font-title;
         font-size: $logo-font-size;
         font-weight: 600;
-        color: $accent-luxe;
+        color: var(--accent-color); // 👈 remplace $accent-luxe
         letter-spacing: 0.5px;
+
+        @include respond(md) {
+            transform: translateY(-12px);
+        }
     }
 
     .right-group {
         display: flex;
         align-items: center;
-        gap: 2rem; // espace entre nav, toggle et burger
+        gap: 2rem;
     }
 
     .nav-links {
@@ -35,7 +39,7 @@
         a {
             font-family: $font-primary;
             font-size: $nav-font-size;
-            color: $text-light;
+            color: var(--accent-color); // 👈
             text-decoration: none;
             position: relative;
             transition: color 0.3s ease;
@@ -47,12 +51,8 @@
                 bottom: -4px;
                 height: 2px;
                 width: 0;
-                background: $accent-luxe;
+                background: var(--accent-color); // 👈
                 transition: width 0.3s;
-            }
-
-            &:hover {
-                color: $accent-luxe;
             }
 
             &:hover::after {
@@ -66,7 +66,7 @@
             position: absolute;
             top: 100%;
             right: 2rem;
-            background: $header-bg-luxe;
+            background: var(--header-bg);
             padding: 1rem;
             border-radius: 0.5rem;
             gap: 1rem;
@@ -77,7 +77,7 @@
     .theme-toggle {
         font-size: 2.4rem;
         cursor: pointer;
-        color: $accent-luxe;
+        color: var(--accent-color); // 👈
         transition: transform 0.3s ease;
 
         &:hover {
@@ -94,7 +94,7 @@
         span {
             width: 25px;
             height: 2px;
-            background: $text-light;
+            background: var(--accent-color); // 👈
             transition: 0.3s;
         }
 

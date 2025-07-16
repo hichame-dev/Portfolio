@@ -22,15 +22,23 @@ function ModalProjet({ project, onClose }) {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [closeWithAnimation]);
 
-    // Convertit ton JSON type "optimized/kasa.webp" en clé pour import.meta.glob
-    const imgSrc = projectImages[`../assets/${project.image}`];
+    const imgSrc = projectImages[`../assets/images/${project.image}`];
 
     return ReactDOM.createPortal(
         <div className="modal-overlay">
             <div className="modal-content" ref={modalRef}>
                 <button className="close-button" onClick={closeWithAnimation}>×</button>
                 <h2>{project.title}</h2>
-                <img src={imgSrc} alt={project.title} />
+                <img
+                    src={imgSrc}
+                    srcSet={`${imgSrc} 400w, ${imgSrc} 800w`}
+                    sizes="(max-width: 600px) 400px, 800px"
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="400"
+                    height="300"
+                />
                 <ul className="tech-list">
                     {project.techs.map((tech, i) => (
                         <li key={i}>{tech}</li>

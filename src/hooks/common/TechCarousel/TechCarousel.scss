@@ -36,28 +36,27 @@
 
         img {
             height: 3.2rem;
-            filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(0 0 6px rgba($accent-luxe, 0.5));
+            filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(0 0 6px rgba(var(--accent-color-rgb), 0.5));
             transition: transform 0.3s ease, filter 0.3s ease;
 
             &:hover {
                 transform: scale(1.1);
-                filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(0 0 8px rgba($accent-luxe, 0.8));
+                filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(0 0 8px rgba(var(--accent-color-rgb), 0.8));
             }
         }
 
         .stack-text {
             font-size: 1.6rem;
             font-family: $font-primary;
-            color: $accent-luxe;
+            color: var(--accent-color); // 🌙 par défaut
             font-weight: 500;
             letter-spacing: 0.03em;
             padding: 0 0.5rem;
-            text-shadow: 0 0 6px rgba($accent-luxe, 0.4);
+            text-shadow: 0 0 6px rgba(var(--accent-color-rgb), 0.4);
             transition: color 0.3s ease, text-shadow 0.3s ease;
 
             &:hover {
-                color: color.adjust($accent-luxe, $lightness: 10%);
-                text-shadow: 0 0 8px rgba($accent-luxe, 0.7);
+                text-shadow: 0 0 8px rgba(var(--accent-color-rgb), 0.7);
             }
         }
     }
@@ -73,22 +72,22 @@
     }
 
     [data-theme="light"] & {
-        background-color: var(--carousel-bg-light);
+        background: var(--carousel-bg);
 
         .stack-text {
-            color: $accent-luxe;
-            text-shadow: 0 0 4px rgba($accent-luxe, 0.3);
+            color: var(--text-color); // ☀️ noir en mode light
+            text-shadow: none;
 
             &:hover {
-                text-shadow: 0 0 6px rgba($accent-luxe, 0.6);
+                text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
             }
         }
 
         img {
-            filter: brightness(0.1) drop-shadow(0 0 4px rgba($accent-luxe, 0.4));
+            filter: brightness(0.1) drop-shadow(0 0 4px rgba(var(--accent-color-rgb), 0.4));
 
             &:hover {
-                filter: brightness(0.1) drop-shadow(0 0 6px rgba($accent-luxe, 0.7));
+                filter: brightness(0.1) drop-shadow(0 0 6px rgba(var(--accent-color-rgb), 0.7));
             }
         }
     }

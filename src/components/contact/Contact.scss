@@ -12,7 +12,7 @@
 
     background: linear-gradient(to bottom,
             $header-bg-luxe,
-            color.adjust($header-bg-luxe, $lightness: -5%));
+            rgba(18, 18, 18, 0.95));
     color: $text-light;
     text-align: center;
 
@@ -33,7 +33,7 @@
     .contact-form-wrapper {
         width: 100%;
         max-width: 60rem;
-        background: color.adjust($header-bg-luxe, $lightness: 3%);
+        background: rgba(18, 18, 18, 0.98);
         padding: 3rem;
         border-radius: $radius-sm;
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
@@ -70,16 +70,6 @@
 
             &.input-error {
                 border-color: red;
-            }
-        }
-
-        // 🌞 Mode clair
-        [data-theme="light"] & {
-
-            input,
-            textarea {
-                border: 1px solid $text-muted;
-                color: $text-dark;
             }
         }
     }
@@ -139,6 +129,33 @@
 
         p {
             font-size: 1.6rem;
+        }
+    }
+
+    // 🌞 Mode clair général
+    [data-theme="light"] & {
+        background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+        color: $text-dark;
+
+        h1,
+        p {
+            color: $text-dark;
+        }
+
+        .contact-form-wrapper {
+            background: #ffffff;
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.08);
+        }
+
+        .form input,
+        .form textarea {
+            border: 1px solid $text-muted;
+            color: $text-dark;
+            background-color: rgba(0, 0, 0, 0.02);
+
+            &::placeholder {
+                color: $text-muted;
+            }
         }
     }
 }

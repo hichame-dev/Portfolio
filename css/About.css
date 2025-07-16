@@ -1,13 +1,8 @@
 @charset "UTF-8";
-:root {
-  --accent-color: #00f0ff;
-  --accent-color-hover: #17d4d4;
-}
-
 .about-section {
   min-height: 75vh;
   padding: 6rem 2rem;
-  background: linear-gradient(to bottom, #121212, #0e0e0e);
+  background: var(--about-bg);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -25,7 +20,7 @@
   left: -30%;
   width: 180%;
   height: 180%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.05), transparent 70%);
+  background: radial-gradient(circle, rgba(var(--accent-color-rgb), 0.05), transparent 70%);
   animation: fogPulse 30s infinite ease-in-out;
   z-index: 0;
   pointer-events: none;
@@ -74,8 +69,6 @@
   backface-visibility: hidden;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 .about-section .profile-img-container .flip-card-front img,
 .about-section .profile-img-container .flip-card-back img {
@@ -87,7 +80,7 @@
 }
 .about-section .profile-img-container .flip-card-back {
   transform: rotateY(180deg);
-  background: #121212;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,7 +110,7 @@
   transform: translateY(-4px) scale(1.01);
 }
 .about-section .text-content:focus-within {
-  outline: 2px dashed #d1b886;
+  outline: 2px dashed var(--accent-color);
   outline-offset: 6px;
 }
 .about-section .text-content .pre-title,
@@ -146,24 +139,24 @@
 }
 .about-section .text-content .pre-title {
   font-size: 2rem;
-  color: #d1b886;
+  color: var(--accent-color);
   margin-bottom: 0.8rem;
 }
 .about-section .text-content .intro-lead {
   font-size: 2.6rem;
   font-weight: 600;
   margin-bottom: 0.8rem;
-  color: #d1b886;
+  color: var(--accent-color);
 }
 .about-section .text-content .intro-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #d1b886;
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 .about-section .text-content .tagline {
   font-size: 1.6rem;
-  color: #d1b886;
+  color: var(--accent-color);
   margin-bottom: 2rem;
 }
 @media (min-width: 768px) {
@@ -185,6 +178,7 @@
   }
 }
 
+/* animations inchangées */
 @keyframes fadeInUp {
   from {
     opacity: 0;

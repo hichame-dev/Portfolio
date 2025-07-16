@@ -29,8 +29,8 @@
 }
 
 .modal-content {
-    background: $dynamic-surface;
-    color: $dynamic-text;
+    background: var(--surface-color); // 🔥
+    color: var(--text-color); // 🔥
     padding: 2rem;
     max-width: 600px;
     width: 100%;
@@ -46,7 +46,7 @@
     h2 {
         font-size: 2rem;
         margin-bottom: 1.5rem;
-        color: $accent-luxe;
+        color: var(--accent-color); // 🔥
     }
 
     img {
@@ -76,14 +76,14 @@
         .btn-link {
             padding: 0.6rem 1.6rem;
             border-radius: 2rem;
-            border: 1px solid $accent-luxe;
-            color: $accent-luxe;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
             text-decoration: none;
             transition: 0.3s ease;
             font-size: 1.1rem;
 
             &:hover {
-                background: $accent-luxe;
+                background: var(--accent-color);
                 color: $text-light;
                 box-shadow: 0 0 10px rgba($accent-luxe, 0.8);
             }
@@ -96,7 +96,7 @@
         right: 1.2rem;
         background: none;
         border: none;
-        color: $accent-luxe;
+        color: var(--accent-color);
         font-size: 2rem;
         cursor: pointer;
     }

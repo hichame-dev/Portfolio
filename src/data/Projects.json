@@ -1,7 +1,7 @@
 [
     {
         "title": "Kasa",
-        "image": "optimized/kasa.webp",
+        "image": "kasa.webp",
         "techs": [
             "React",
             "Sass",
@@ -12,7 +12,7 @@
     },
     {
         "title": "Sophie Bluel",
-        "image": "optimized/sophie_bluel.webp",
+        "image": "sophie_bluel.webp",
         "techs": [
             "JavaScript",
             "API",
@@ -23,7 +23,7 @@
     },
     {
         "title": "Booki",
-        "image": "optimized/booki.webp",
+        "image": "booki.webp",
         "techs": [
             "HTML",
             "CSS",
@@ -34,7 +34,7 @@
     },
     {
         "title": "Oh My Food",
-        "image": "optimized/ohmyfood.webp",
+        "image": "ohmyfood.webp",
         "techs": [
             "HTML",
             "CSS",
@@ -45,7 +45,7 @@
     },
     {
         "title": "Nina Carducci",
-        "image": "optimized/nina.webp",
+        "image": "nina.webp",
         "techs": [
             "SEO",
             "Accessibilité",
@@ -56,7 +56,7 @@
     },
     {
         "title": "724events",
-        "image": "optimized/724events.webp",
+        "image": "724events.webp",
         "techs": [
             "React.js",
             "Backend",
@@ -67,7 +67,7 @@
     },
     {
         "title": "ArgentBank",
-        "image": "optimized/argentbank.webp",
+        "image": "argentbank.webp",
         "techs": [
             "MongoDB",
             "Redux",
@@ -76,20 +76,10 @@
         "github": "https://github.com/hichame-dev/ArgentBank-Backend.git",
         "demo": ""
     },
-    {
-        "title": "Roadtrip App",
-        "image": "optimized/roadtrip.webp",
-        "techs": [
-            "React Native",
-            "Mapbox",
-            "Mobile"
-        ],
-        "github": "https://github.com/hichame-dev/roadtrippark",
-        "demo": ""
-    },
+    
     {
         "title": "Qwenta",
-        "image": "optimized/Qwenta.webp",
+        "image": "Qwenta.webp",
         "techs": [
             "Figma",
             "Notion",

@@ -8,12 +8,12 @@
     align-items: center;
 
     background: $header-bg-luxe;
-    color: $text-soft;
+    color: $text-light; // 🔥 texte bien blanc en dark
     font-family: $font-primary;
 
     .footer-left {
         font-size: $footer-font-size;
-        color: $text-soft;
+        color: $text-light; // 🔥 bien blanc aussi
     }
 
     .footer-right {
@@ -42,10 +42,10 @@
 
     [data-theme="light"] & {
         background: var(--header-bg);
-        color: $dynamic-text;
+        color: var(--text-color);
 
         .footer-left {
-            color: $text-muted;
+            color: var(--text-color);
         }
 
         .footer-right a img {

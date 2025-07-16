@@ -1,8 +1,3 @@
-:root {
-  --accent-color: #00f0ff;
-  --accent-color-hover: #17d4d4;
-}
-
 .footer {
   width: 100%;
   padding: 2rem 1rem;
@@ -10,12 +5,12 @@
   justify-content: space-between;
   align-items: center;
   background: #121212;
-  color: #bbbbbb;
+  color: #e0e0e0;
   font-family: "Roboto", sans-serif;
 }
 .footer .footer-left {
   font-size: 1.5rem;
-  color: #bbbbbb;
+  color: #e0e0e0;
 }
 .footer .footer-right {
   display: flex;
@@ -44,7 +39,7 @@
   color: var(--text-color);
 }
 [data-theme=light] .footer .footer-left {
-  color: rgba(153, 153, 153, 0.4784313725);
+  color: var(--text-color);
 }
 [data-theme=light] .footer .footer-right a img {
   filter: drop-shadow(0 0 4px #C2A36C);

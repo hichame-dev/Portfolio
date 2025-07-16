@@ -1,12 +1,13 @@
-@use "../../styles/variables" as *;
-@use "../../styles/mixin" as *;
+@use "../styles/variables" as *;
+@use "../styles/mixin" as *;
+@use "sass:color";
 
 .notfound-section {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, $header-bg-luxe, darken($header-bg-luxe, 5%));
+    background: linear-gradient(to bottom, $header-bg-luxe, color.adjust($header-bg-luxe, $lightness: -5%));
     color: $text-light;
     font-family: $font-primary;
     text-align: center;

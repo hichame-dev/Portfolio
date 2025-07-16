@@ -1,5 +1,4 @@
 @use "../../styles/variables" as *;
-@use "sass:color";
 
 .deck-section {
     min-height: 100vh;
@@ -8,8 +7,8 @@
     align-items: center;
     justify-content: center;
     padding: $section-padding;
-    background: linear-gradient(to bottom, $header-bg-luxe, color.adjust($header-bg-luxe, $lightness: -5%));
-    color: $text-light;
+    background: linear-gradient(to bottom, var(--bg-color), var(--surface-color));
+    color: var(--text-color);
     font-family: $font-primary;
     text-align: center;
 
@@ -17,12 +16,12 @@
         font-size: 3.6rem;
         margin-bottom: 4rem;
         font-family: $font-title;
-        color: $accent-luxe;
+        color: var(--accent-color);
     }
 
     .deck-card {
-        background: $dynamic-surface;
-        color: $dynamic-text;
+        background: var(--surface-color);
+        color: var(--text-color);
         padding: 2rem;
         border-radius: 1.2rem;
         box-shadow: 0 0 20px rgba($accent-luxe, 0.3);
@@ -48,7 +47,7 @@
         h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: $accent-luxe;
+            color: var(--accent-color);
         }
 
         .tech-list {
@@ -71,16 +70,16 @@
     .next-button {
         margin-top: 2.5rem;
         padding: 0.8rem 2rem;
-        border: 1px solid $accent-luxe;
+        border: 1px solid var(--accent-color);
         border-radius: 2rem;
         background: transparent;
-        color: $accent-luxe;
+        color: var(--accent-color);
         font-size: 1.4rem;
         cursor: pointer;
         transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 
         &:hover {
-            background: $accent-luxe;
+            background: var(--accent-color);
             color: $text-light;
             box-shadow: 0 0 12px rgba($accent-luxe, 0.5);
         }
@@ -92,14 +91,14 @@
         .scroll-btn {
             padding: 0.8rem 2rem;
             border-radius: 2rem;
-            border: 1px solid $accent-luxe;
-            color: $accent-luxe;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
             text-decoration: none;
             transition: 0.3s ease;
             font-size: 1.3rem;
 
             &:hover {
-                background: $accent-luxe;
+                background: var(--accent-color);
                 color: $text-light;
                 box-shadow: 0 0 10px rgba($accent-luxe, 0.5);
             }
@@ -129,41 +128,6 @@
         .scroll-btn {
             font-size: 1.2rem;
             padding: 0.7rem 1.5rem;
-        }
-    }
-
-    [data-theme="light"] & {
-        background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
-        color: $text-dark;
-
-        .deck-card {
-            background: #ffffff;
-            color: $text-dark;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-            &:hover {
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            }
-
-            h3 {
-                color: $accent-luxe;
-            }
-
-            .tech-list {
-                color: $text-muted;
-            }
-        }
-
-        .next-button,
-        .scroll-btn {
-            border-color: $accent-luxe;
-            color: $accent-luxe;
-
-            &:hover {
-                background: $accent-luxe;
-                color: $text-light;
-                box-shadow: 0 0 10px rgba($accent-luxe, 0.5);
-            }
         }
     }
 }

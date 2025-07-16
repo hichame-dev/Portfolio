@@ -1,8 +1,3 @@
-:root {
-  --accent-color: #00f0ff;
-  --accent-color-hover: #17d4d4;
-}
-
 @keyframes modalFadeScale {
   0% {
     opacity: 0;
@@ -47,7 +42,7 @@
 .modal-content h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: #C2A36C;
+  color: var(--accent-color);
 }
 .modal-content img {
   width: 100%;
@@ -75,14 +70,14 @@
 .modal-content .modal-links .btn-link {
   padding: 0.6rem 1.6rem;
   border-radius: 2rem;
-  border: 1px solid #C2A36C;
-  color: #C2A36C;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
   text-decoration: none;
   transition: 0.3s ease;
   font-size: 1.1rem;
 }
 .modal-content .modal-links .btn-link:hover {
-  background: #C2A36C;
+  background: var(--accent-color);
   color: #e0e0e0;
   box-shadow: 0 0 10px rgba(194, 163, 108, 0.8);
 }
@@ -92,7 +87,7 @@
   right: 1.2rem;
   background: none;
   border: none;
-  color: #C2A36C;
+  color: var(--accent-color);
   font-size: 2rem;
   cursor: pointer;
 }

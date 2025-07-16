@@ -30,6 +30,7 @@ const DeckProjets = () => {
     }, [modalIndex]);
 
     const project = projects[currentIndex];
+    const imgSrc = projectImages[`../assets/images/${project.image}`];
 
     return (
         <section className="deck-section" id="projects">
@@ -42,7 +43,17 @@ const DeckProjets = () => {
                 tabIndex={0}
                 aria-label={`Voir les détails du projet ${project.title}`}
             >
-                <img src={projectImages[`../assets/${project.image}`]} alt={project.title} />
+                <img
+                    src={imgSrc}
+                    srcSet={`${imgSrc} 400w, ${imgSrc} 800w`}
+                    sizes="(max-width: 600px) 400px, 800px"
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="400"
+                    height="300"
+                />
+
                 <h3>{project.title}</h3>
                 <ul className="tech-list">
                     {project.techs.map((tech, i) => (

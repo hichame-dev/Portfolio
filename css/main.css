@@ -1,9 +1,4 @@
 @charset "UTF-8";
-:root {
-  --accent-color: #00f0ff;
-  --accent-color-hover: #17d4d4;
-}
-
 /* Reset CSS moderne inspiré d’Eric Meyer + améliorations */
 /* Box-sizing universel */
 *,
@@ -115,51 +110,49 @@ table {
   display: none !important;
 }
 
-/* === themes.scss === */
-/* 🌑 Thème sombre (futuriste, bleu néon, techno) */
 :root {
-  --bg-color: #090a0a;
+  /* 🌑 Thème sombre luxe : noir profond + or */
+  --bg-color: #0a0a0a;
+  /* noir profond principal */
   --text-color: #eeeeee;
-  --accent-color: #00f0ff;
-  --surface-color: #1a1a1a;
+  --accent-color: #C2A36C;
+  --surface-color: #111111;
+  /* noir encore plus profond pour cartes */
   --header-bg: #0c0c0c;
+  /* header subtilement différent */
   --footer-bg: #0c0c0c;
   --btn-bg: var(--accent-color);
   --btn-text: var(--bg-color);
-  --text-color-nav: #ffffff;
-  --nav-hover-bg: rgba(0, 240, 255, 0.05);
+  --text-color-nav: var(--accent-color);
+  --nav-hover-bg: rgba(194, 163, 108, 0.1);
   --intro-bg-top: #0b0b0b;
-  --intro-bg-bottom: #141414;
+  --intro-bg-bottom: #0e0e0e;
   --h2-color: #eeeeee;
-  --about-bg: #090a0a;
-  --projects-bg: #020101;
-  --contact-bg: #0b0b0b;
+  --about-bg: #0a0a0a;
+  --projects-bg: #0a0a0a;
+  --contact-bg: #0a0a0a;
+  --intro-card-bg: rgba(15, 15, 15, 0.95);
+  --intro-card-border: rgba(255, 255, 255, 0.08);
+  --intro-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --glow-color: rgba(194, 163, 108, 0.3);
+  --carousel-bg: #0a0a0a;
+  --carousel-border: rgba(255, 255, 255, 0.08);
 }
 
-/* ☀️ Thème clair (mode final validé) */
+/* ☀️ Thème clair luxe : blanc cassé + or */
 [data-theme=light] {
   --bg-color: #F5F6F7;
-  /* gris très clair pour le fond général */
-  --text-color: #009CB9;
-  /* texte principal en noir */
-  --accent-color: #20B2AA;
-  /* sarcelle pour accents (boutons, carrousel) */
+  --text-color: #000000;
+  --accent-color: #C2A36C;
   --surface-color: #FFFFFF;
-  /* fond des cartes/blocs */
-  --header-bg: #e5e7eaa2;
-  /* gris doux pour le header */
+  --header-bg: #e5e7ea;
   --footer-bg: #E5E7EA;
-  /* même gris pour le footer */
   --btn-bg: var(--accent-color);
-  /* boutons en sarcelle */
   --btn-text: #ffffff;
-  /* texte blanc dans les boutons */
   --text-color-nav: #000000;
-  /* nav en noir */
-  --nav-hover-bg: rgba(32, 178, 170, 0.1);
-  /* hover discret sarcelle */
-  --intro-bg-top: #E5E7EA;
-  --intro-bg-bottom: #DADDE0;
+  --nav-hover-bg: rgba(194, 163, 108, 0.1);
+  --intro-bg-top: #e5e7ea;
+  --intro-bg-bottom: #dadde0;
   --h2-color: #000000;
   --about-bg: #FFFFFF;
   --projects-bg: #FFFFFF;
@@ -167,9 +160,8 @@ table {
   --intro-card-bg: rgba(255, 255, 255, 0.9);
   --intro-card-border: rgba(0, 0, 0, 0.08);
   --intro-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  /* désactive l’effet néon pour le clair */
-  --glow-color: rgba(0, 0, 0, 0);
-  --carousel-bg: #009CB9;
+  --glow-color: rgba(194, 163, 108, 0.2);
+  --carousel-bg: #FFFFFF;
   --carousel-border: rgba(0, 0, 0, 0.08);
 }
 

@@ -1,8 +1,3 @@
-:root {
-  --accent-color: #00f0ff;
-  --accent-color-hover: #17d4d4;
-}
-
 @keyframes scrollCarousel {
   0% {
     transform: translateX(0);
@@ -37,26 +32,25 @@
 }
 .tech-carousel .carousel-item img {
   height: 3.2rem;
-  filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(0 0 6px rgba(194, 163, 108, 0.5));
+  filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(0 0 6px rgba(var(--accent-color-rgb), 0.5));
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 .tech-carousel .carousel-item img:hover {
   transform: scale(1.1);
-  filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(0 0 8px rgba(194, 163, 108, 0.8));
+  filter: invert(60%) sepia(30%) saturate(200%) hue-rotate(20deg) brightness(95%) contrast(90%) drop-shadow(0 0 8px rgba(var(--accent-color-rgb), 0.8));
 }
 .tech-carousel .carousel-item .stack-text {
   font-size: 1.6rem;
   font-family: "Roboto", sans-serif;
-  color: #C2A36C;
+  color: var(--accent-color);
   font-weight: 500;
   letter-spacing: 0.03em;
   padding: 0 0.5rem;
-  text-shadow: 0 0 6px rgba(194, 163, 108, 0.4);
+  text-shadow: 0 0 6px rgba(var(--accent-color-rgb), 0.4);
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 .tech-carousel .carousel-item .stack-text:hover {
-  color: #d1ba90;
-  text-shadow: 0 0 8px rgba(194, 163, 108, 0.7);
+  text-shadow: 0 0 8px rgba(var(--accent-color-rgb), 0.7);
 }
 @media (max-width: 768px) {
   .tech-carousel .carousel-track {
@@ -67,20 +61,20 @@
   }
 }
 [data-theme=light] .tech-carousel {
-  background-color: var(--carousel-bg-light);
+  background: var(--carousel-bg);
 }
 [data-theme=light] .tech-carousel .stack-text {
-  color: #C2A36C;
-  text-shadow: 0 0 4px rgba(194, 163, 108, 0.3);
+  color: var(--text-color);
+  text-shadow: none;
 }
 [data-theme=light] .tech-carousel .stack-text:hover {
-  text-shadow: 0 0 6px rgba(194, 163, 108, 0.6);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 [data-theme=light] .tech-carousel img {
-  filter: brightness(0.1) drop-shadow(0 0 4px rgba(194, 163, 108, 0.4));
+  filter: brightness(0.1) drop-shadow(0 0 4px rgba(var(--accent-color-rgb), 0.4));
 }
 [data-theme=light] .tech-carousel img:hover {
-  filter: brightness(0.1) drop-shadow(0 0 6px rgba(194, 163, 108, 0.7));
+  filter: brightness(0.1) drop-shadow(0 0 6px rgba(var(--accent-color-rgb), 0.7));
 }
 
 section.tech-carousel {
