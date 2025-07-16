@@ -1,19 +1,32 @@
 @use "sass:color";
 
 // ==========================
-// 🎨 COULEURS FIXES (effets, glow...)
+// 🌗 VARIABLES CSS DYNAMIQUES (LIÉES AU THÈME ACTIF)
 // ==========================
+$dynamic-bg: var(--bg-color);
+$dynamic-text: var(--text-color);
+$dynamic-accent: var(--accent-color);
+$dynamic-header-bg: var(--header-bg);
+$dynamic-footer-bg: var(--footer-bg);
+$dynamic-surface: var(--surface-color);
+$dynamic-btn-bg: var(--btn-bg);
+$dynamic-btn-text: var(--btn-text);
 
-$accent: #00f0ff;
-$accent-hover: #17d4d4;
-$neon-blue: $accent;
-$primary-color: $accent;
-$primary-hover: $accent-hover;
+// ==========================
+// 🎨 COULEURS FIXES
+// ==========================
+$accent-luxe: #C2A36C; // or luxe
+$header-bg-luxe: #121212; // noir doux
+$text-light: #e0e0e0; // texte clair
+$text-dark: #050505; // noir profond
+$text-muted: #9999997a; // texte grisé
+$text-soft: #bbbbbb;
 
-$shadow-color: rgba(0, 240, 255, 0.3);
-$glow-border-hover: rgba(0, 240, 255, 0.6);
-$glow-shadow-hover: rgba(0, 240, 255, 0.3);
-$text-glow: 0 0 8px $accent;
+// effets visuels
+$glow-color: rgba(194, 163, 108, 0.4); // glow or
+$glow-border-hover: rgba(194, 163, 108, 0.6);
+$glow-shadow-hover: rgba(194, 163, 108, 0.3);
+$text-glow: 0 0 8px $accent-luxe;
 
 $overlay-dark: rgba(0, 0, 0, 0.4);
 $overlay-light: rgba(255, 255, 255, 0.05);
@@ -26,27 +39,16 @@ $color-overlay: rgba(0, 0, 0, 0.2);
 // ==========================
 // 🧾 TYPOGRAPHIE
 // ==========================
-$dynamic-surface: #FDFDFD; // blanc légèrement cassé
-$dynamic-text: #111827; // texte bien foncé pour le contraste
-$font-primary: 'Inter', sans-serif;
-$font-title: 'Outfit', sans-serif;
-$radial-fog: radial-gradient(circle at center, rgba(0, 240, 255, 0.12), transparent 70%);
-// 🎨 TEXTE
-$text-light: #eeeeee;
-$text-color: #dddddd;
-$text-soft: #bbbbbb;
-$text-muted: #9999997a;
-$text-secondary: $text-muted;
-$text-dark: #111111;
+$font-primary: 'Roboto', sans-serif;
+$font-title: 'Merriweather', serif;
 
 // ==========================
 // 📐 DIMENSIONS & SPACING
 // ==========================
-
-$section-padding: 5rem 2rem;
+$section-padding: 6rem 2rem;
 $container-max-width: 1200px;
-$card-max-width: 38rem;
-$card-padding: 3rem;
+$card-max-width: 30rem;
+$card-padding: 2rem;
 
 $gap-xl: 4rem;
 $gap-lg: 2.5rem;
@@ -56,8 +58,9 @@ $gap-sm: 0.8rem;
 $radius-sm: 0.5rem;
 $profile-img-size: 220px;
 
-
+// ==========================
 // 🍔 Burger menu
+// ==========================
 $burger-width: 2rem;
 $burger-height: 1.4rem;
 $burger-line-height: 0.3rem;
@@ -67,7 +70,6 @@ $burger-gap: 0.4rem;
 // ==========================
 // 🌐 SCROLL & FLECHES
 // ==========================
-
 $scroll-size: 3.4rem;
 $arrow-size: 1rem;
 $arrow-thickness: 2px;
@@ -76,49 +78,27 @@ $arrow-color: $text-dark;
 // ==========================
 // 🌌 HEADER & NAVIGATION
 // ==========================
-
-$header-shadow: inset 0 -1px 4px rgba(0, 240, 255, 0.08), 0 2px 8px rgba(0, 240, 255, 0.08);
+$header-shadow: inset 0 -1px 4px rgba(194, 163, 108, 0.08), 0 2px 8px rgba(194, 163, 108, 0.08);
 $header-blur: blur(8px);
-$header-gradient: linear-gradient(90deg, rgba(0, 240, 255, 0.04), rgba(0, 240, 255, 0.08), rgba(0, 240, 255, 0.04));
-$--header-bg: #f5f5f3;
+$header-gradient: linear-gradient(90deg, rgba(194, 163, 108, 0.04), rgba(194, 163, 108, 0.08), rgba(194, 163, 108, 0.04));
 
 $logo-font-size: 2.9rem;
 $logo-font-size-mobile: 2.4rem;
 $nav-font-size: 1.6rem;
 $logo-gap: 1.2rem;
 $logo-img-height: 5.2rem;
-$black-gloss: #121212; // noir brillant doux, idéal pour UI moderne
+
 // ==========================
 // 🦶 FOOTER
 // ==========================
-
 $footer-border: rgba(255, 255, 255, 0.1);
 $footer-padding: 2rem 1rem;
 $footer-gap: 1.5rem;
 $footer-font-size: 1.5rem;
 $footer-text: $text-light;
-$footer-separator: #111111; // ligne de séparation bien visible
+$footer-separator: #111111;
+
 // ==========================
 // 🔮 UTILITAIRES
 // ==========================
-
 $blur: blur(6px);
-
-// ==========================
-// 🌗 VARIABLES CSS DYNAMIQUES (LIÉES AU THÈME ACTIF)
-// ==========================
-
-$dynamic-bg: var(--bg-color);
-$dynamic-text: var(--text-color);
-$dynamic-accent: var(--accent-color);
-$dynamic-header-bg: var(--header-bg);
-$dynamic-footer-bg: var(--footer-bg);
-$dynamic-surface: var(--surface-color);
-$dynamic-btn-bg: var(--btn-bg);
-$dynamic-btn-text: var(--btn-text);
-
-$glow-color: rgba(0, 240, 255, 0.4); // lumière douce bleutée pour les effets glow
-:root {
-    --accent-color: #00f0ff;
-    --accent-color-hover: #17d4d4;
-}

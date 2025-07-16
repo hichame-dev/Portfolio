@@ -1,21 +1,16 @@
-:root {
-  --accent-color: #00f0ff;
-  --accent-color-hover: #17d4d4;
-}
-
 .footer {
   width: 100%;
   padding: 2rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--footer-bg);
-  color: #eeeeee;
-  font-family: "Inter", sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  font-family: "Roboto", sans-serif;
 }
 .footer .footer-left {
   font-size: 1.5rem;
-  color: #bbbbbb;
+  color: #e0e0e0;
 }
 .footer .footer-right {
   display: flex;
@@ -25,11 +20,12 @@
 .footer .footer-right a img {
   width: 2.5rem;
   height: 2.5rem;
-  filter: drop-shadow(0 0 6px #00f0ff);
-  transition: transform 0.3s;
+  filter: drop-shadow(0 0 6px #C2A36C);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 .footer .footer-right a img:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  filter: brightness(1.2) hue-rotate(10deg) drop-shadow(0 0 8px #C2A36C);
 }
 @media (max-width: 768px) {
   .footer {
@@ -43,8 +39,11 @@
   color: var(--text-color);
 }
 [data-theme=light] .footer .footer-left {
-  color: rgba(153, 153, 153, 0.4784313725);
+  color: var(--text-color);
 }
 [data-theme=light] .footer .footer-right a img {
-  filter: none;
+  filter: drop-shadow(0 0 4px #C2A36C);
+}
+[data-theme=light] .footer .footer-right a img:hover {
+  filter: brightness(1.1) hue-rotate(8deg) drop-shadow(0 0 6px #C2A36C);
 }/*# sourceMappingURL=Footer.css.map */

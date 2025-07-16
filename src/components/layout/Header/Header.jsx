@@ -10,25 +10,27 @@ function Header() {
     };
 
     return (
-        <header className="header">
-            <div className="logo-wrapper">
-                <div className="logo-text">Hichame-Dev</div>
+        <header className="luxury-header">
+            <div className="logo">Hichame Dev</div>
+
+            <div className="right-group">
+                <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
+                    <a href="#intro" onClick={() => setMenuOpen(false)}>Accueil</a>
+                    <a href="#about" onClick={() => setMenuOpen(false)}>À propos</a>
+                    <a href="#projects" onClick={() => setMenuOpen(false)}>Projets</a>
+                    <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+                </nav>
+
+                <div className="theme-toggle">
+                    <ThemeToggle />
+                </div>
+
+                <div className={`burger ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-
-            <div className={`burger ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-                <a href="#intro">Accueil</a>
-                <a href="#about">À propos</a>
-                <a href="#projects">Projets</a>
-                <a href="#contact">Contact</a>
-            </nav>
-
-            <ThemeToggle />
         </header>
     );
 }

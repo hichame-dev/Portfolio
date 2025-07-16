@@ -1,0 +1,6 @@
+# robots.txt pour Hichame Dev
+User-agent: *
+Allow: /
+
+
+# Sitemap: https://hichame-dev.netlify.app/sitemap.xml

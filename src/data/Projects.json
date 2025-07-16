@@ -1,7 +1,7 @@
 [
     {
         "title": "Kasa",
-        "image": "kasa.png",
+        "image": "kasa.webp",
         "techs": [
             "React",
             "Sass",
@@ -12,18 +12,18 @@
     },
     {
         "title": "Sophie Bluel",
-        "image": "sophie_bluel.png",
+        "image": "sophie_bluel.webp",
         "techs": [
             "JavaScript",
             "API",
             "Modale"
         ],
-        "github": "https://github.com/hichame-dev/sophie-bluel",
+        "github": "https://github.com/hichame-dev/Portfolio-architecte-sophie-bluel.git",
         "demo": "https://hichame-dev.github.io/sophie-bluel"
     },
     {
         "title": "Booki",
-        "image": "booki.png",
+        "image": "booki.webp",
         "techs": [
             "HTML",
             "CSS",
@@ -34,7 +34,7 @@
     },
     {
         "title": "Oh My Food",
-        "image": "ohmyfood.png",
+        "image": "ohmyfood.webp",
         "techs": [
             "HTML",
             "CSS",
@@ -45,13 +45,48 @@
     },
     {
         "title": "Nina Carducci",
-        "image": "nina.png",
+        "image": "nina.webp",
         "techs": [
             "SEO",
             "Accessibilité",
             "Performance"
         ],
-        "github": "https://github.com/hichame-dev/nina-carducci",
+        "github": "https://github.com/hichame-dev/ninacarducci.git",
         "demo": "https://hichame-dev.github.io/nina-carducci"
+    },
+    {
+        "title": "724events",
+        "image": "724events.webp",
+        "techs": [
+            "React.js",
+            "Backend",
+            "MongoDB"
+        ],
+        "github": "https://github.com/hichame-dev/Debuggez-une-application.git",
+        "demo": ""
+    },
+    {
+        "title": "ArgentBank",
+        "image": "argentbank.webp",
+        "techs": [
+            "MongoDB",
+            "Redux",
+            "Node.js"
+        ],
+        "github": "https://github.com/hichame-dev/ArgentBank-Backend.git",
+        "demo": ""
+    },
+    
+    {
+        "title": "Qwenta",
+        "image": "Qwenta.webp",
+        "techs": [
+            "Figma",
+            "Notion",
+            "Gestion de projet"
+        ],
+        "github": "",
+        "demo": "",
+        "notes": "Projet géré via Figma et Notion, pas de code disponible."
     }
 ]

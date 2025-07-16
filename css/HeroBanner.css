@@ -1,36 +1,54 @@
-:root {
-  --accent-color: #00f0ff;
-  --accent-color-hover: #17d4d4;
+@keyframes fadeRotateY {
+  from {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
 }
-
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeScaleX {
+  from {
+    opacity: 0;
+    transform: scaleX(-1);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
 .hero-banner {
   position: relative;
-  height: calc(100vh + 6rem);
+  height: calc(80vh + 2rem);
   width: 100%;
   overflow: hidden;
 }
 .hero-banner .background-static {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../../../assets/images/main_desktop.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  inset: 0;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(rgba(var(--text-color), 0.02) 1px, transparent 0);
+  background-size: 2px 2px;
   z-index: 0;
-  filter: brightness(1.2) contrast(1.1) saturate(1.3);
+  filter: brightness(1.2) contrast(1.1) saturate(1.2);
 }
 .hero-banner .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.35);
-  -webkit-backdrop-filter: blur(2px) brightness(0.65);
-  backdrop-filter: blur(2px) brightness(0.65);
+  -webkit-backdrop-filter: blur(3px) brightness(0.75);
+  backdrop-filter: blur(3px) brightness(0.75);
   z-index: 1;
 }
 .hero-banner::before {
@@ -41,14 +59,14 @@
   transform: translateX(-50%);
   width: 80%;
   height: 40%;
-  background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.08), transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(var(--accent-color), 0.1), transparent 70%);
   z-index: 1;
 }
 .hero-banner::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../../../assets/images/grain-sharp.png");
+  background-image: radial-gradient(rgba(var(--text-color), 0.02) 1px, transparent 0);
   opacity: 0.03;
   pointer-events: none;
   z-index: 1;
@@ -56,76 +74,685 @@
 .hero-banner .text-content {
   position: relative;
   z-index: 2;
-  height: 100%;
   width: 100%;
-  gap: 2.5rem;
-  transform: translateY(-10.5rem);
+  max-width: 95%;
+  margin: 0 auto;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: "Outfit", sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  font-family: "Merriweather", serif;
+  color: var(--accent-color);
+  gap: 2.5rem;
+  transform: translateY(10rem);
 }
-.hero-banner .text-content h2.domino span,
-.hero-banner .text-content h1.reveal-name span,
-.hero-banner .text-content p.fade-in {
+@media (max-width: 1024px) {
+  .hero-banner .text-content {
+    transform: translateY(14rem);
+  }
+}
+.hero-banner .text-content h2.domino {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
+  text-align: center;
+  color: var(--accent-color);
+  text-shadow: 0 0 6px rgba(var(--accent-color), 0.5);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.hero-banner .text-content h2.domino span {
   display: inline-block;
-  will-change: transform, opacity;
+  animation: fadeRotateY 0.6s ease-out forwards;
+}
+.hero-banner .text-content h2.domino span:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.hero-banner .text-content h2.domino span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.hero-banner .text-content h2.domino span:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.hero-banner .text-content h2.domino span:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.hero-banner .text-content h2.domino span:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.hero-banner .text-content h2.domino span:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.hero-banner .text-content h2.domino span:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.hero-banner .text-content h2.domino span:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.hero-banner .text-content h2.domino span:nth-child(9) {
+  animation-delay: 0.45s;
+}
+.hero-banner .text-content h2.domino span:nth-child(10) {
+  animation-delay: 0.5s;
+}
+.hero-banner .text-content h2.domino span:nth-child(11) {
+  animation-delay: 0.55s;
+}
+.hero-banner .text-content h2.domino span:nth-child(12) {
+  animation-delay: 0.6s;
+}
+.hero-banner .text-content h2.domino span:nth-child(13) {
+  animation-delay: 0.65s;
+}
+.hero-banner .text-content h2.domino span:nth-child(14) {
+  animation-delay: 0.7s;
+}
+.hero-banner .text-content h2.domino span:nth-child(15) {
+  animation-delay: 0.75s;
+}
+.hero-banner .text-content h2.domino span:nth-child(16) {
+  animation-delay: 0.8s;
+}
+.hero-banner .text-content h2.domino span:nth-child(17) {
+  animation-delay: 0.85s;
+}
+.hero-banner .text-content h2.domino span:nth-child(18) {
+  animation-delay: 0.9s;
+}
+.hero-banner .text-content h2.domino span:nth-child(19) {
+  animation-delay: 0.95s;
+}
+.hero-banner .text-content h2.domino span:nth-child(20) {
+  animation-delay: 1s;
+}
+.hero-banner .text-content h2.domino span:nth-child(21) {
+  animation-delay: 1.05s;
+}
+.hero-banner .text-content h2.domino span:nth-child(22) {
+  animation-delay: 1.1s;
+}
+.hero-banner .text-content h2.domino span:nth-child(23) {
+  animation-delay: 1.15s;
+}
+.hero-banner .text-content h2.domino span:nth-child(24) {
+  animation-delay: 1.2s;
+}
+.hero-banner .text-content h2.domino span:nth-child(25) {
+  animation-delay: 1.25s;
+}
+.hero-banner .text-content h2.domino span:nth-child(26) {
+  animation-delay: 1.3s;
+}
+.hero-banner .text-content h2.domino span:nth-child(27) {
+  animation-delay: 1.35s;
+}
+.hero-banner .text-content h2.domino span:nth-child(28) {
+  animation-delay: 1.4s;
+}
+.hero-banner .text-content h2.domino span:nth-child(29) {
+  animation-delay: 1.45s;
+}
+.hero-banner .text-content h2.domino span:nth-child(30) {
+  animation-delay: 1.5s;
+}
+.hero-banner .text-content h2.domino span:nth-child(31) {
+  animation-delay: 1.55s;
+}
+.hero-banner .text-content h2.domino span:nth-child(32) {
+  animation-delay: 1.6s;
+}
+.hero-banner .text-content h2.domino span:nth-child(33) {
+  animation-delay: 1.65s;
+}
+.hero-banner .text-content h2.domino span:nth-child(34) {
+  animation-delay: 1.7s;
+}
+.hero-banner .text-content h2.domino span:nth-child(35) {
+  animation-delay: 1.75s;
+}
+.hero-banner .text-content h2.domino span:nth-child(36) {
+  animation-delay: 1.8s;
+}
+.hero-banner .text-content h2.domino span:nth-child(37) {
+  animation-delay: 1.85s;
+}
+.hero-banner .text-content h2.domino span:nth-child(38) {
+  animation-delay: 1.9s;
+}
+.hero-banner .text-content h2.domino span:nth-child(39) {
+  animation-delay: 1.95s;
+}
+.hero-banner .text-content h2.domino span:nth-child(40) {
+  animation-delay: 2s;
+}
+.hero-banner .text-content h2.domino span:nth-child(41) {
+  animation-delay: 2.05s;
+}
+.hero-banner .text-content h2.domino span:nth-child(42) {
+  animation-delay: 2.1s;
+}
+.hero-banner .text-content h2.domino span:nth-child(43) {
+  animation-delay: 2.15s;
+}
+.hero-banner .text-content h2.domino span:nth-child(44) {
+  animation-delay: 2.2s;
+}
+.hero-banner .text-content h2.domino span:nth-child(45) {
+  animation-delay: 2.25s;
+}
+.hero-banner .text-content h2.domino span:nth-child(46) {
+  animation-delay: 2.3s;
+}
+.hero-banner .text-content h2.domino span:nth-child(47) {
+  animation-delay: 2.35s;
+}
+.hero-banner .text-content h2.domino span:nth-child(48) {
+  animation-delay: 2.4s;
+}
+.hero-banner .text-content h2.domino span:nth-child(49) {
+  animation-delay: 2.45s;
+}
+.hero-banner .text-content h2.domino span:nth-child(50) {
+  animation-delay: 2.5s;
+}
+.hero-banner .text-content h2.domino span:nth-child(51) {
+  animation-delay: 2.55s;
+}
+.hero-banner .text-content h2.domino span:nth-child(52) {
+  animation-delay: 2.6s;
+}
+.hero-banner .text-content h2.domino span:nth-child(53) {
+  animation-delay: 2.65s;
+}
+.hero-banner .text-content h2.domino span:nth-child(54) {
+  animation-delay: 2.7s;
+}
+.hero-banner .text-content h2.domino span:nth-child(55) {
+  animation-delay: 2.75s;
+}
+.hero-banner .text-content h2.domino span:nth-child(56) {
+  animation-delay: 2.8s;
+}
+.hero-banner .text-content h2.domino span:nth-child(57) {
+  animation-delay: 2.85s;
+}
+.hero-banner .text-content h2.domino span:nth-child(58) {
+  animation-delay: 2.9s;
+}
+.hero-banner .text-content h2.domino span:nth-child(59) {
+  animation-delay: 2.95s;
+}
+.hero-banner .text-content h2.domino span:nth-child(60) {
+  animation-delay: 3s;
+}
+.hero-banner .text-content h2.domino span:nth-child(61) {
+  animation-delay: 3.05s;
+}
+.hero-banner .text-content h2.domino span:nth-child(62) {
+  animation-delay: 3.1s;
+}
+.hero-banner .text-content h2.domino span:nth-child(63) {
+  animation-delay: 3.15s;
+}
+.hero-banner .text-content h2.domino span:nth-child(64) {
+  animation-delay: 3.2s;
+}
+.hero-banner .text-content h2.domino span:nth-child(65) {
+  animation-delay: 3.25s;
+}
+.hero-banner .text-content h2.domino span:nth-child(66) {
+  animation-delay: 3.3s;
+}
+.hero-banner .text-content h2.domino span:nth-child(67) {
+  animation-delay: 3.35s;
+}
+.hero-banner .text-content h2.domino span:nth-child(68) {
+  animation-delay: 3.4s;
+}
+.hero-banner .text-content h2.domino span:nth-child(69) {
+  animation-delay: 3.45s;
+}
+.hero-banner .text-content h2.domino span:nth-child(70) {
+  animation-delay: 3.5s;
+}
+.hero-banner .text-content h2.domino span:nth-child(71) {
+  animation-delay: 3.55s;
+}
+.hero-banner .text-content h2.domino span:nth-child(72) {
+  animation-delay: 3.6s;
+}
+.hero-banner .text-content h2.domino span:nth-child(73) {
+  animation-delay: 3.65s;
+}
+.hero-banner .text-content h2.domino span:nth-child(74) {
+  animation-delay: 3.7s;
+}
+.hero-banner .text-content h2.domino span:nth-child(75) {
+  animation-delay: 3.75s;
+}
+.hero-banner .text-content h2.domino span:nth-child(76) {
+  animation-delay: 3.8s;
+}
+.hero-banner .text-content h2.domino span:nth-child(77) {
+  animation-delay: 3.85s;
+}
+.hero-banner .text-content h2.domino span:nth-child(78) {
+  animation-delay: 3.9s;
+}
+.hero-banner .text-content h2.domino span:nth-child(79) {
+  animation-delay: 3.95s;
+}
+.hero-banner .text-content h2.domino span:nth-child(80) {
+  animation-delay: 4s;
+}
+.hero-banner .text-content h2.domino span:nth-child(81) {
+  animation-delay: 4.05s;
+}
+.hero-banner .text-content h2.domino span:nth-child(82) {
+  animation-delay: 4.1s;
+}
+.hero-banner .text-content h2.domino span:nth-child(83) {
+  animation-delay: 4.15s;
+}
+.hero-banner .text-content h2.domino span:nth-child(84) {
+  animation-delay: 4.2s;
+}
+.hero-banner .text-content h2.domino span:nth-child(85) {
+  animation-delay: 4.25s;
+}
+.hero-banner .text-content h2.domino span:nth-child(86) {
+  animation-delay: 4.3s;
+}
+.hero-banner .text-content h2.domino span:nth-child(87) {
+  animation-delay: 4.35s;
+}
+.hero-banner .text-content h2.domino span:nth-child(88) {
+  animation-delay: 4.4s;
+}
+.hero-banner .text-content h2.domino span:nth-child(89) {
+  animation-delay: 4.45s;
+}
+.hero-banner .text-content h2.domino span:nth-child(90) {
+  animation-delay: 4.5s;
+}
+.hero-banner .text-content h2.domino span:nth-child(91) {
+  animation-delay: 4.55s;
+}
+.hero-banner .text-content h2.domino span:nth-child(92) {
+  animation-delay: 4.6s;
+}
+.hero-banner .text-content h2.domino span:nth-child(93) {
+  animation-delay: 4.65s;
+}
+.hero-banner .text-content h2.domino span:nth-child(94) {
+  animation-delay: 4.7s;
+}
+.hero-banner .text-content h2.domino span:nth-child(95) {
+  animation-delay: 4.75s;
+}
+.hero-banner .text-content h2.domino span:nth-child(96) {
+  animation-delay: 4.8s;
+}
+.hero-banner .text-content h2.domino span:nth-child(97) {
+  animation-delay: 4.85s;
+}
+.hero-banner .text-content h2.domino span:nth-child(98) {
+  animation-delay: 4.9s;
+}
+.hero-banner .text-content h2.domino span:nth-child(99) {
+  animation-delay: 4.95s;
+}
+.hero-banner .text-content h2.domino span:nth-child(100) {
+  animation-delay: 5s;
 }
 .hero-banner .text-content p.fade-in {
-  font-size: 4rem;
-  color: #eeeeee;
-  font-family: "Inter", sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--text-color);
+  font-family: "Roboto", sans-serif;
+  animation: fadeSlideUp 1.2s ease-out forwards;
+  animation-delay: 2.4s;
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.hero-banner .text-content h1.reveal-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 0.5rem;
 }
 .hero-banner .text-content h1.reveal-name span {
-  font-size: 6rem;
   display: inline-block;
-  color: #eeeeee;
-  text-shadow: 0 0 20px #00f0ff, 0 0 8px #00f0ff;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--accent-color);
+  text-shadow: 0 0 8px rgba(var(--accent-color), 0.6);
+  animation: fadeScaleX 0.8s ease-out forwards;
 }
-[data-theme=light] .hero-banner::before {
-  display: none;
+.hero-banner .text-content h1.reveal-name span:nth-child(1) {
+  animation-delay: 3.06s;
 }
-[data-theme=light] .hero-banner::after {
-  background-image: url("../../../assets/images/main.webp");
-  opacity: 0.02;
+.hero-banner .text-content h1.reveal-name span:nth-child(2) {
+  animation-delay: 3.12s;
 }
-[data-theme=light] .hero-banner .overlay {
-  background-color: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(2px) brightness(1);
-  backdrop-filter: blur(2px) brightness(1);
+.hero-banner .text-content h1.reveal-name span:nth-child(3) {
+  animation-delay: 3.18s;
 }
-[data-theme=light] .hero-banner .text-content h2 span,
-[data-theme=light] .hero-banner .text-content p,
-[data-theme=light] .hero-banner .text-content h1 span {
-  color: #111111;
-  text-shadow: none;
+.hero-banner .text-content h1.reveal-name span:nth-child(4) {
+  animation-delay: 3.24s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(5) {
+  animation-delay: 3.3s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(6) {
+  animation-delay: 3.36s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(7) {
+  animation-delay: 3.42s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(8) {
+  animation-delay: 3.48s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(9) {
+  animation-delay: 3.54s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(10) {
+  animation-delay: 3.6s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(11) {
+  animation-delay: 3.66s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(12) {
+  animation-delay: 3.72s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(13) {
+  animation-delay: 3.78s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(14) {
+  animation-delay: 3.84s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(15) {
+  animation-delay: 3.9s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(16) {
+  animation-delay: 3.96s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(17) {
+  animation-delay: 4.02s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(18) {
+  animation-delay: 4.08s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(19) {
+  animation-delay: 4.14s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(20) {
+  animation-delay: 4.2s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(21) {
+  animation-delay: 4.26s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(22) {
+  animation-delay: 4.32s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(23) {
+  animation-delay: 4.38s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(24) {
+  animation-delay: 4.44s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(25) {
+  animation-delay: 4.5s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(26) {
+  animation-delay: 4.56s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(27) {
+  animation-delay: 4.62s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(28) {
+  animation-delay: 4.68s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(29) {
+  animation-delay: 4.74s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(30) {
+  animation-delay: 4.8s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(31) {
+  animation-delay: 4.86s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(32) {
+  animation-delay: 4.92s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(33) {
+  animation-delay: 4.98s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(34) {
+  animation-delay: 5.04s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(35) {
+  animation-delay: 5.1s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(36) {
+  animation-delay: 5.16s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(37) {
+  animation-delay: 5.22s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(38) {
+  animation-delay: 5.28s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(39) {
+  animation-delay: 5.34s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(40) {
+  animation-delay: 5.4s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(41) {
+  animation-delay: 5.46s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(42) {
+  animation-delay: 5.52s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(43) {
+  animation-delay: 5.58s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(44) {
+  animation-delay: 5.64s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(45) {
+  animation-delay: 5.7s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(46) {
+  animation-delay: 5.76s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(47) {
+  animation-delay: 5.82s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(48) {
+  animation-delay: 5.88s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(49) {
+  animation-delay: 5.94s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(50) {
+  animation-delay: 6s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(51) {
+  animation-delay: 6.06s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(52) {
+  animation-delay: 6.12s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(53) {
+  animation-delay: 6.18s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(54) {
+  animation-delay: 6.24s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(55) {
+  animation-delay: 6.3s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(56) {
+  animation-delay: 6.36s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(57) {
+  animation-delay: 6.42s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(58) {
+  animation-delay: 6.48s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(59) {
+  animation-delay: 6.54s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(60) {
+  animation-delay: 6.6s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(61) {
+  animation-delay: 6.66s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(62) {
+  animation-delay: 6.72s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(63) {
+  animation-delay: 6.78s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(64) {
+  animation-delay: 6.84s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(65) {
+  animation-delay: 6.9s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(66) {
+  animation-delay: 6.96s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(67) {
+  animation-delay: 7.02s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(68) {
+  animation-delay: 7.08s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(69) {
+  animation-delay: 7.14s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(70) {
+  animation-delay: 7.2s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(71) {
+  animation-delay: 7.26s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(72) {
+  animation-delay: 7.32s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(73) {
+  animation-delay: 7.38s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(74) {
+  animation-delay: 7.44s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(75) {
+  animation-delay: 7.5s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(76) {
+  animation-delay: 7.56s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(77) {
+  animation-delay: 7.62s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(78) {
+  animation-delay: 7.68s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(79) {
+  animation-delay: 7.74s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(80) {
+  animation-delay: 7.8s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(81) {
+  animation-delay: 7.86s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(82) {
+  animation-delay: 7.92s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(83) {
+  animation-delay: 7.98s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(84) {
+  animation-delay: 8.04s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(85) {
+  animation-delay: 8.1s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(86) {
+  animation-delay: 8.16s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(87) {
+  animation-delay: 8.22s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(88) {
+  animation-delay: 8.28s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(89) {
+  animation-delay: 8.34s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(90) {
+  animation-delay: 8.4s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(91) {
+  animation-delay: 8.46s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(92) {
+  animation-delay: 8.52s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(93) {
+  animation-delay: 8.58s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(94) {
+  animation-delay: 8.64s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(95) {
+  animation-delay: 8.7s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(96) {
+  animation-delay: 8.76s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(97) {
+  animation-delay: 8.82s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(98) {
+  animation-delay: 8.88s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(99) {
+  animation-delay: 8.94s;
+}
+.hero-banner .text-content h1.reveal-name span:nth-child(100) {
+  animation-delay: 9s;
 }
 .hero-banner .scroll-button {
   margin-top: -10rem;
   position: relative;
   z-index: 2;
 }
-@media (max-width: 768px) {
-  .hero-banner .scroll-button .text-content {
-    transform: translateY(-12rem);
-  }
+[data-theme=light] .hero-banner .background-static {
+  background: linear-gradient(to bottom, var(--bg-color), var(--surface-color));
+  background-image: none;
+  filter: none;
 }
-@media (max-width: 1024px) {
-  .hero-banner .scroll-button .background-static {
-    background-image: url("../../../assets/images/main.webp");
-  }
-  .hero-banner .scroll-button .text-content h2.domino span {
-    font-size: 2.2rem;
-  }
-  .hero-banner .scroll-button .text-content p.fade-in {
-    font-size: 2.6rem;
-  }
-  .hero-banner .scroll-button .text-content h1.reveal-name span {
-    font-size: 4rem;
-  }
+[data-theme=light] .hero-banner::before, [data-theme=light] .hero-banner::after {
+  display: none;
+}
+[data-theme=light] .hero-banner .overlay {
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(2px) brightness(1);
+  backdrop-filter: blur(2px) brightness(1);
+}
+[data-theme=light] .hero-banner .text-content p.fade-in {
+  color: var(--text-color) !important;
+  text-shadow: none !important;
 }/*# sourceMappingURL=HeroBanner.css.map */

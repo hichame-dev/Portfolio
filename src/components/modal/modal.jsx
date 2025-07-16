@@ -1,29 +1,17 @@
 import React, { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
 import "./modal.scss";
-import gsap from "gsap";
-import { projectImages } from "../../data/projectImages"; // ✅
+import { projectImages } from "../../data/projectImages";
 
 function ModalProjet({ project, onClose }) {
     const modalRef = useRef(null);
 
     const closeWithAnimation = useCallback(() => {
-        gsap.to(modalRef.current, {
-            scale: 0.9,
-            opacity: 0,
-            duration: 0.3,
-            ease: "power1.in",
-            onComplete: onClose,
-        });
+        modalRef.current.classList.add("fade-out");
+        setTimeout(onClose, 300);
     }, [onClose]);
 
     useEffect(() => {
-        gsap.fromTo(
-            modalRef.current,
-            { scale: 0.9, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }
-        );
-
         const handleClickOutside = (e) => {
             if (modalRef.current && !modalRef.current.contains(e.target)) {
                 closeWithAnimation();
@@ -34,26 +22,36 @@ function ModalProjet({ project, onClose }) {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [closeWithAnimation]);
 
-    const modalContent = (
+    const imgSrc = projectImages[`../assets/images/${project.image}`];
+
+    return ReactDOM.createPortal(
         <div className="modal-overlay">
             <div className="modal-content" ref={modalRef}>
                 <button className="close-button" onClick={closeWithAnimation}>×</button>
                 <h2>{project.title}</h2>
-                <img src={projectImages[project.image]} alt={project.title} /> {/* ✅ image dynamique */}
+                <img
+                    src={imgSrc}
+                    srcSet={`${imgSrc} 400w, ${imgSrc} 800w`}
+                    sizes="(max-width: 600px) 400px, 800px"
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="400"
+                    height="300"
+                />
                 <ul className="tech-list">
                     {project.techs.map((tech, i) => (
                         <li key={i}>{tech}</li>
                     ))}
                 </ul>
                 <div className="modal-links">
-                    <a className="btn-link" href={project.github} target="_blank" rel="noreferrer">Code</a>
-                    <a className="btn-link" href={project.demo} target="_blank" rel="noreferrer">Démo</a>
+                    {project.github && <a className="btn-link" href={project.github} target="_blank" rel="noreferrer">Code</a>}
+                    {project.demo && <a className="btn-link" href={project.demo} target="_blank" rel="noreferrer">Démo</a>}
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
-
-    return ReactDOM.createPortal(modalContent, document.body);
 }
 
 export default ModalProjet;

@@ -2,14 +2,16 @@
 @use '../../../styles/mixin' as *;
 
 .about-section {
-    min-height: 100vh;
-    padding: 4.5rem 2rem;
-    background: linear-gradient(to bottom, var(--intro-bg-top), var(--intro-bg-bottom));
+    min-height: 75vh;
+    padding: 6rem 2rem;
+    background: var(--about-bg);
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
 
     &::before {
         content: "";
@@ -18,15 +20,10 @@
         left: -30%;
         width: 180%;
         height: 180%;
-        background: $radial-fog;
+        background: radial-gradient(circle, rgba(var(--accent-color-rgb), 0.05), transparent 70%);
         animation: fogPulse 30s infinite ease-in-out;
         z-index: 0;
         pointer-events: none;
-
-        // 🧼 Désactive le glow en mode clair
-        [data-theme="light"] & {
-            display: none;
-        }
     }
 
     >* {
@@ -38,172 +35,202 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 4rem;
+        justify-content: center;
+        gap: 3rem;
+        max-width: 1200px;
+        width: 100%;
+        text-align: center;
+        animation: fadeSlideUp 1.2s ease-out forwards;
+        opacity: 0;
+    }
 
-        @include respond(lg) {
-            flex-direction: row;
-            align-items: flex-start;
+    /* Carte qui tourne au hover */
+    .profile-img-container {
+        perspective: 1000px;
+
+        .flip-card {
+            width: 20rem;
+            height: 20rem;
+            position: relative;
+            transform-style: preserve-3d;
+            margin: 0 auto;
+
+            .flip-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transform-style: preserve-3d;
+                transition: transform 0.8s ease;
+            }
+
+            &:hover .flip-card-inner {
+                animation: rotateYInfinite 6s linear infinite;
+            }
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .flip-card-front img,
+        .flip-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: $dynamic-bg;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 6rem;
+
+            img.logo-img {
+                width: 50%;
+                height: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .flip-card {
+                width: 24rem;
+                height: 24rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .flip-card {
+                width: 28rem;
+                height: 28rem;
+            }
         }
     }
 
-    .profile-img {
-        flex-shrink: 0;
-        width: 35rem;
-        height: 35rem;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 5px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-        transition: transform 0.5s ease;
-        position: relative;
-        margin: 0 auto;
+    /* Texte animé */
+    .text-content {
+        max-width: 65ch;
+        margin-top: 2rem;
+        transition: transform 0.4s ease;
 
         &:hover {
-            transform: scale(1.05);
+            transform: translateY(-4px) scale(1.01);
         }
 
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: -8%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120%;
-            height: 40%;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.06), transparent 70%);
-            filter: blur(8px);
-            z-index: -1;
+        &:focus-within {
+            outline: 2px dashed $dynamic-accent;
+            outline-offset: 6px;
         }
 
-        @include respond(lg) {
-            margin: 0;
-            width: 30rem;
-            height: 30rem;
-        }
-
-        @include respond(md) {
-            width: 26rem;
-            height: 26rem;
-            border-radius: 1.6rem;
-            box-shadow: 0 0 6px rgba(255, 255, 255, 0.08);
-        }
-
-        @include respond(sm) {
-            width: 22rem;
-            height: 22rem;
-            border-radius: 1rem;
-            box-shadow: 0 0 4px rgba(255, 255, 255, 0.06);
-        }
-    }
-
-    .text-content {
-        flex: 1;
-        color: var(--text-color);
-        font-family: $font-primary;
-        text-align: center;
-        margin-top: 3rem;
-
-        @include respond(lg) {
-            text-align: left;
-            margin-top: 0;
+        .pre-title,
+        .intro-lead,
+        .intro-title,
+        .tagline,
+        .description {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
         }
 
         .pre-title {
-            font-size: 2.8rem;
-            color: var(--accent-color);
-            margin-bottom: 1.2rem;
+            animation-delay: 0.3s;
         }
 
         .intro-lead {
-            font-size: 3.8rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            color: var(--h2-color);
+            animation-delay: 0.5s;
         }
 
         .intro-title {
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            text-shadow: 0 3px 6px black;
+            animation-delay: 0.7s;
+        }
+
+        .tagline {
+            animation-delay: 0.9s;
+        }
+
+        .description {
+            animation-delay: 1.1s;
+        }
+
+        .pre-title {
+            font-size: 2rem;
+            color: $dynamic-accent;
+            margin-bottom: 0.8rem;
+        }
+
+        .intro-lead {
+            font-size: 2.6rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: $dynamic-accent;
+        }
+
+        .intro-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: $dynamic-accent;
             margin-bottom: 1rem;
         }
 
         .tagline {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 2.3rem;
-        }
-
-        .description {
-            font-size: 2rem;
-            max-width: 65ch;
-            line-height: 1.7;
-            color: var(--text-color);
+            font-size: 1.6rem;
+            color: $dynamic-accent;
+            margin-bottom: 2rem;
         }
     }
 
-    // 🌞 Thème clair (juste pour désactiver certaines ombres si besoin)
-    [data-theme='light'] & {
-        background: linear-gradient(to bottom, #D1D5DB, #D1D5DB);
+    @media (min-width: 768px) {
+        .container {
+            flex-direction: row;
+            text-align: left;
+            opacity: 1;
+        }
 
-        // ✅ on garde les ombres (tu l’as demandé)
         .text-content {
-            .intro-title {
-                color: var(--accent-color);
-            }
+            margin-top: 0;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .text-content .intro-lead {
+            font-size: 3rem;
+        }
+
+        .text-content .intro-title {
+            font-size: 2.6rem;
         }
     }
 }
 
-// ✅ Responsive mobile
-@include respond(sm) {
-    .about-section {
-        padding: 3rem 1.5rem;
-        align-items: flex-start;
-        min-height: initial;
+/* animations inchangées */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
 
-        .container {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 3rem;
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .profile-img {
-            width: 22rem;
-            height: 22rem;
-            border-radius: 1rem;
-            box-shadow: 0 0 4px rgba(255, 255, 255, 0.06);
-        }
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
 
-        .text-content {
-            margin-top: 2rem;
-
-            .pre-title {
-                font-size: 1.8rem;
-            }
-
-            .intro-lead {
-                font-size: 2.4rem;
-            }
-
-            .intro-title {
-                font-size: 2.2rem;
-                margin-top: 2rem;
-            }
-
-            .tagline {
-                font-size: 1.6rem;
-            }
-
-            .description {
-                font-size: 1.6rem;
-                margin-top: 5.5rem;
-            }
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -218,5 +245,15 @@
     50% {
         transform: scale(1.05);
         opacity: 0.15;
+    }
+}
+
+@keyframes rotateYInfinite {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
     }
 }

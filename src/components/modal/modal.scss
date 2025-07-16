@@ -1,5 +1,17 @@
 @use "../../styles/variables" as *;
 
+@keyframes modalFadeScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -14,29 +26,27 @@
     justify-content: center;
     z-index: 9999;
     padding: 2rem;
-    
 }
 
 .modal-content {
-    background: #FDFDFD;
-    color: $dynamic-text;
+    background: var(--surface-color); // 🔥
+    color: var(--text-color); // 🔥
     padding: 2rem;
     max-width: 600px;
     width: 100%;
     border-radius: 1.2rem;
     position: relative;
     text-align: center;
-    box-shadow: 0 0 20px $glow-color;
+    box-shadow: 0 0 20px rgba($accent-luxe, 0.4);
     overflow-y: auto;
     max-height: 90vh;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    background: $dynamic-surface;
     border: 1px solid rgba(0, 0, 0, 0.08);
+    animation: modalFadeScale 0.4s ease-out forwards;
 
     h2 {
         font-size: 2rem;
         margin-bottom: 1.5rem;
-        color: $dynamic-accent;
+        color: var(--accent-color); // 🔥
     }
 
     img {
@@ -66,16 +76,16 @@
         .btn-link {
             padding: 0.6rem 1.6rem;
             border-radius: 2rem;
-            border: 1px solid $dynamic-accent;
-            color: $dynamic-accent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
             text-decoration: none;
             transition: 0.3s ease;
             font-size: 1.1rem;
 
             &:hover {
-                background: $dynamic-accent;
-                color: $dynamic-btn-text;
-                box-shadow: 0 0 10px $dynamic-accent;
+                background: var(--accent-color);
+                color: $text-light;
+                box-shadow: 0 0 10px rgba($accent-luxe, 0.8);
             }
         }
     }
@@ -86,7 +96,7 @@
         right: 1.2rem;
         background: none;
         border: none;
-        color: $dynamic-accent;
+        color: var(--accent-color);
         font-size: 2rem;
         cursor: pointer;
     }

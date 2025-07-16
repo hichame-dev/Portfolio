@@ -1,68 +1,28 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import profilImg from "../../../assets/images/profil.webp"; // ton image de profil
+import logoImg from "../../../assets/images/favicon.2.webp"; // ton logo au dos
 import "./About.scss";
-import profilImg from "../../../assets/images/profil.webp";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function About() {
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        const el = sectionRef.current;
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: el,
-                start: "top 75%",
-                toggleActions: "play none none none",
-                once: true,
-            },
-        });
-
-        tl.fromTo(
-            el.querySelector(".profile-img"),
-            {
-                opacity: 0,
-                x: -80,
-                scale: 0.95,
-            },
-            {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                duration: 1.4,
-                ease: "power2.out",
-            }
-        ).fromTo(
-            el.querySelectorAll(".text-content > *"),
-            { opacity: 0, y: 40 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
-                ease: "power2.out",
-                stagger: 0.2,
-            },
-            "-=1"
-        );
-
-        return () => tl.scrollTrigger?.kill();
-    }, []);
-
     return (
-        <section className="about-section" id="about" ref={sectionRef}>
+        <section className="about-section" id="about">
             <div className="container">
-                {/* Image à gauche */}
-                <img
-                    src={profilImg}
-                    alt="Photo de profil"
-                    className="profile-img"
-                    loading="lazy"
-                />
 
-                {/* Texte à droite */}
+                {/* Carte qui tourne */}
+                <div className="profile-img-container">
+                    <div className="flip-card">
+                        <div className="flip-card-inner">
+                            <div className="flip-card-front">
+                                <img src={profilImg} alt="Photo de profil" className="profile-img" />
+                            </div>
+                            <div className="flip-card-back">
+                                <img src={logoImg} alt="Mon logo" className="logo-img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Texte */}
                 <div className="text-content">
                     <p className="pre-title">Développeur Front-End</p>
                     <h2 className="intro-lead">Passionné par le web</h2>
