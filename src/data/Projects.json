@@ -8,7 +8,7 @@
             "Routing"
         ],
         "github": "https://github.com/hichame-dev/kasa",
-        "demo": "https://hichame-dev.github.io/kasa"
+        "demo": ""
     },
     {
         "title": "Sophie Bluel",
@@ -19,7 +19,7 @@
             "Modale"
         ],
         "github": "https://github.com/hichame-dev/Portfolio-architecte-sophie-bluel.git",
-        "demo": "https://hichame-dev.github.io/sophie-bluel"
+        "demo": ""
     },
     {
         "title": "Booki",
@@ -30,7 +30,7 @@
             "Responsive"
         ],
         "github": "https://github.com/hichame-dev/booki",
-        "demo": "https://hichame-dev.github.io/booki"
+        "demo": "https://hichame-dev.github.io/Booki/"
     },
     {
         "title": "Oh My Food",
@@ -41,7 +41,7 @@
             "Animations"
         ],
         "github": "https://github.com/hichame-dev/ohmyfood",
-        "demo": "https://hichame-dev.github.io/ohmyfood"
+        "demo": ""
     },
     {
         "title": "Nina Carducci",
@@ -52,7 +52,7 @@
             "Performance"
         ],
         "github": "https://github.com/hichame-dev/ninacarducci.git",
-        "demo": "https://hichame-dev.github.io/nina-carducci"
+        "demo": ""
     },
     {
         "title": "724events",
@@ -76,7 +76,6 @@
         "github": "https://github.com/hichame-dev/ArgentBank-Backend.git",
         "demo": ""
     },
-    
     {
         "title": "Qwenta",
         "image": "Qwenta.webp",

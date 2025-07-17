@@ -60,9 +60,11 @@
             transition: opacity 1.9s ease-out, transform 1.9s ease-out;
 
             &:hover {
-                transform: scale(1.06) translateY(-8px);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            }
+                    transform: scale(1.06) translateY(-8px);
+                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+                    border-color: $accent-luxe; // ou var(--accent-color)
+                    background: rgba($accent-luxe, 0.08); // fond léger doré
+                }
 
             &.visible {
                 opacity: 1;

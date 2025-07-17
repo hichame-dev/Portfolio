@@ -5,20 +5,10 @@ import projects from "../../data/Projects.json";
 import { projectImages } from "../../data/projectImages";
 
 const DeckProjets = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
     const [modalIndex, setModalIndex] = useState(null);
-    const [fade, setFade] = useState(false);
 
-    const handleNext = () => {
-        setFade(true);
-        setTimeout(() => {
-            setCurrentIndex((prev) => (prev + 1) % projects.length);
-            setFade(false);
-        }, 400);
-    };
-
-    const handleOpenModal = () => {
-        setModalIndex(currentIndex);
+    const handleOpenModal = (index) => {
+        setModalIndex(index);
     };
 
     const handleCloseModal = () => {
@@ -29,42 +19,39 @@ const DeckProjets = () => {
         document.body.style.overflow = modalIndex !== null ? "hidden" : "";
     }, [modalIndex]);
 
-    const project = projects[currentIndex];
-    const imgSrc = projectImages[`../assets/images/${project.image}`];
-
     return (
         <section className="deck-section" id="projects">
             <h2 className="section-title">Mes Projets</h2>
 
-            <div
-                className={`deck-card ${fade ? "fade-card" : ""}`}
-                onClick={handleOpenModal}
-                role="button"
-                tabIndex={0}
-                aria-label={`Voir les détails du projet ${project.title}`}
-            >
-                <img
-                    src={imgSrc}
-                    srcSet={`${imgSrc} 400w, ${imgSrc} 800w`}
-                    sizes="(max-width: 600px) 400px, 800px"
-                    alt={project.title}
-                    loading="lazy"
-                    decoding="async"
-                    width="400"
-                    height="300"
-                />
-
-                <h3>{project.title}</h3>
-                <ul className="tech-list">
-                    {project.techs.map((tech, i) => (
-                        <li key={i}>{tech}</li>
-                    ))}
-                </ul>
+            <div className="deck-grid">
+                {projects.map((project, index) => {
+                    const imgSrc = projectImages[`../assets/images/${project.image}`];
+                    return (
+                        <div
+                            key={index}
+                            className="deck-card"
+                            onClick={() => handleOpenModal(index)}
+                            role="button"
+                            tabIndex={0}
+                            aria-label={`Voir le projet ${project.title}`}
+                        >
+                            <img
+                                src={imgSrc}
+                                alt={project.title}
+                                loading="lazy"
+                                width="400"
+                                height="300"
+                            />
+                            <h3>{project.title}</h3>
+                            <ul className="tech-list">
+                                {project.techs.map((tech, i) => (
+                                    <li key={i}>{tech}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    );
+                })}
             </div>
-
-            {modalIndex === null && (
-                <button className="next-button" onClick={handleNext}>Suivant →</button>
-            )}
 
             {modalIndex !== null && (
                 <ModalProjet project={projects[modalIndex]} onClose={handleCloseModal} />
