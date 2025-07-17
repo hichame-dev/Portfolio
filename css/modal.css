@@ -92,7 +92,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .modal-content {
     padding: 1.5rem;
     max-height: 85vh;

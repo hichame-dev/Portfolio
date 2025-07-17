@@ -1,5 +1,7 @@
 @use "../../styles/variables" as *;
+@use "../../styles/mixin" as *;
 
+// Animation d’apparition de la modal
 @keyframes modalFadeScale {
     0% {
         opacity: 0;
@@ -12,6 +14,7 @@
     }
 }
 
+// Fond d’écran sombre flouté
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -28,9 +31,10 @@
     padding: 2rem;
 }
 
+// Contenu principal de la modal
 .modal-content {
-    background: var(--surface-color); // 🔥
-    color: var(--text-color); // 🔥
+    background: var(--surface-color);
+    color: var(--text-color);
     padding: 2rem;
     max-width: 600px;
     width: 100%;
@@ -46,7 +50,7 @@
     h2 {
         font-size: 2rem;
         margin-bottom: 1.5rem;
-        color: var(--accent-color); // 🔥
+        color: var(--accent-color);
     }
 
     img {
@@ -102,7 +106,8 @@
     }
 }
 
-@media (max-width: 480px) {
+// Responsive mobile
+@include respond(sm) {
     .modal-content {
         padding: 1.5rem;
         max-height: 85vh;

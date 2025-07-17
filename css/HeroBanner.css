@@ -99,11 +99,9 @@
   justify-content: center;
   gap: 0.3rem;
   font-size: clamp(1.2rem, 4vw, 2.2rem);
-  text-align: center;
   color: var(--accent-color);
   text-shadow: 0 0 6px rgba(var(--accent-color), 0.5);
   word-break: keep-all;
-  overflow-wrap: break-word;
 }
 .hero-banner .text-content h2.domino span {
   display: inline-block;
@@ -417,9 +415,6 @@
   transform: translateY(20px);
   animation: fadeSlideUp 1.2s ease-out forwards;
   animation-delay: 2.4s;
-  text-align: center;
-  word-break: keep-all;
-  overflow-wrap: break-word;
 }
 .hero-banner .text-content h1.reveal-name {
   display: flex;
@@ -757,4 +752,26 @@
 [data-theme=light] .hero-banner .text-content p.fade-in {
   color: var(--text-color) !important;
   text-shadow: none !important;
+}
+@media (max-width: 576px) {
+  .hero-banner .text-content {
+    height: 100%;
+    justify-content: center;
+    transform: translateY(2rem);
+    padding: 0.8rem;
+    gap: 2rem;
+  }
+  .hero-banner .text-content h2.domino {
+    font-size: 1.6rem;
+    gap: 0.2rem;
+  }
+  .hero-banner .text-content p.fade-in {
+    font-size: 1.8rem;
+  }
+  .hero-banner .text-content h1.reveal-name span {
+    font-size: 2.4rem;
+  }
+  .hero-banner .scroll-button {
+    margin-top: -4rem;
+  }
 }/*# sourceMappingURL=HeroBanner.css.map */

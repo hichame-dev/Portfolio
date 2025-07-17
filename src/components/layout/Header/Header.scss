@@ -1,6 +1,7 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixin" as *;
 
+// En-tête principal fixé en haut
 .luxury-header {
     position: fixed;
     top: 0;
@@ -13,11 +14,12 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 10;
 
+    // Logo du site
     .logo {
         font-family: $font-title;
         font-size: $logo-font-size;
         font-weight: 600;
-        color: var(--accent-color); // 👈 remplace $accent-luxe
+        color: var(--accent-color);
         letter-spacing: 0.5px;
 
         @include respond(md) {
@@ -25,12 +27,14 @@
         }
     }
 
+    // Groupe à droite : liens + toggle thème + burger
     .right-group {
         display: flex;
         align-items: center;
         gap: 2rem;
     }
 
+    // Liens de navigation principaux
     .nav-links {
         display: flex;
         gap: 2rem;
@@ -39,7 +43,7 @@
         a {
             font-family: $font-primary;
             font-size: $nav-font-size;
-            color: var(--accent-color); // 👈
+            color: var(--accent-color);
             text-decoration: none;
             position: relative;
             transition: color 0.3s ease;
@@ -51,7 +55,7 @@
                 bottom: -4px;
                 height: 2px;
                 width: 0;
-                background: var(--accent-color); // 👈
+                background: var(--accent-color);
                 transition: width 0.3s;
             }
 
@@ -60,6 +64,7 @@
             }
         }
 
+        // Menu déroulant mobile actif
         &.active {
             display: flex;
             flex-direction: column;
@@ -74,10 +79,11 @@
         }
     }
 
+    // Bouton pour changer de thème
     .theme-toggle {
         font-size: 2.4rem;
         cursor: pointer;
-        color: var(--accent-color); // 👈
+        color: var(--accent-color);
         transition: transform 0.3s ease;
 
         &:hover {
@@ -85,6 +91,7 @@
         }
     }
 
+    // Icône burger (mobile)
     .burger {
         display: none;
         flex-direction: column;
@@ -94,10 +101,11 @@
         span {
             width: 25px;
             height: 2px;
-            background: var(--accent-color); // 👈
+            background: var(--accent-color);
             transition: 0.3s;
         }
 
+        // Animation burger ouvert
         &.open span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
@@ -111,6 +119,7 @@
         }
     }
 
+    // Responsive pour tablette et mobile
     @include respond(md) {
         .right-group {
             flex-direction: column;

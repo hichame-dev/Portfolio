@@ -44,7 +44,6 @@
         opacity: 0;
     }
 
-    /* Carte qui tourne au hover */
     .profile-img-container {
         perspective: 1000px;
 
@@ -99,14 +98,14 @@
             }
         }
 
-        @media (min-width: 768px) {
+        @include respond(md) {
             .flip-card {
                 width: 24rem;
                 height: 24rem;
             }
         }
 
-        @media (min-width: 1024px) {
+        @include respond(lg) {
             .flip-card {
                 width: 28rem;
                 height: 28rem;
@@ -114,7 +113,6 @@
         }
     }
 
-    /* Texte animé */
     .text-content {
         max-width: 65ch;
         margin-top: 2rem;
@@ -186,7 +184,7 @@
         }
     }
 
-    @media (min-width: 768px) {
+    @include respond(md) {
         .container {
             flex-direction: row;
             text-align: left;
@@ -198,7 +196,7 @@
         }
     }
 
-    @media (min-width: 1024px) {
+    @include respond(lg) {
         .text-content .intro-lead {
             font-size: 3rem;
         }
@@ -207,9 +205,48 @@
             font-size: 2.6rem;
         }
     }
+
+    // ✅ Structure mobile optimisée
+    @include respond(sm) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+
+            .profile-img-container {
+                margin-bottom: 2rem;
+
+                .flip-card {
+                    width: 18rem;
+                    height: 18rem;
+                }
+            }
+
+            .text-content {
+                margin-top: 0;
+
+                .intro-lead {
+                    font-size: 2.2rem;
+                }
+
+                .intro-title {
+                    font-size: 2rem;
+                }
+
+                .tagline {
+                    font-size: 1.4rem;
+                }
+
+                .description {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
 }
 
-/* animations inchangées */
+// === Animations
 @keyframes fadeInUp {
     from {
         opacity: 0;

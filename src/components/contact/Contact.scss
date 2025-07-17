@@ -5,10 +5,8 @@
 .contact-page {
     padding: $section-padding;
     min-height: 100vh;
-    display: flex;
+    @include center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background: linear-gradient(to bottom, $header-bg-luxe, rgba(18, 18, 18, 0.95));
     color: $text-light;
     text-align: center;
@@ -116,7 +114,7 @@
     }
 
     // Responsive
-    @media (max-width: 768px) {
+    @include respond(md) {
         .contact-form-wrapper {
             padding: 2rem;
         }

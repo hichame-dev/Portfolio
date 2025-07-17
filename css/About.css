@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .about-section {
   min-height: 75vh;
   padding: 6rem 2rem;
@@ -10,8 +9,6 @@
   justify-content: center;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  /* Carte qui tourne au hover */
-  /* Texte animé */
 }
 .about-section::before {
   content: "";
@@ -89,13 +86,13 @@
   width: 50%;
   height: auto;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .about-section .profile-img-container .flip-card {
     width: 24rem;
     height: 24rem;
   }
 }
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .about-section .profile-img-container .flip-card {
     width: 28rem;
     height: 28rem;
@@ -159,7 +156,7 @@
   color: var(--accent-color);
   margin-bottom: 2rem;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .about-section .container {
     flex-direction: row;
     text-align: left;
@@ -169,7 +166,7 @@
     margin-top: 0;
   }
 }
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .about-section .text-content .intro-lead {
     font-size: 3rem;
   }
@@ -177,8 +174,37 @@
     font-size: 2.6rem;
   }
 }
+@media (max-width: 576px) {
+  .about-section .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+  .about-section .container .profile-img-container {
+    margin-bottom: 2rem;
+  }
+  .about-section .container .profile-img-container .flip-card {
+    width: 18rem;
+    height: 18rem;
+  }
+  .about-section .container .text-content {
+    margin-top: 0;
+  }
+  .about-section .container .text-content .intro-lead {
+    font-size: 2.2rem;
+  }
+  .about-section .container .text-content .intro-title {
+    font-size: 2rem;
+  }
+  .about-section .container .text-content .tagline {
+    font-size: 1.4rem;
+  }
+  .about-section .container .text-content .description {
+    font-size: 1.5rem;
+  }
+}
 
-/* animations inchangées */
 @keyframes fadeInUp {
   from {
     opacity: 0;

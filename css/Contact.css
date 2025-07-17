@@ -2,9 +2,9 @@
   padding: 6rem 2rem;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background: linear-gradient(to bottom, #121212, rgba(18, 18, 18, 0.95));
   color: #e0e0e0;
   text-align: center;
@@ -139,4 +139,4 @@
 [data-theme=light] .contact-page .form input::placeholder,
 [data-theme=light] .contact-page .form textarea::placeholder {
   color: rgba(153, 153, 153, 0.4784313725);
-}/*# sourceMappingURL=Contact.css.map */
+}/*# sourceMappingURL=contact.css.map */

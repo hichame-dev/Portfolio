@@ -1,15 +1,14 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixin" as *;
 
+// Section Intro avec image de fond et texte animé
 .intro-section {
     min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom,
-            var(--bg-color),
-            var(--surface-color));
+    background: linear-gradient(to bottom, var(--bg-color), var(--surface-color));
     color: var(--text-color);
     padding: $section-padding;
     position: relative;
@@ -17,6 +16,7 @@
     font-family: $font-primary;
     text-align: center;
 
+    // Titre principal
     .intro-lead {
         font-size: 3.6rem;
         color: var(--accent-color);
@@ -25,6 +25,7 @@
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
 
+    // Sous-titre central
     .intro-title {
         font-size: 4.2rem;
         color: var(--accent-color);
@@ -32,6 +33,7 @@
         font-family: $font-title;
     }
 
+    // Phrase descriptive
     .intro-subtitle {
         font-size: 2.4rem;
         color: var(--text-color);
@@ -39,6 +41,7 @@
         font-family: $font-primary;
     }
 
+    // Cartes d’introduction
     .intro-cards {
         display: flex;
         justify-content: center;
@@ -59,18 +62,20 @@
             transform: translateX(-30px) scale(0.98);
             transition: opacity 1.9s ease-out, transform 1.9s ease-out;
 
+            // Hover interactif sur les cartes
             &:hover {
-                    transform: scale(1.06) translateY(-8px);
-                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-                    border-color: $accent-luxe; // ou var(--accent-color)
-                    background: rgba($accent-luxe, 0.08); // fond léger doré
-                }
+                transform: scale(1.06) translateY(-8px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+                border-color: $accent-luxe;
+                background: rgba($accent-luxe, 0.08);
+            }
 
             &.visible {
                 opacity: 1;
                 transform: translateX(0) scale(1);
             }
 
+            // Délais d'apparition progressive
             &:nth-child(2).visible {
                 transition-delay: 0.5s;
             }
@@ -91,6 +96,43 @@
             font-size: 1.6rem;
             color: var(--text-color);
             font-family: $font-primary;
+        }
+    }
+
+    // Responsive mobile
+    @include respond(sm) {
+        padding: 4rem 2rem;
+
+        .intro-lead {
+            font-size: 2.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-cards {
+            flex-direction: column;
+            gap: 2rem;
+
+            .intro-block {
+                padding: 2rem;
+            }
+
+            .card-title.text-accent {
+                font-size: 2rem;
+            }
+
+            .card-text {
+                font-size: 1.4rem;
+            }
         }
     }
 }
