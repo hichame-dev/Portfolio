@@ -2,22 +2,31 @@ import React, { useState } from "react";
 import "./Contact.scss";
 
 function Contact() {
+    // État du formulaire (nom, email, message)
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+    // État des erreurs de validation
     const [errors, setErrors] = useState({});
+
+    // Indique si le message a été envoyé avec succès
     const [submitted, setSubmitted] = useState(false);
 
+    // Fonction de validation de l'email (regex simple)
     const validateEmail = (email) =>
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+    // Mise à jour des champs du formulaire à chaque frappe clavier
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
         setErrors((prev) => ({ ...prev, [name]: "" }));
     };
 
+    // Gestion de la soumission du formulaire
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Validation des champs
         const newErrors = {};
         if (!formData.name.trim()) newErrors.name = "Le nom est requis.";
         if (!formData.email.trim()) {
@@ -29,24 +38,24 @@ function Contact() {
 
         setErrors(newErrors);
 
+        // Si aucune erreur, on envoie les données à FormSubmit
         if (Object.keys(newErrors).length === 0) {
-            fetch("https://formsubmit.co/ajax/Hichame_Dev@outlook.com", {
+            const form = new URLSearchParams();
+            form.append("name", formData.name);
+            form.append("email", formData.email);
+            form.append("message", formData.message);
+
+            fetch("https://formsubmit.co/Hichame_Dev@outlook.com", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
+                    "Content-Type": "application/x-www-form-urlencoded",
                 },
-                body: JSON.stringify(formData),
+                body: form.toString(), // format que FormSubmit attend
             })
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data.success === "true") {
-                        setSubmitted(true);
-                        setFormData({ name: "", email: "", message: "" });
-                        setTimeout(() => setSubmitted(false), 3000);
-                    } else {
-                        setErrors({ submit: "Une erreur est survenue." });
-                    }
+                .then(() => {
+                    setSubmitted(true); // on affiche le message de succès
+                    setFormData({ name: "", email: "", message: "" }); // on vide le formulaire
+                    setTimeout(() => setSubmitted(false), 3000); // on cache après 3s
                 })
                 .catch(() =>
                     setErrors({ submit: "Erreur réseau. Vérifie ta connexion." })
@@ -81,7 +90,7 @@ function Contact() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email </label>
+                        <label htmlFor="email">Email</label>
                         <input
                             type="email"
                             id="email"
@@ -94,7 +103,7 @@ function Contact() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="message">Message </label>
+                        <label htmlFor="message">Message</label>
                         <textarea
                             id="message"
                             name="message"
