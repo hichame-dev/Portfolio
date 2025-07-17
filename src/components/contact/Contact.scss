@@ -9,10 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background: linear-gradient(to bottom,
-            $header-bg-luxe,
-            rgba(18, 18, 18, 0.95));
+    background: linear-gradient(to bottom, $header-bg-luxe, rgba(18, 18, 18, 0.95));
     color: $text-light;
     text-align: center;
 
@@ -26,8 +23,8 @@
     p {
         font-size: 1.8rem;
         margin-bottom: 4rem;
-        font-family: $font-primary;
         color: $text-light;
+        font-family: $font-primary;
     }
 
     .contact-form-wrapper {
@@ -118,6 +115,7 @@
         font-size: 1.6rem;
     }
 
+    // Responsive
     @media (max-width: 768px) {
         .contact-form-wrapper {
             padding: 2rem;
@@ -132,7 +130,7 @@
         }
     }
 
-    // 🌞 Mode clair général
+    // 🌞 Thème clair
     [data-theme="light"] & {
         background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
         color: $text-dark;
@@ -149,9 +147,9 @@
 
         .form input,
         .form textarea {
-            border: 1px solid $text-muted;
-            color: $text-dark;
             background-color: rgba(0, 0, 0, 0.02);
+            color: $text-dark;
+            border: 1px solid $text-muted;
 
             &::placeholder {
                 color: $text-muted;

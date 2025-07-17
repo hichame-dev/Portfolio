@@ -18,8 +18,8 @@
 .contact-page p {
   font-size: 1.8rem;
   margin-bottom: 4rem;
-  font-family: "Roboto", sans-serif;
   color: #e0e0e0;
+  font-family: "Roboto", sans-serif;
 }
 .contact-page .contact-form-wrapper {
   width: 100%;
@@ -129,9 +129,9 @@
 }
 [data-theme=light] .contact-page .form input,
 [data-theme=light] .contact-page .form textarea {
-  border: 1px solid rgba(153, 153, 153, 0.4784313725);
-  color: #050505;
   background-color: rgba(0, 0, 0, 0.02);
+  color: #050505;
+  border: 1px solid rgba(153, 153, 153, 0.4784313725);
 }
 [data-theme=light] .contact-page .form input::-moz-placeholder, [data-theme=light] .contact-page .form textarea::-moz-placeholder {
   color: rgba(153, 153, 153, 0.4784313725);
@@ -139,4 +139,4 @@
 [data-theme=light] .contact-page .form input::placeholder,
 [data-theme=light] .contact-page .form textarea::placeholder {
   color: rgba(153, 153, 153, 0.4784313725);
-}/*# sourceMappingURL=Contact.css.map */
+}/*# sourceMappingURL=contact.css.map */

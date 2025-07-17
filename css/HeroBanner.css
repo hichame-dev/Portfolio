@@ -413,6 +413,8 @@
   font-size: clamp(2rem, 5vw, 4rem);
   color: var(--text-color);
   font-family: "Roboto", sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
   animation: fadeSlideUp 1.2s ease-out forwards;
   animation-delay: 2.4s;
   text-align: center;

@@ -130,16 +130,18 @@
             }
         }
 
-        p.fade-in {
-            font-size: clamp(2rem, 5vw, 4rem);
-            color: $dynamic-text;
-            font-family: $font-primary;
-            animation: fadeSlideUp 1.2s ease-out forwards;
-            animation-delay: 2.4s;
-            text-align: center;
-            word-break: keep-all;
-            overflow-wrap: break-word;
-        }
+                p.fade-in {
+                    font-size: clamp(2rem, 5vw, 4rem);
+                    color: $dynamic-text;
+                    font-family: $font-primary;
+                    opacity: 0; // ✅ invisible au début
+                    transform: translateY(20px);
+                    animation: fadeSlideUp 1.2s ease-out forwards;
+                    animation-delay: 2.4s;
+                    text-align: center;
+                    word-break: keep-all;
+                    overflow-wrap: break-word;
+                }
 
         h1.reveal-name {
             display: flex;
