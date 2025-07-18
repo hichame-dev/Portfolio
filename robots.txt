@@ -1,6 +1,6 @@
-# robots.txt pour Hichame Dev
+# robots.txt - Portfolio de Shems (Hichame Dev)
+
 User-agent: *
-Allow: /
+Disallow:
 
-
-# Sitemap: https://hichame-dev.netlify.app/sitemap.xml
+Sitemap: https://hichame-dev.netlify.app/sitemap.xml

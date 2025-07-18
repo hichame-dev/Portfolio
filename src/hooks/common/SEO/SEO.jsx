@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 const SEO = ({
     title,
     description,
-    image = "/assets/optimized/profil.webp",
+    image = "/assets/images/profil.webp",
     url = "https://hichame-dev.netlify.app"
 }) => {
     return (
