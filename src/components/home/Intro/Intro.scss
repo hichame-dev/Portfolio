@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom, var(--bg-color), var(--surface-color));
+    background: $section-bg;
     color: var(--text-color);
     padding: $section-padding;
     position: relative;

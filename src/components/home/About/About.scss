@@ -20,7 +20,7 @@
         left: -30%;
         width: 180%;
         height: 180%;
-        background: radial-gradient(circle, rgba(var(--accent-color-rgb), 0.05), transparent 70%);
+        background: $section-bg;
         animation: fogPulse 30s infinite ease-in-out;
         z-index: 0;
         pointer-events: none;
